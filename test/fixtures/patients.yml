@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blood_type: one
+  user: one
+
+two:
+  blood_type: two
+  user: two

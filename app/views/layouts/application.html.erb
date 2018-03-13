@@ -30,6 +30,8 @@
         <%= link_to 'Admin Dashboard', rails_admin_path %>
         <%= link_to 'All Users', user_index_path %>
         <%= link_to 'Add User', new_user_path %>
+        <%= link_to 'All Patients', patient_index_path %>
+        <%= link_to 'Add Patient', new_patient_path %>
       <% end %>
     <% else %>
       <%= link_to "Register", new_user_registration_path %> or

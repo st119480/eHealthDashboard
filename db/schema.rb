@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313130842) do
+ActiveRecord::Schema.define(version: 20180313155307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blood_types", force: :cascade do |t|
+    t.string "blood_group_rh_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.bigint "blood_type_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blood_type_id"], name: "index_patients_on_blood_type_id"
+    t.index ["user_id"], name: "index_patients_on_user_id"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "description"
@@ -49,5 +64,7 @@ ActiveRecord::Schema.define(version: 20180313130842) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "patients", "blood_types"
+  add_foreign_key "patients", "users"
   add_foreign_key "users", "roles"
 end
