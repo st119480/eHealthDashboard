@@ -28,6 +28,8 @@
       <%= link_to 'Edit Profile', edit_user_registration_path %>
       <% if current_user.role_id == 1 %>
         <%= link_to 'Admin Dashboard', rails_admin_path %>
+        <%= link_to 'All Users', user_index_path %>
+        <%= link_to 'Add User', new_user_path %>
       <% end %>
     <% else %>
       <%= link_to "Register", new_user_registration_path %> or
