@@ -1,0 +1,18 @@
+<h2>My Profile</h2>
+
+
+<div>
+  <hr>
+  <br>
+  <% if user_signed_in? %>
+    <br>
+    <br> <%= "Name: " %> <%= current_user.first_name %> <%= current_user.last_name %>
+    <br> <%= "Birth Date: " %> <%= current_user.dob %>
+    <br> <%= "Gender: " %> <%= current_user.gender%>
+    <br> <%= "Province: " %> <%= current_user.province %>
+    <br> <%= "City or Village: " %> <%= current_user.city_village %>
+    <br> <%= "Address Line 1: " %> <%= current_user.address_line_1 %>
+    <br> <%= "Contact: " %> <%= current_user.contact %>
+  <% end %>
+  <br>
+</div>

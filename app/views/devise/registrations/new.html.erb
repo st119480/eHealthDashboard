@@ -1,0 +1,81 @@
+<h2>Register</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :first_name , "First Name" %><br />
+    <%= f.text_field :first_name, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, "Last Name" %><br />
+    <%= f.text_field :last_name, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "Email" %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username, "Username" %><br />
+    <%= f.text_field :username, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role_id, "Role" %>
+    <%= f.select :role_id, options_for_select(Role.all.map {|p| [ p.description, p.id ]}, "Select Role"),:prompt => "Select Role",:required => true  %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :gender, "Gender" %>
+    <%= f.select :gender, ['Please Select', 'Male', 'Female', 'Others'],
+                 :selected => 'Select One' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Date_of_Birth, "Date Of Birth" %><br />
+    <%= f.date_select :dob %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contact, "Contact Number" %><br />
+    <%= f.text_field :contact, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :province, "Province" %><br />
+    <%= f.text_field :province, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city_village, "City or Village" %><br />
+    <%= f.text_field :city_village, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address_line_1, "Address Line 1" %><br />
+    <%= f.text_field :address_line_1, autocomplete: "on" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Register" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

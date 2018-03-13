@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>eHealth Dashboard</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <h1><%= link_to "eHealth System", ehealth_index_url, class: "nav-link" %><span class="sr-only"></span></h1>
+
+</head>
+
+<body>
+<%= link_to "Home", ehealth_index_url, class: "nav-link" %><span class="sr-only"></span>
+<%= link_to "About Us", ehealth_aboutus_url, class: "nav-link" %><span class="sr-only"></span>
+
+<% if flash[:error] %>
+  <div id="error">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+<div id="container">
+  <div id="user_status">
+    <% if user_signed_in? %>
+      Welcome <%= current_user.username %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <%= link_to 'My Profile', user_path(current_user.id) %>
+      <%= link_to 'Edit Profile', edit_user_registration_path %>
+      <% if current_user.role_id == 1 %>
+        <%= link_to 'Admin Dashboard', rails_admin_path %>
+      <% end %>
+    <% else %>
+      <%= link_to "Register", new_user_registration_path %> or
+      <%= link_to "Log in", new_user_session_path %>.
+    <% end %>
+  </div>
+  <%= yield %>
+</div>
+
+<div>
+  <hr>
+  <footer class="container">
+    <p>&copy; Team Harmony, 2018</p>
+  </footer>
+</div>
+</body>
+</html>
