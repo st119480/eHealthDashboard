@@ -5,7 +5,7 @@ class PatientController < ApplicationController
 
   def index
     if current_user.role_id == 1
-      @patients = Patient.where('role_id = 3').order(updated_at: :desc)
+      @patients = Patient.all.order(id: :asc)
     else
       render :show
     end
@@ -76,7 +76,7 @@ class PatientController < ApplicationController
 
   def patient_params
     params.require(:patient).permit(:first_name, :last_name, :email, :password, :password_confirmation, :dob, :gender,
-                                 :contact, :username, :province, :city_village, :address_line_1, :role_id, :blood_type_id)
+                                 :contact, :username, :province, :city_village, :address_line_1, :role_id, :blood_type_id, :user_id)
   end
 
 end
