@@ -32,16 +32,35 @@
         <%= link_to 'Add User', new_user_path %>
         <%= link_to 'All Patients', patient_index_path %>
         <%= link_to 'Add Patient', new_patient_path %>
+        <%= link_to 'All Doctors', doctor_index_path %>
+        <%= link_to 'Add Doctor', new_doctor_path %>
       <% end %>
     <% else %>
       <%= link_to "Register", new_user_registration_path %> or
       <%= link_to "Log in", new_user_session_path %>.
     <% end %>
   </div>
-  <%= yield %>
 </div>
 
 <div>
+
+  <main role="main">
+
+    <div class="container-fluid">
+      <% if flash[:error].present? %>
+        <p class='alert alert-danger'><%= flash[:error] %></p>
+      <% end %>
+      <% if flash[:notice].present? %>
+        <p class='alert alert-warning'><%= flash[:notice] %></p>
+      <% end %>
+      <% if flash[:alert].present? %>
+        <p class='alert alert-danger'><%= flash[:alert] %></p>
+      <% end %>
+      <%= yield %>
+    </div>
+
+  </main>
+
   <hr>
   <footer class="container">
     <p>&copy; Team Harmony, 2018</p>

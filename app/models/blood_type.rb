@@ -1,3 +1,3 @@
 class BloodType < ApplicationRecord
-  has_and_belongs_to_many :patient
+  belongs_to :patient
 end

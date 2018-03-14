@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180314071153) do
+ActiveRecord::Schema.define(version: 20180314132818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,33 @@ ActiveRecord::Schema.define(version: 20180314071153) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "doctors", force: :cascade do |t|
+    t.string "license_num", default: "", null: false
+    t.string "qualification", default: ""
+    t.bigint "user_id"
+    t.bigint "specialty_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["specialty_id"], name: "index_doctors_on_specialty_id"
+    t.index ["user_id"], name: "index_doctors_on_user_id"
+  end
+
   create_table "patients", force: :cascade do |t|
     t.bigint "blood_type_id"
     t.bigint "user_id"
+    t.string "created_at"
+    t.string "updated_at"
     t.index ["blood_type_id"], name: "index_patients_on_blood_type_id"
     t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "specialties", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -64,6 +83,8 @@ ActiveRecord::Schema.define(version: 20180314071153) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "doctors", "specialties"
+  add_foreign_key "doctors", "users"
   add_foreign_key "patients", "blood_types"
   add_foreign_key "patients", "users"
   add_foreign_key "users", "roles"
