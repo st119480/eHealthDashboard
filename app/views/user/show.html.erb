@@ -37,6 +37,31 @@
         </tbody>
       </table>
     <% end %>
+
+    <% if current_user.role_id == 2 %>
+      <br> <h3>Patients</h3>
+      <table>
+        <thead>
+        <tr>
+          <th>Appointment ID</th>
+          <th>Patient</th>
+          <th>Appointment Date</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% get_patients.each do |appt| %>
+          <tr>
+            <td><%= appt.id %></td>
+            <td><%= appt.patient.first_name + ' ' + appt.patient.last_name %></td>
+            <td><%= appt.appointment_date %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
   <% end %>
   <br>
 </div>
