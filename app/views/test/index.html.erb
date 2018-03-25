@@ -44,9 +44,8 @@
         <td><%= test.bmi %></td>
         <td><%= test.test_date %></td>
         <td><%= test.recommendation %></td>
-        <td><%= link_to 'Show', test %></td>
-        <td><%= link_to 'Edit', edit_test_path(test) %></td>
-        <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Edit', edit_patient_test_path %></td>
+        <td><%#= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -54,6 +53,6 @@
 
 <br>
 
-<%#= link_to 'New Test', new_patient_test_path %>
+<%= link_to 'New Test', new_patient_test_path %>
 
-<%= link_to 'New Test', new_test_path %>
+<%#= link_to 'New Test', new_test_path %>

@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   resources :user
   resources :patient do
     resources :appointment
+    resources :test
   end
-  resources :test
+
 
   resources :doctor
 

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :get_appointments, :get_patients
+  helper_method :get_appointments, :get_patients, :get_tests
 
   def after_sign_in_path_for(resource)
     user_path(current_user.id)
@@ -26,6 +26,15 @@ class ApplicationController < ActionController::Base
       usr_id = @doctor.user_id
     end
     @my_patients = Appointment.joins(:patient, :doctor).where('doctors.user_id'=>usr_id).order(id: :asc)
+  end
+
+  def get_tests
+    if current_user.role_id == 1 || current_user.role_id == 2
+      usr_id = @patient.user_id
+    elsif
+      usr_id = @user.id
+    end
+    @my_tests = Test.joins(:patient).where('patients.user_id'=>usr_id).order(id: :asc)
   end
 
   before_action :configure_permitted_parameters, if: :devise_controller?
