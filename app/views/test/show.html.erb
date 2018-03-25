@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Prev diagnosis:</strong>
+  <%= @test.prev_diagnosis %>
+</p>
+
+<p>
+  <strong>Prev medication:</strong>
+  <%= @test.prev_medication %>
+</p>
+
+<p>
+  <strong>Ongoing medication:</strong>
+  <%= @test.ongoing_medication %>
+</p>
+
+<p>
+  <strong>Pulse rate:</strong>
+  <%= @test.pulse_rate %>
+</p>
+
+<p>
+  <strong>Body temperature:</strong>
+  <%= @test.body_temperature %>
+</p>
+
+<p>
+  <strong>Respiratory rate:</strong>
+  <%= @test.respiratory_rate %>
+</p>
+
+<p>
+  <strong>Bp systolic:</strong>
+  <%= @test.bp_systolic %>
+</p>
+
+<p>
+  <strong>Bp diastolic:</strong>
+  <%= @test.bp_diastolic %>
+</p>
+
+<p>
+  <strong>Blood oxygen saturation:</strong>
+  <%= @test.blood_oxygen_saturation %>
+</p>
+
+<p>
+  <strong>Blood sugar pp:</strong>
+  <%= @test.blood_sugar_pp %>
+</p>
+
+<p>
+  <strong>Blood sugar fasting:</strong>
+  <%= @test.blood_sugar_fasting %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @test.height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @test.weight %>
+</p>
+
+<p>
+  <strong>Bmi:</strong>
+  <%= @test.bmi %>
+</p>
+
+<p>
+  <strong>Test date:</strong>
+  <%= @test.test_date %>
+</p>
+
+<p>
+  <strong>Recommendation:</strong>
+  <%= @test.recommendation %>
+</p>
+
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Back', tests_path %>

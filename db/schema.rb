@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180314132818) do
+ActiveRecord::Schema.define(version: 20180325140518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "patient_id"
+    t.bigint "doctor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "appointment_date"
+    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
+    t.index ["patient_id", "doctor_id", "appointment_date"], name: "index_appointments_on_patient_id_and_doctor_id_and_appt_date", unique: true
+    t.index ["patient_id"], name: "index_appointments_on_patient_id"
+  end
 
   create_table "blood_types", force: :cascade do |t|
     t.string "blood_group_rh_type"
@@ -53,6 +64,29 @@ ActiveRecord::Schema.define(version: 20180314132818) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tests", force: :cascade do |t|
+    t.text "prev_diagnosis"
+    t.text "prev_medication"
+    t.text "ongoing_medication"
+    t.integer "pulse_rate"
+    t.float "body_temperature"
+    t.integer "respiratory_rate"
+    t.integer "bp_systolic"
+    t.integer "bp_diastolic"
+    t.integer "blood_oxygen_saturation"
+    t.integer "blood_sugar_pp"
+    t.integer "blood_sugar_fasting"
+    t.integer "height"
+    t.float "weight"
+    t.float "bmi"
+    t.date "test_date"
+    t.text "recommendation"
+    t.bigint "patient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_tests_on_patient_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -83,9 +117,12 @@ ActiveRecord::Schema.define(version: 20180314132818) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "appointments", "doctors"
+  add_foreign_key "appointments", "patients"
   add_foreign_key "doctors", "specialties"
   add_foreign_key "doctors", "users"
   add_foreign_key "patients", "blood_types"
   add_foreign_key "patients", "users"
+  add_foreign_key "tests", "patients"
   add_foreign_key "users", "roles"
 end

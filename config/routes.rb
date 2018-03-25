@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   get 'user/profile'
   root :to => 'ehealth#index'
   resources :user
-  resources :patient
+  resources :patient do
+    resources :appointment
+  end
+  resources :test
+
   resources :doctor
 
 

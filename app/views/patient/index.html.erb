@@ -16,7 +16,7 @@
     <tr>
       <td><%= patient.first_name %></td>
       <td><%= patient.last_name %></td>
-      <td><%= patient.username %></td>
+      <td><%= link_to patient.username , patient_path(patient) %></td>
       <td><%= patient.email %></td>
 
       <td><%= link_to 'Edit', edit_patient_path(patient) %></td>

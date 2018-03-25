@@ -1,0 +1,41 @@
+<h2>Patient</h2>
+<td><%= link_to 'New Test', new_test_path %></td>
+<td><%= link_to 'Appointment', new_patient_appointment_path(@patient) %></td>
+
+<div>
+  <hr>
+  <br>
+  <% if user_signed_in? && current_user.role_id == 1 %>
+    <br>
+    <br> <%= "Name: " %> <%= @patient.first_name %> <%= @patient.last_name %>
+    <br> <%= "Birth Date: " %> <%= @patient.dob %>
+    <br> <%= "Gender: " %> <%= @patient.gender%>
+    <br> <%= "Province: " %> <%= @patient.province %>
+    <br> <%= "City or Village: " %> <%= @patient.city_village %>
+    <br> <%= "Address Line 1: " %> <%= @patient.address_line_1 %>
+    <br> <%= "Contact: " %> <%= @patient.contact %>
+    <br> <h3>Appointments</h3>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Appointment ID</th>
+        <th>Provider</th>
+        <th>Appointment Date</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% get_appointments.each do |appt| %>
+        <tr>
+          <td><%= appt.id %></td>
+          <td><%= appt.doctor.first_name + ' ' + appt.doctor.last_name %></td>
+          <td><%= appt.appointment_date %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <br>
+</div>
