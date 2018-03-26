@@ -1,6 +1,6 @@
 <h2>Edit Test</h2>
 
-<%= form_for (@test) do |f| %>
+<%= form_for([@patient, @test]) do |f| %>
   <div class="field">
     <%= f.label :prev_diagnosis %>
     <%= f.text_area :prev_diagnosis, id: :test_prev_diagnosis %>

@@ -1,6 +1,6 @@
 class TestController < ApplicationController
   before_action :authenticate_user!
-  #before_action :set_test, only: [:show, :edit, :update, :destroy]
+  before_action :set_test, only: [:show, :edit, :update, :destroy]
 
   # GET /tests
   # GET /tests.json
@@ -11,7 +11,7 @@ class TestController < ApplicationController
   # GET /tests/1
   # GET /tests/1.json
   def show
-    @test = @patient.Test.find(params[:id])
+    @test = Test.find(params[:id])
   end
 
   # GET /tests/new
@@ -26,6 +26,12 @@ class TestController < ApplicationController
 
   # GET /tests/1/edit
   def edit
+    if current_user.role_id == 1
+      @patient = Patient.find(params[:patient_id])
+      @test = Test.find(params[:id])
+    else
+      render :show
+    end
   end
 
   # POST /tests
@@ -50,7 +56,7 @@ class TestController < ApplicationController
   def update
     respond_to do |format|
       if @test.update(test_params)
-        format.html { redirect_to patient_test_index_path, notice: 'Test was successfully updated.' }
+        format.html { redirect_to patient_path(@test.patient), notice: 'Test was successfully updated.' }
         format.json { render :show, status: :ok, location: @test }
       else
         format.html { render :edit }
@@ -64,7 +70,7 @@ class TestController < ApplicationController
   def destroy
     @test.destroy
     respond_to do |format|
-      format.html { redirect_to patient_test_index_path, notice: 'Test was successfully destroyed.' }
+      format.html { redirect_to patient_path(@test.patient), notice: 'Test was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

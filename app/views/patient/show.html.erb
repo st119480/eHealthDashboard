@@ -50,7 +50,7 @@
       <tbody>
       <% get_tests.each do |test| %>
         <tr>
-          <td><%= link_to test.id , patient_test_path(test) %></td>
+          <td><%= link_to test.id , patient_test_path(@patient, test) %></td>
           <td><%= test.test_date %></td>
         </tr>
       <% end %>
