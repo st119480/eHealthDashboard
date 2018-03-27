@@ -12,7 +12,9 @@ class DoctorController < ApplicationController
   end
 
   def show
-    @doctor = Doctor.find(params[:id])
+    if current_user.role_id == 1 || current_user.role_id == 2
+      @doctor = Doctor.find(params[:id])
+    end
   end
 
   def new

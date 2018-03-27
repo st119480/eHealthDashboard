@@ -29,6 +29,7 @@
         <tr>
           <td><%= appt.id %></td>
           <td><%= appt.patient.first_name + ' ' + appt.patient.last_name %></td>
+          <td><%= link_to appt.patient.first_name + ' ' + appt.patient.last_name , patient_path(appt.patient) %></td>
           <td><%= appt.appointment_date %></td>
         </tr>
       <% end %>

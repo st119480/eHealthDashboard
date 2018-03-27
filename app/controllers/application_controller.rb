@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     else
       usr_id = @patient.user_id
     end
-    @appointments = Appointment.joins(:patient, :doctor).where('patients.user_id'=>usr_id).order(id: :asc)
+    @appointments = Appointment.joins(:patient, :doctor).where('patients.user_id'=>usr_id).order(updated_at: :desc)
   end
 
   def get_patients
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     elsif
       usr_id = @doctor.user_id
     end
-    @my_patients = Appointment.joins(:patient, :doctor).where('doctors.user_id'=>usr_id).order(id: :asc)
+    @my_patients = Appointment.joins(:patient, :doctor).where('doctors.user_id'=>usr_id).order(updated_at: :desc)
   end
 
   def get_tests
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
     elsif
       usr_id = @user.id
     end
-    @my_tests = Test.joins(:patient).where('patients.user_id'=>usr_id).order(id: :asc)
+    @my_tests = Test.joins(:patient).where('patients.user_id'=>usr_id).order(updated_at: :desc)
   end
 
   before_action :configure_permitted_parameters, if: :devise_controller?

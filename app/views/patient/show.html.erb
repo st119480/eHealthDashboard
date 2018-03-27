@@ -1,11 +1,12 @@
 <h2>Patient</h2>
-<td><%= link_to 'New Test', new_patient_test_path(@patient) %></td>
-<td><%= link_to 'Appointment', new_patient_appointment_path(@patient) %></td>
 
 <div>
   <hr>
   <br>
-  <% if user_signed_in? && current_user.role_id == 1 %>
+  <% if user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2) %>
+
+    <br> <%= link_to 'Add New Test', new_patient_test_path(@patient) %>
+    <td><%= link_to 'Show All Tests' , patient_test_index_path(@patient) %></td>
     <br>
     <br> <%= "Name: " %> <%= @patient.first_name %> <%= @patient.last_name %>
     <br> <%= "Birth Date: " %> <%= @patient.dob %>
@@ -43,6 +44,12 @@
       <tr>
         <th>Test ID</th>
         <th>Test Date</th>
+        <th>Ongoing Medication</th>
+        <th>BMI</th>
+        <th>BP Systolic</th>
+        <th>BP Diastolic</th>
+        <th>Blood Sugar Fasting</th>
+        <th>Blood Sugar PP</th>
         <th colspan="3"></th>
       </tr>
       </thead>
@@ -52,6 +59,14 @@
         <tr>
           <td><%= link_to test.id , patient_test_path(@patient, test) %></td>
           <td><%= test.test_date %></td>
+          <td><%= test.ongoing_medication %></td>
+          <td><%= test.bmi %></td>
+          <td><%= test.bp_systolic %></td>
+          <td><%= test.bp_diastolic %></td>
+          <td><%= test.blood_sugar_fasting %></td>
+          <td><%= test.blood_sugar_pp %></td>
+          <td><%= link_to 'Edit', edit_patient_test_path(@patient, test) %></td>
+          <td><%= link_to 'Delete', [@patient,test] , method: :delete, data: {confirm: 'Are you sure?'} %></td>
         </tr>
       <% end %>
       </tbody>
@@ -59,3 +74,5 @@
   <% end %>
   <br>
 </div>
+
+<%= link_to "Back", :back %>

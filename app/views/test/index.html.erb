@@ -1,10 +1,14 @@
 <p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
+  <h1>Tests</h1>
+  <% if user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2) %>
+    <%= link_to 'Add New Test', new_patient_test_path %>
+  <% end %>
 
-<h1>Tests</h1>
-
-<table>
-  <thead>
+  <table>
+    <thead>
     <tr>
+      <th>Test #</th>
       <th>Prev diagnosis</th>
       <th>Prev medication</th>
       <th>Ongoing medication</th>
@@ -23,11 +27,12 @@
       <th>Recommendation</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @tests.each do |test| %>
       <tr>
+        <td><%= test.id %></td>
         <td><%= test.prev_diagnosis %></td>
         <td><%= test.prev_medication %></td>
         <td><%= test.ongoing_medication %></td>
@@ -44,15 +49,17 @@
         <td><%= test.bmi %></td>
         <td><%= test.test_date %></td>
         <td><%= test.recommendation %></td>
-        <td><%#= link_to 'Edit', edit_patient_test_path %></td>
-        <td><%#= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2) %>
+          <td><%= link_to 'Edit', edit_patient_test_path(test.patient, test) %></td>
+          <td><%= link_to 'Delete', [test.patient, test], method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <% end %>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Test', new_patient_test_path %>
 
-<%#= link_to 'New Test', new_test_path %>
+  <%= link_to "Back", :back %>
+<% end %>

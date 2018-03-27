@@ -1,10 +1,13 @@
 class AppointmentController < ApplicationController
   #before_action :find_doctor
+  before_action :authenticate_user!
 
   def new
-    @appointment = Appointment.new
-    @appointment.patient = Patient.find(params[:patient_id])
-    #@appointment.doctor = Doctor.find(params[:doctor_id])
+    if current_user.role_id == 1 || current_user.role_id == 2
+      @appointment = Appointment.new
+      @appointment.patient = Patient.find(params[:patient_id])
+      #@appointment.doctor = Doctor.find(params[:doctor_id])
+    end
 
   end
 
@@ -26,8 +29,10 @@ class AppointmentController < ApplicationController
 
 
   def destroy
-    @appointment.destroy
-    redirect_to patient_index_path
+    if current_user.role_id == 1 || current_user.role_id == 2
+      @appointment.destroy
+      redirect_to patient_index_path
+    end
   end
 
   private
