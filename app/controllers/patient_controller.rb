@@ -5,7 +5,7 @@ class PatientController < ApplicationController
 
   def index
     if current_user.role_id == 1
-      @patients = Patient.all.order(id: :asc)
+      @patients = Patient.all.order(updated_at: :desc)
     else
       render :show
     end

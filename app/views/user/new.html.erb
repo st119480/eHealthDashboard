@@ -1,4 +1,4 @@
-<h2>Create New User</h2>
+<h2>Create New Admin</h2>
 
   <%= form_for @user, url: {action: "create"} do |f| %>
   <div class="field">
@@ -36,7 +36,7 @@
 
   <div class="field">
     <%= f.label :role_id, "Role" %>
-    <%= f.select :role_id, options_for_select(Role.all.map {|p| [ p.description, p.id ]}, "Select Role"),:prompt => "Select Role",:required => true  %>
+    <%= f.select :role_id, options_for_select(Role.where('id = 1').map {|p| [ p.description, p.id ]}),:required => true  %>
   </div>
 
 

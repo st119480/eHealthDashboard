@@ -24,16 +24,6 @@ class TestController < ApplicationController
     end
   end
 
-  # GET /tests/1/edit
-  def edit
-    if current_user.role_id == 1 || current_user.role_id == 2
-      @patient = Patient.find(params[:patient_id])
-      @test = Test.find(params[:id])
-    else
-      render :show
-    end
-  end
-
   # POST /tests
   # POST /tests.json
   def create
@@ -48,6 +38,16 @@ class TestController < ApplicationController
         format.html { render :new, notice: 'Test creation unsuccessful !!!' }
         format.json { render json: @test.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # GET /tests/1/edit
+  def edit
+    if current_user.role_id == 1 || current_user.role_id == 2
+      @patient = Patient.find(params[:patient_id])
+      @test = Test.find(params[:id])
+    else
+      render :show
     end
   end
 

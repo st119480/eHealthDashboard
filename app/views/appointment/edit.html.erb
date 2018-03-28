@@ -1,5 +1,5 @@
-<%= form_for @appointment, url: {action: "create"} do |f| %>
-  <h2>New Appointment</h2>
+<%= form_for ([@patient, @appointment]) do |f| %>
+  <h2>Edit Appointment</h2>
   <div class="field">
     <%= f.label :doctor_id, "Doctor" %>
     <%= f.select :doctor_id, options_for_select(User.where('actable_type = \'Doctor\' ').map {|p| [p.first_name + ' ' + p.last_name, p.actable_id]}), :required => true %>
@@ -9,6 +9,8 @@
     <%= f.label :appointment_date, "Appointment Date" %>
     <%= f.date_select :appointment_date %>
   </div>
-  <%= f.submit "Create", class: "btn btn-success" %>
+  <%= f.submit "Update", class: "btn btn-success" %>
 
 <% end %>
+
+<%= link_to "Back", :back %>

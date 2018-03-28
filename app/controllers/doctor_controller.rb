@@ -5,7 +5,7 @@ class DoctorController < ApplicationController
 
   def index
     if current_user.role_id == 1
-      @doctors = Doctor.all.order(id: :asc)
+      @doctors = Doctor.all.order(updated_at: :desc)
     else
       render :show
     end
@@ -63,7 +63,7 @@ class DoctorController < ApplicationController
       @doctor = Doctor.find(params[:id])
       @doctor.destroy
       respond_to do |format|
-        format.html {redirect_to doctor_index_path, notice: 'Doctor was successfully destroyed.'}
+        format.html {redirect_to doctor_index_path, notice: 'Doctor was successfully deleted !!!'}
         format.json {head :no_content}
       end
     else

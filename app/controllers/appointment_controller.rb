@@ -1,5 +1,5 @@
 class AppointmentController < ApplicationController
-  #before_action :find_doctor
+  before_action :set_appt, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
 
   def new
@@ -27,11 +27,30 @@ class AppointmentController < ApplicationController
     end
   end
 
+  def edit
+    if current_user.role_id == 1 || current_user.role_id == 2
+      @patient = Patient.find(params[:patient_id])
+      @appointment = Appointment.find(params[:id])
+    else
+      redirect_to patient_path(@appointment.patient)
+    end
+  end
+
+  def update
+    if @appointment.update(appointment_params)
+      redirect_to patient_path(@appointment.patient), notice: 'Appointment was successfully updated !!!'
+    else
+      redirect_to patient_path(@appointment.patient), notice: 'Appointment was not updated !!! Please check Provider and Appointment Date !!!'
+    end
+  end
+
 
   def destroy
     if current_user.role_id == 1 || current_user.role_id == 2
       @appointment.destroy
-      redirect_to patient_index_path
+      redirect_to patient_path(@appointment.patient), notice: 'Appointment was successfully deleted !!!'
+    else
+      redirect_to patient_path(@appointment.patient), notice: 'Appointment was not deleted !!!'
     end
   end
 
@@ -42,7 +61,8 @@ class AppointmentController < ApplicationController
     #params.require(:participation).permit( :id, :event_id, :first_name, :last_name, :status)
   end
 
-  def find_doctor
-    @doctor = Doctor.find(params[:doctor_id])
+  def set_appt
+    @appointment = Appointment.find(params[:id])
   end
+
 end

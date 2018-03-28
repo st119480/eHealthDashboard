@@ -4,9 +4,9 @@
   <hr>
   <br>
   <% if user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2) %>
-
-    <br> <%= link_to 'Add New Test', new_patient_test_path(@patient) %>
-    <td><%= link_to 'Show All Tests' , patient_test_index_path(@patient) %></td>
+    <br><%= link_to 'Add New Appointment', new_patient_appointment_path(@patient) %>
+    <%= link_to 'Add New Test', new_patient_test_path(@patient) %>
+    <%= link_to 'Show All Tests' , patient_test_index_path(@patient) %>
     <br>
     <br> <%= "Name: " %> <%= @patient.first_name %> <%= @patient.last_name %>
     <br> <%= "Birth Date: " %> <%= @patient.dob %>
@@ -33,6 +33,8 @@
           <td><%= appt.id %></td>
           <td><%= appt.doctor.first_name + ' ' + appt.doctor.last_name %></td>
           <td><%= appt.appointment_date %></td>
+          <td><%= link_to 'Edit', edit_patient_appointment_path(appt.patient, appt) %></td>
+          <td><%= link_to 'Delete', [appt.patient, appt], method: :delete, data: {confirm: 'Are you sure?'} %></td>
         </tr>
       <% end %>
       </tbody>
