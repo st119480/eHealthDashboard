@@ -49,10 +49,8 @@ class PatientController < ApplicationController
       if @patient.update(patient_params)
         redirect_to patient_index_path, notice: "Patient was edited successfully !!! "
       else
-        render 'new', danger: "Patient edit unsuccessful !!! "
+        render :edit, notice: "Patient edit unsuccessful !!! "
       end
-    else
-      redirect_to patient_index_path
     end
   end
 

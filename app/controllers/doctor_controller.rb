@@ -51,10 +51,8 @@ class DoctorController < ApplicationController
       if @doctor.update(doctor_params)
         redirect_to doctor_index_path, notice: "Doctor was edited successfully !!! "
       else
-        render 'new', danger: "Doctor edit unsuccessful !!! "
+        render :edit, notice: "Doctor edit unsuccessful !!! "
       end
-    else
-      redirect_to doctor_index_path
     end
   end
 

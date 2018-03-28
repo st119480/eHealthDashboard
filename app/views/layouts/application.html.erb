@@ -27,13 +27,13 @@
       <%= link_to 'My Profile', user_path(current_user.id) %>
       <%= link_to 'Edit Profile', edit_user_registration_path %>
       <% if current_user.role_id == 1 %>
-        <%= link_to 'Admin Dashboard', rails_admin_path %>
         <%= link_to 'All Users', user_index_path %>
-        <%= link_to 'Add Admin', new_user_path %>
-        <%= link_to 'All Patients', patient_index_path %>
+        <%= link_to 'Add Admin', new_admin_path %>
+        <%= link_to 'All Admins', admin_index_path %>
         <%= link_to 'Add Patient', new_patient_path %>
-        <%= link_to 'All Doctors', doctor_index_path %>
+        <%= link_to 'All Patients', patient_index_path %>
         <%= link_to 'Add Doctor', new_doctor_path %>
+        <%= link_to 'All Doctors', doctor_index_path %>
       <% end %>
     <% else %>
       <%= link_to "Register", new_user_registration_path %> or
