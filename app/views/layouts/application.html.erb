@@ -1,18 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en">
 <head>
-  <title>eHealth Dashboard</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <h1><%= link_to "eHealth System", root_path, class: "nav-link" %><span class="sr-only"></span></h1>
-
+<div class = "jumbotron text-center">
+  <h1>E-HealthCare Dashboard</h1>
+  <p> Monitor you Health yourself!!</p>
+</div>
 </head>
 
 <body>
-<%= link_to "Home", root_path, class: "nav-link" %><span class="sr-only"></span>
-<%= link_to "About Us", ehealth_aboutus_url, class: "nav-link" %><span class="sr-only"></span>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="row">
+
+    <ul class="nav nav-justified">
+      <h3>
+        <div class="col-sm-4">
+          <%= link_to "Home", root_path, class: "nav-link active" %><span class="sr-only">current</span></div>
+        <div class="col-sm-4">
+          <%= link_to "About Us", ehealth_aboutus_url, class: "nav-link active" %><span class="sr-only">current</span></div>
+        <div class="col-sm-4">
+          <%= link_to "Log in", new_user_session_path,class: "nav-link active" %><span class="sr-only"></span></div>
+      </h3>
+    </ul>
+      <div class></div>
+  </div>
+  </div>
+</nav>
+<div class="container">
+        <!--%=image_tag("29745605_10208891900933240_1527529818_n.png", alt: "Health Image")%-->
+      <%=image_tag("Tumore_testicolo_post_terapia.jpg", alt: "Doctor-Patient")%>
+    </div>
+<div class = "container">
+<p>
+  Healthcare Dashboard is a centralized web application for healthcare which helps to improve the quality of patient care.
+  The system is a platform where patients and healthcare professionals can visualize healthcare data in various ways.
+  Doctors can visualize patients’ health history.
+  Patients can check their health status and review it from time to time and also visualize their medical data.
+  Admins can manage accounts of patients and doctors.  </p>
+  </div>
+
 
 <% if flash[:error] %>
   <div id="error">
@@ -36,14 +73,14 @@
         <%= link_to 'All Doctors', doctor_index_path %>
       <% end %>
     <% else %>
-      <%= link_to "Register", new_user_registration_path %> or
-      <%= link_to "Log in", new_user_session_path %>.
+      <!--%= link_to "Register", new_user_registration_path %-->
+
     <% end %>
   </div>
 </div>
 
 <div>
-
+</div>
   <main role="main">
 
     <div class="container-fluid">
@@ -65,6 +102,5 @@
   <footer class="container">
     <p>&copy; Team Harmony, 2018</p>
   </footer>
-</div>
 </body>
 </html>
