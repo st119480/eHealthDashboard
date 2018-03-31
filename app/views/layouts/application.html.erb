@@ -32,7 +32,6 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="row">
-
       <ul class="nav nav-justified">
         <h3>
           <div class="col-sm-4">
@@ -47,19 +46,29 @@
     </div>
   </div>
 </nav>
-<div class="container">
-  <!--%=image_tag("29745605_10208891900933240_1527529818_n.png", alt: "Health Image")%-->
-  <%=image_tag("Tumore_testicolo_post_terapia.jpg", alt: "Doctor-Patient")%>
-</div>
-<div class = "container">
-  <p>
-    Healthcare Dashboard is a centralized web application for healthcare which helps to improve the quality of patient care.
-    The system is a platform where patients and healthcare professionals can visualize healthcare data in various ways.
-    Doctors can visualize patients’ health history.
-    Patients can check their health status and review it from time to time and also visualize their medical data.
-    Admins can manage accounts of patients and doctors.  </p>
-</div>
 
+<section>
+  <div class="container">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card-block">
+            <h3 class="card-title">E-HealthCare</h3>
+            <p class="card-text"> Healthcare Dashboard is a centralized web application for healthcare which helps to improve the quality of patient care.
+              The system is a platform where patients and healthcare professionals can visualize healthcare data in various ways.
+              Doctors can visualize patients’ health history.
+              Patients can check their health status and review it from time to time and also visualize their medical data.
+              Admins can manage accounts of patients and doctors.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-img-bottom">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <% if flash[:error] %>
   <div id="error">
@@ -117,12 +126,10 @@
           <div class="widget widget_text">
             <h4 class="widget-title">Location</h4>
             <div class="textwidget">
-              <p></p>Asian Institute of Technology
-              </p>
-              <p></p>School of Engineeering and Technology
-              </p>
-              <p></p>P.O. BOX 4, KLONG LUANG,
-              PaATHUMTHANI 12120,THAILAND
+              <p>Asian Institute of Technology
+              School of Engineeering and Technology
+              P.o. Box 4, Klong Luang,
+              Pathumthani 12120,Thailand
               </p>
             </div><!-- /.textwidget -->
           </div><!-- /.widget -->
@@ -152,3 +159,4 @@
 </a>
 </body>
 </html>
+
