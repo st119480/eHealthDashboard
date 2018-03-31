@@ -4,17 +4,27 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "custom", :media => "all" %>
+<%= javascript_include_tag "application"%>
 
-<div class = "jumbotron text-center">
-  <h1>E-HealthCare Dashboard</h1>
-  <p> Monitor you Health yourself!!</p>
-</div>
+  <header id="header" class="header clearfix">
+    <div class ="jumbotron">
+      <div class ="container">
+        <div class="col-sm-6">
+          <!--%=image_tag("Tumore_testicolo_post_terapia.jpg", alt: "Doctor-Patient", class: "img-responsive")%-->
+        </div>
+
+        <div class ="col-sm-6">
+          <h1>E-HealthCare Dashboard</h1>
+          <p> Monitor you Health yourself!!</p>
+        </div>
+      </div>
+    </div>
+  </header>
 </head>
 
 <body>
@@ -23,32 +33,32 @@
   <div class="container-fluid">
     <div class="row">
 
-    <ul class="nav nav-justified">
-      <h3>
-        <div class="col-sm-4">
-          <%= link_to "Home", root_path, class: "nav-link active" %><span class="sr-only">current</span></div>
-        <div class="col-sm-4">
-          <%= link_to "About Us", ehealth_aboutus_url, class: "nav-link active" %><span class="sr-only">current</span></div>
-        <div class="col-sm-4">
-          <%= link_to "Log in", new_user_session_path,class: "nav-link active" %><span class="sr-only"></span></div>
-      </h3>
-    </ul>
+      <ul class="nav nav-justified">
+        <h3>
+          <div class="col-sm-4">
+            <%= link_to "Home", root_path, class: "nav-link active" %><span class="sr-only">current</span></div>
+          <div class="col-sm-4">
+            <%= link_to "About Us", ehealth_aboutus_url, class: "nav-link active" %><span class="sr-only">current</span></div>
+          <div class="col-sm-4">
+            <%= link_to "Log in", new_user_session_path,class: "nav-link active" %><span class="sr-only"></span></div>
+        </h3>
+      </ul>
       <div class></div>
-  </div>
+    </div>
   </div>
 </nav>
 <div class="container">
-        <!--%=image_tag("29745605_10208891900933240_1527529818_n.png", alt: "Health Image")%-->
-      <%=image_tag("Tumore_testicolo_post_terapia.jpg", alt: "Doctor-Patient")%>
-    </div>
+  <!--%=image_tag("29745605_10208891900933240_1527529818_n.png", alt: "Health Image")%-->
+  <%=image_tag("Tumore_testicolo_post_terapia.jpg", alt: "Doctor-Patient")%>
+</div>
 <div class = "container">
-<p>
-  Healthcare Dashboard is a centralized web application for healthcare which helps to improve the quality of patient care.
-  The system is a platform where patients and healthcare professionals can visualize healthcare data in various ways.
-  Doctors can visualize patients’ health history.
-  Patients can check their health status and review it from time to time and also visualize their medical data.
-  Admins can manage accounts of patients and doctors.  </p>
-  </div>
+  <p>
+    Healthcare Dashboard is a centralized web application for healthcare which helps to improve the quality of patient care.
+    The system is a platform where patients and healthcare professionals can visualize healthcare data in various ways.
+    Doctors can visualize patients’ health history.
+    Patients can check their health status and review it from time to time and also visualize their medical data.
+    Admins can manage accounts of patients and doctors.  </p>
+</div>
 
 
 <% if flash[:error] %>
@@ -81,26 +91,64 @@
 
 <div>
 </div>
-  <main role="main">
+<main role="main">
 
-    <div class="container-fluid">
-      <% if flash[:error].present? %>
-        <p class='alert alert-danger'><%= flash[:error] %></p>
-      <% end %>
-      <% if flash[:notice].present? %>
-        <p class='alert alert-warning'><%= flash[:notice] %></p>
-      <% end %>
-      <% if flash[:alert].present? %>
-        <p class='alert alert-danger'><%= flash[:alert] %></p>
-      <% end %>
-      <%= yield %>
+  <div class="container-fluid">
+    <% if flash[:error].present? %>
+      <p class='alert alert-danger'><%= flash[:error] %></p>
+    <% end %>
+    <% if flash[:notice].present? %>
+      <p class='alert alert-warning'><%= flash[:notice] %></p>
+    <% end %>
+    <% if flash[:alert].present? %>
+      <p class='alert alert-danger'><%= flash[:alert] %></p>
+    <% end %>
+    <%= yield %>
+  </div>
+
+</main>
+
+<hr>
+<footer class="footer">
+  <div class="footer-widgets">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="widget widget_text">
+            <h4 class="widget-title">Location</h4>
+            <div class="textwidget">
+              <p></p>Asian Institute of Technology
+              </p>
+              <p></p>School of Engineeering and Technology
+              </p>
+              <p></p>P.O. BOX 4, KLONG LUANG,
+              PaATHUMTHANI 12120,THAILAND
+              </p>
+            </div><!-- /.textwidget -->
+          </div><!-- /.widget -->
+        </div><!-- /.col-md-3 -->
+      </div>
     </div>
+  </div>
+</footer>
 
-  </main>
+<!-- Bottom -->
+<div class="bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="copyright">
+          <p>© Copyright <a href="#">Team harmony</a> 2018. All Rights Reserved.
+          </p>
+        </div>
+      </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div>
 
-  <hr>
-  <footer class="container">
-    <p>&copy; Team Harmony, 2018</p>
-  </footer>
+<!-- Go Top -->
+<a class="go-top">
+  <i class="fa fa-angle-up"></i>
+</a>
 </body>
 </html>

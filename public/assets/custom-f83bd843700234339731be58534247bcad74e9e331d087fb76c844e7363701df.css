@@ -1,0 +1,10 @@
+/* line 1, /home/neha/git/test/eHealthDashboard/app/assets/stylesheets/custom.scss */
+.jumbotron {
+  background: aquamarine;
+}
+
+/* line 5, /home/neha/git/test/eHealthDashboard/app/assets/stylesheets/custom.scss */
+.jumbotron {
+  background: url("../images/Tumore_testicolo_post_terapia.jpg") top;
+  margin: 1em;
+}
