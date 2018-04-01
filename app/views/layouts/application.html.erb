@@ -9,72 +9,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "custom", :media => "all" %>
-<%= javascript_include_tag "application"%>
-
-  <header id="header" class="header clearfix">
-    <div class ="jumbotron">
-      <div class ="container">
-        <div class="col-sm-6">
-          <!--%=image_tag("Tumore_testicolo_post_terapia.jpg", alt: "Doctor-Patient", class: "img-responsive")%-->
-        </div>
-
-        <div class ="col-sm-6">
-          <h1>E-HealthCare Dashboard</h1>
-          <p> Monitor you Health yourself!!</p>
-        </div>
-      </div>
-    </div>
-  </header>
+  <%= javascript_include_tag "application"%>
 </head>
 
-<body>
-
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="row">
-      <ul class="nav nav-justified">
-        <h3>
-          <div class="col-sm-4">
-            <%= link_to "Home", root_path, class: "nav-link active" %><span class="sr-only">current</span></div>
-          <div class="col-sm-4">
-            <%= link_to "About Us", ehealth_aboutus_url, class: "nav-link active" %><span class="sr-only">current</span></div>
-          <div class="col-sm-4">
-            <%= link_to "Log in", new_user_session_path,class: "nav-link active" %><span class="sr-only"></span></div>
-        </h3>
-      </ul>
-      <div class></div>
-    </div>
-  </div>
-</nav>
-
-<section>
-  <div class="container">
-    <div class="card">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card-block">
-            <h3 class="card-title">E-HealthCare</h3>
-            <p class="card-text"> Healthcare Dashboard is a centralized web application for healthcare which helps to improve the quality of patient care.
-              The system is a platform where patients and healthcare professionals can visualize healthcare data in various ways.
-              Doctors can visualize patients’ health history.
-              Patients can check their health status and review it from time to time and also visualize their medical data.
-              Admins can manage accounts of patients and doctors.</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card-img-bottom">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<% if flash[:error] %>
-  <div id="error">
-    <%= flash[:error] %>
-  </div>
-<% end %>
 <div id="container">
   <div id="user_status">
     <% if user_signed_in? %>
@@ -100,6 +37,7 @@
 
 <div>
 </div>
+
 <main role="main">
 
   <div class="container-fluid">
@@ -127,9 +65,108 @@
             <h4 class="widget-title">Location</h4>
             <div class="textwidget">
               <p>Asian Institute of Technology
-              School of Engineeering and Technology
-              P.o. Box 4, Klong Luang,
-              Pathumthani 12120,Thailand
+                School of Engineeering and Technology
+                P.o. Box 4, Klong Luang,
+                Pathumthani 12120,Thailand
+              </p>
+            </div><!-- /.textwidget -->
+          </div><!-- /.widget -->
+        </div><!-- /.col-md-3 -->
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bottom -->
+<div class="bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="copyright">
+          <p>© Copyright <a href="#">Team harmony</a> 2018. All Rights Reserved.
+          </p>
+        </div>
+      </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div>
+
+<!-- Go Top -->
+<a class="go-top">
+  <i class="fa fa-angle-up"></i>
+</a>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "custom", :media => "all" %>
+  <%= javascript_include_tag "application"%>
+</head>
+
+<div id="container">
+  <div id="user_status">
+    <% if user_signed_in? %>
+      Welcome <b><%= current_user.username %></b>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <%= link_to 'My Profile', user_path(current_user.id) %>
+      <%= link_to 'Edit Profile', edit_user_registration_path %>
+      <% if current_user.role_id == 1 %>
+        <%= link_to 'All Users', user_index_path %>
+        <%= link_to 'Add Admin', new_admin_path %>
+        <%= link_to 'All Admins', admin_index_path %>
+        <%= link_to 'Add Patient', new_patient_path %>
+        <%= link_to 'All Patients', patient_index_path %>
+        <%= link_to 'Add Doctor', new_doctor_path %>
+        <%= link_to 'All Doctors', doctor_index_path %>
+      <% end %>
+    <% else %>
+      <!--%= link_to "Register", new_user_registration_path %-->
+
+    <% end %>
+  </div>
+</div>
+
+<div>
+</div>
+
+<main role="main">
+
+  <div class="container-fluid">
+    <% if flash[:error].present? %>
+      <p class='alert alert-danger'><%= flash[:error] %></p>
+    <% end %>
+    <% if flash[:notice].present? %>
+      <p class='alert alert-warning'><%= flash[:notice] %></p>
+    <% end %>
+    <% if flash[:alert].present? %>
+      <p class='alert alert-danger'><%= flash[:alert] %></p>
+    <% end %>
+    <%= yield %>
+  </div>
+
+</main>
+
+<hr>
+<footer class="footer">
+  <div class="footer-widgets">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="widget widget_text">
+            <h4 class="widget-title">Location</h4>
+            <div class="textwidget">
+              <p>Asian Institute of Technology
+                School of Engineeering and Technology
+                P.o. Box 4, Klong Luang,
+                Pathumthani 12120,Thailand
               </p>
             </div><!-- /.textwidget -->
           </div><!-- /.widget -->
