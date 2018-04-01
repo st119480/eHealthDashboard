@@ -37,9 +37,14 @@
           <div class="col-sm-4">
             <%= link_to "Home", root_path, class: "nav-link active" %><span class="sr-only">current</span></div>
           <div class="col-sm-4">
-            <%= link_to "About Us", ehealth_aboutus_url, class: "nav-link active" %><span class="sr-only">current</span></div>
+            <%= link_to "About Us", about_us_url, class: "nav-link active" %><span class="sr-only">current</span></div>
           <div class="col-sm-4">
-            <%= link_to "Log in", new_user_session_path,class: "nav-link active" %><span class="sr-only"></span></div>
+            <% if user_signed_in? %>
+              <%= link_to('Logout', destroy_user_session_path, class: "nav-link active", :method => :delete, class: "nav-link") %>
+            <% else %>
+              <%= link_to "Log in", new_user_session_path, class: "nav-link active" %><span class="sr-only"></span></div>
+            <% end %>
+
         </h3>
       </ul>
       <div class></div>
@@ -79,9 +84,10 @@
   <div id="user_status">
     <% if user_signed_in? %>
       Welcome <b><%= current_user.username %></b>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       <%= link_to 'My Profile', user_path(current_user.id) %>
       <%= link_to 'Edit Profile', edit_user_registration_path %>
+      <%#= link_to 'Edit Profile', edit_user_path %>
+
       <% if current_user.role_id == 1 %>
         <%= link_to 'All Users', user_index_path %>
         <%= link_to 'Add Admin', new_admin_path %>

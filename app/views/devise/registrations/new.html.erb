@@ -1,4 +1,4 @@
-<h2>Register</h2>
+<h2>Register asdfasdf</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= f.label :role_id, "Role" %>
-    <%= f.select :role_id, options_for_select(Role.all.map {|p| [ p.description, p.id ]}, "Select Role"),:prompt => "Select Role",:required => true  %>
+    <%= f.select :role_id, options_for_select(Role.where('id = 3').map {|p| [ p.description, p.id ]}),:required => true  %>
   </div>
 
 
