@@ -1,1 +1,61 @@
+<header id="header" class="header clearfix">
+  <div class ="jumbotron">
+    <div class ="container">
+      <div class="col-sm-6">
+      </div>
+      <div class ="col-sm-6">
+        <h1>E-HealthCare Dashboard</h1>
+        <p> Monitor you Health yourself!!</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="row">
+      <ul class="nav nav-justified">
+        <h3>
+          <div class="col-sm-4">
+            <%= link_to "Home", root_path, class: "nav-link active" %><span class="sr-only">current</span></div>
+          <div class="col-sm-4">
+            <%= link_to "About Us", ehealth_aboutus_url, class: "nav-link active" %><span class="sr-only">current</span></div>
+          <div class="col-sm-4">
+            <div class="container">
+
+              <%= link_to "Log in", new_user_session_path,class: "nav-link active" %><span class="sr-only"></span></div>
+          </div>
+        </h3>
+      </ul>
+      <div class></div>
+    </div>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card-block">
+            <h3 class="card-title">E-HealthCare</h3>
+            <p class="card-text"> Healthcare Dashboard is a centralized web application for healthcare which helps to improve the quality of patient care.
+              The system is a platform where patients and healthcare professionals can visualize healthcare data in various ways.
+              Doctors can visualize patients’ health history.
+              Patients can check their health status and review it from time to time and also visualize their medical data.
+              Admins can manage accounts of patients and doctors.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-img-bottom">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 

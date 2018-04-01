@@ -52,28 +52,6 @@
   </div>
 </nav>
 
-<section>
-  <div class="container">
-    <div class="card">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card-block">
-            <h3 class="card-title">E-HealthCare</h3>
-            <p class="card-text"> Healthcare Dashboard is a centralized web application for healthcare which helps to improve the quality of patient care.
-              The system is a platform where patients and healthcare professionals can visualize healthcare data in various ways.
-              Doctors can visualize patients’ health history.
-              Patients can check their health status and review it from time to time and also visualize their medical data.
-              Admins can manage accounts of patients and doctors.</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card-img-bottom">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <% if flash[:error] %>
   <div id="error">
@@ -86,8 +64,6 @@
       Welcome <b><%= current_user.username %></b>
       <%= link_to 'My Profile', user_path(current_user.id) %>
       <%= link_to 'Edit Profile', edit_user_registration_path %>
-      <%#= link_to 'Edit Profile', edit_user_path %>
-
       <% if current_user.role_id == 1 %>
         <%= link_to 'All Users', user_index_path %>
         <%= link_to 'Add Admin', new_admin_path %>
