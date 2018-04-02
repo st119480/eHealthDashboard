@@ -1,8 +1,18 @@
-<div class="container-fluid">
-  <%#= pie_chart @users.group(:actable_type).count(:id), donut: true, title: "# of Users" %>
-  <div class="row">
-  <%= pie_chart @d_users, donut: true, title: "# of Users" %>
+<div class="jumbotron jumbotron-fluid">
 
-  <%= line_chart @doc_spec, title: "Doctor vs Specialty", xtitle: "Specialty", ytitle: "# of Doctors" %>
-  </div>
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <figure class="figure">
+        <%= pie_chart @d_users, donut: true, title: "# of Users", width: "600px", height: "400px" %>
+        </figure>
+      </div>
+      <div class="col">
+        <figure class="figure">
+        <%= column_chart @doc_spec, title: "Doctor vs Specialty", xtitle: "Specialty", ytitle: "# of Doctors", width: "600px", height: "400px" %>
+        </figure>
+      </div>
+    </div>
+
 </div>
