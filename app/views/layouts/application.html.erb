@@ -3,54 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "custom", :media => "all" %>
 <%= javascript_include_tag "application"%>
 
-  <header id="header" class="header clearfix">
-    <div class ="jumbotron">
-      <div class ="container">
-        <div class="col-sm-6">
-          <!--%=image_tag("Tumore_testicolo_post_terapia.jpg", alt: "Doctor-Patient", class: "img-responsive")%-->
-        </div>
+<head>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><b>E-HealthCare Dashboard</b></a>
 
-        <div class ="col-sm-6">
-          <h1>E-HealthCare Dashboard</h1>
-          <p> Monitor you Health yourself!!</p>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <div class="col-sm-6">
+        <li class="nav-item active">
+          <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+        </li>
         </div>
-      </div>
+        <div class="col-sm-6">
+        <li class="nav-item active ">
+          <a class="nav-link" href="about-us">AboutUs <span class="sr-only">(current)</span></a>
+        </li>
+        </div>
+      </ul>
     </div>
-  </header>
+  </nav>
 </head>
 
 <body>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="row">
-      <ul class="nav nav-justified">
-        <h3>
-          <div class="col-sm-4">
-            <%= link_to "Home", root_path, class: "nav-link active" %><span class="sr-only">current</span></div>
-          <div class="col-sm-4">
-            <%= link_to "About Us", about_us_url, class: "nav-link active" %><span class="sr-only">current</span></div>
-          <div class="col-sm-4">
-            <% if user_signed_in? %>
-              <%= link_to('Logout', destroy_user_session_path, class: "nav-link active", :method => :delete, class: "nav-link") %>
-            <% else %>
-              <%= link_to "Log in", new_user_session_path, class: "nav-link active" %><span class="sr-only"></span></div>
-            <% end %>
 
-        </h3>
-      </ul>
-      <div class></div>
-    </div>
-  </div>
-</nav>
 
 
 <% if flash[:error] %>
@@ -61,7 +43,7 @@
 <div id="container">
   <div id="user_status">
     <% if user_signed_in? %>
-      Welcome <b><%= current_user.username %></b>
+      <h3 class="text-primary"> Welcome <b><%= current_user.username %></b></h3>
       <%= link_to 'My Profile', user_path(current_user.id) %>
       <%= link_to 'Edit Profile', edit_user_registration_path %>
       <% if current_user.role_id == 1 %>
