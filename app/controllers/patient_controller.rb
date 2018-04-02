@@ -6,7 +6,7 @@ class PatientController < ApplicationController
 
   def index
     if current_user.role_id == 1
-      @patients = Patient.all.order(updated_at: :desc)
+      @patients = Patient.order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     else
       render :show
     end

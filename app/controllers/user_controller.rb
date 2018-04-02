@@ -6,7 +6,7 @@ class UserController < ApplicationController
 
   def index
     if current_user.role_id == 1
-      @users = User.order(sort_column + " " + sort_direction)
+      @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     else
       render :show
     end
@@ -100,5 +100,6 @@ class UserController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
+
 
 end

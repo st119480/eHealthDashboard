@@ -16,4 +16,12 @@ class User < ActiveRecord::Base
   validates :role_id, :presence => true
 
 
+  def self.search(search)
+    if search
+      where('username ILIKE ? OR first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+    else
+      all
+    end
+  end
+
 end

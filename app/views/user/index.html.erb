@@ -1,4 +1,13 @@
-<h2>List of All Users</h2>
+<h2>All Users</h2>
+
+<%= form_tag user_index_path, :method => 'get' do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 <table>
   <thead>
@@ -17,24 +26,40 @@
     <tr>
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
-      <td><%= user.username %></td>
+
+      <% if user.role_id == 3 %>
+        <td><%= link_to user.username, patient_path(user.actable_id) %></td>
+      <% elsif user.role_id == 2 %>
+        <td><%= link_to user.username, doctor_path(user.actable_id) %></td>
+      <% else %>
+        <td><%= link_to user.username, user_path(user) %></td>
+      <% end %>
+
+
       <td><%= user.email %></td>
 
-        <% if user.role_id == 1 %>
+      <% if user.role_id == 1 %>
         <td><%= "Admin" %></td>
-        <td><%= link_to 'Edit', edit_user_path(user), class:"btn btn-secondary" %></td>
-        <% elsif user.role_id == 2 %>
-        <td><%= "Doctor" %></td>
-        <td><%= link_to 'Edit', edit_doctor_path(user.actable_id), class:"btn btn-secondary" %></td>
+        <% if current_user.username != user.username %>
+          <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-secondary" %></td>
         <% else %>
-        <td><%= "Patient" %></td>
-        <td><%= link_to 'Edit', edit_patient_path(user.actable_id), class:"btn btn-secondary" %></td>
+          <td><b>Logged In</b></td>
         <% end %>
-
-      <td><%= link_to 'Delete', user, method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-success" %></td>
+      <% elsif user.role_id == 2 %>
+        <td><%= "Doctor" %></td>
+        <td><%= link_to 'Edit', edit_doctor_path(user.actable_id), class: "btn btn-secondary" %></td>
+      <% else %>
+        <td><%= "Patient" %></td>
+        <td><%= link_to 'Edit', edit_patient_path(user.actable_id), class: "btn btn-secondary" %></td>
+      <% end %>
+      <% if current_user.username != user.username %>
+        <td><%= link_to 'Delete', user, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-success" %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @users %>
 
 <br>
