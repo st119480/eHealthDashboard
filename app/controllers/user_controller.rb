@@ -1,11 +1,12 @@
 class UserController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
 
   def index
     if current_user.role_id == 1
-      @users = User.all.order(actable_type: :desc, updated_at: :desc)
+      @users = User.order(sort_column + " " + sort_direction)
     else
       render :show
     end
@@ -90,6 +91,14 @@ class UserController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :dob, :gender,
                                  :contact, :username, :province, :city_village, :address_line_1, :role_id,
                                  :actable_id , :actable_type )
+  end
+
+  def sort_column
+    User.column_names.include?(params[:sort]) ? params[:sort] : "username"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
 end

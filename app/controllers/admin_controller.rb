@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
   before_action :authenticate_user!
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
 
   def index
     if current_user.role_id == 1
@@ -78,5 +78,13 @@ class AdminController < ApplicationController
   def admin_params
     params.require(:admin).permit(:first_name, :last_name, :email, :password, :password_confirmation, :dob, :gender,
                                   :contact, :username, :province, :city_village, :address_line_1, :role_id, :user_id)
+  end
+
+  def sort_column
+    Admin.column_names.include?(params[:sort]) ? params[:sort] : "id"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end
