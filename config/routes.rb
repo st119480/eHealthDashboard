@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   #devise_for :users
   get 'ehealth/index'
   get 'about-us', :to => 'ehealth#aboutus'
+  get 'dashboard', :to => 'user#dashboard'
   root :to => 'ehealth#index'
   get 'home', :to => 'ehealth#index'
   resources :user

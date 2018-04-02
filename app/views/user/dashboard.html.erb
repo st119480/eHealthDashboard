@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <%#= pie_chart @users.group(:actable_type).count(:id), donut: true, title: "# of Users" %>
+  <div class="row">
+  <%= pie_chart @d_users, donut: true, title: "# of Users" %>
+
+  <%= line_chart @doc_spec, title: "Doctor vs Specialty", xtitle: "Specialty", ytitle: "# of Doctors" %>
+  </div>
+</div>

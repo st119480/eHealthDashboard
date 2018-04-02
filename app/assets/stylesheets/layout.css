@@ -1,0 +1,41 @@
+.row {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.table-responsive {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.container {
+    padding: 10px;
+}
+.jumbotron {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+@media (min-width: 768px) {
+    .jumbotron {
+        padding-top: calc(20px * 2);
+        padding-bottom: calc(20px* 2);
+    }
+}
+.jumbotron-heading {
+    font-weight: 300;
+}
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+footer p {
+    margin-bottom: .25rem;
+}
+.nav-pills {
+    text-align: center;
+    display: block;
+}
+.nav-pills li {
+    float: none;
+    display: inline-block;
+}

@@ -7,46 +7,53 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "custom", :media => "all" %>
-<%= javascript_include_tag "application"%>
+  <%= javascript_include_tag "application"%>
 
-<head>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><b>E-HealthCare Dashboard</b></a>
+  <head>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <div class="col-sm-6">
-        <li class="nav-item active">
-          <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
-        </li>
-        </div>
-        <div class="col-sm-6">
-        <li class="nav-item active ">
-          <a class="nav-link" href="about-us">AboutUs <span class="sr-only">(current)</span></a>
-        </li>
-        </div>
-      </ul>
-    </div>
-  </nav>
-</head>
+  </head>
 
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <b><%= link_to "E-HealthCare Dashboard", root_path, class: "navbar-brand" %></b>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", root_path, class: "nav-link" %><span class="sr-only">current</span>
+        <!--<a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>-->
+      </li>
+      <li class="nav-item">
+        <%= link_to "About Us", about_us_url, class: "nav-link" %><span class="sr-only">current</span>
+      </li>
+    </ul>
+    <!-- Button trigger modal -->
+    <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, class: "btn btn-outline-success my-2 my-sm-0", :method => :delete) %>
+    <% else %>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0" %><span class="sr-only"></span>
+    <% end %>
 
+  </div>
+</nav>
 
 <% if flash[:error] %>
   <div id="error">
     <%= flash[:error] %>
   </div>
 <% end %>
-<div id="container">
-  <div id="user_status">
+
+<div id="container-fluid">
     <% if user_signed_in? %>
       <h3 class="text-primary"> Welcome <b><%= current_user.username %></b></h3>
       <%= link_to 'My Profile', user_path(current_user.id) %>
       <%= link_to 'Edit Profile', edit_user_registration_path %>
       <% if current_user.role_id == 1 %>
+        <%= link_to 'Dashboard', dashboard_path %>
         <%= link_to 'All Users', user_index_path %>
         <%= link_to 'Add Admin', new_admin_path %>
         <%= link_to 'All Admins', admin_index_path %>
@@ -55,18 +62,14 @@
         <%= link_to 'Add Doctor', new_doctor_path %>
         <%= link_to 'All Doctors', doctor_index_path %>
       <% end %>
-    <% else %>
-      <!--%= link_to "Register", new_user_registration_path %-->
-
-    <% end %>
-  </div>
+  <% end %>
 </div>
 
-<div>
-</div>
+<div class="container-fluid">
+
 <main role="main">
 
-  <div class="container-fluid">
+
     <% if flash[:error].present? %>
       <p class='alert alert-danger'><%= flash[:error] %></p>
     <% end %>
@@ -76,24 +79,26 @@
     <% if flash[:alert].present? %>
       <p class='alert alert-danger'><%= flash[:alert] %></p>
     <% end %>
-    <%= yield %>
-  </div>
+
+  <%= yield %>
+
 
 </main>
+</div>
 
-<hr>
 <footer class="footer">
   <div class="footer-widgets">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-6">
           <div class="widget widget_text">
             <h4 class="widget-title">Location</h4>
             <div class="textwidget">
-              <p>Asian Institute of Technology
-              School of Engineeering and Technology
-              P.o. Box 4, Klong Luang,
-              Pathumthani 12120,Thailand
+              <p>
+                <br>Asian Institute of Technology
+                <br>School of Engineeering and Technology
+                <br>P.o. Box 4, Klong Luang,
+                <br>Pathumthani 12120,Thailand
               </p>
             </div><!-- /.textwidget -->
           </div><!-- /.widget -->
@@ -123,4 +128,3 @@
 </a>
 </body>
 </html>
-

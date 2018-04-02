@@ -5,7 +5,7 @@ class UserController < ApplicationController
 
   def index
     if current_user.role_id == 1
-      @users = User.where('id NOT IN (?)', current_user.id).order(updated_at: :desc)
+      @users = User.all.order(actable_type: :desc, updated_at: :desc)
     else
       render :show
     end
@@ -67,6 +67,16 @@ class UserController < ApplicationController
       end
     else
       redirect_to user_index_path
+    end
+  end
+
+  def dashboard
+    if current_user.role_id == 1
+      @d_users = User.group(:actable_type).count(:id)
+      @doc_spec = Doctor.select("count(doctors.id) AS doc_cnt, specialties.description AS spec_description").joins(" INNER JOIN specialties ON
+                  specialties.id = doctors.specialty_id ").group("specialties.description").count(:id)
+    else
+      render :show
     end
   end
 

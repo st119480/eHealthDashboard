@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   helper_method :get_appointments, :get_patients, :get_tests
 
   def after_sign_in_path_for(resource)
-    user_path(current_user.id)
+    if current_user.role_id == 1
+      dashboard_path
+    else
+      user_path(current_user.id)
+    end
   end
 
   def after_sign_out_path_for(resource)
