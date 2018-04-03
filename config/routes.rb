@@ -16,16 +16,6 @@ Rails.application.routes.draw do
   get 'about-us', :to => 'ehealth#aboutus'
   get 'dashboard', :to => 'user#dashboard'
 
-  #see all the users
-  get 'all', :to => 'user#index'
-  get 'admin', :to => 'admin#index'
-  get 'doctor', :to => 'doctor#index'
-  get 'patient', :to => 'patient#index'
-
-  # add the users
-  get 'new_admin', :to => 'admin#new'
-  get 'new_doctor', :to => 'doctor#new'
-  get 'new_patient', :to => 'patient#new'
   root :to => 'ehealth#index'
   get 'home', :to => 'ehealth#index'
   resources :user

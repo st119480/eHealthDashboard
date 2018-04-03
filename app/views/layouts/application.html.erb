@@ -53,10 +53,15 @@
               Users
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="all">All Users</a>
-              <a class="dropdown-item" href="admin">Admin</a>
-              <a class="dropdown-item" href="doctor">Doctor</a>
-              <a class="dropdown-item" href="patient">Patient</a>
+              <a class="dropdown-item">
+                <%= link_to 'All Users', user_index_path %> </a>
+              <a class="dropdown-item">
+                <%= link_to 'Admins', admin_index_path %></a>
+              <a class="dropdown-item">
+                <%= link_to 'Patients', patient_index_path %></a>
+              <a class="dropdown-item">
+                <%= link_to 'Doctors', doctor_index_path %>
+              </a>
             </div>
           </div>
 
@@ -65,9 +70,15 @@
               Add
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="new_admin">Admin</a>
-              <a class="dropdown-item" href="new_doctor">Doctor</a>
-              <a class="dropdown-item" href="new_patient">Patient</a>
+              <a class="dropdown-item">
+                <%= link_to 'Admin', new_admin_path %>
+                </a>
+              <a class="dropdown-item">
+                <%= link_to 'Patient', new_patient_path %>
+              </a>
+              <a class="dropdown-item">
+                <%= link_to 'Doctor', new_doctor_path %>
+              </a>
             </div>
             </div>
           </div>
