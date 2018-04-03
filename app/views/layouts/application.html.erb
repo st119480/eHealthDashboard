@@ -5,11 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "custom", :media => "all" %>
   <%= javascript_include_tag "application"%>
 
-  <head>
+
 
   </head>
 
@@ -25,20 +30,58 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <%= link_to "Home", root_path, class: "nav-link" %><span class="sr-only">current</span>
-        <!--<a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>-->
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <%= link_to "About Us", about_us_url, class: "nav-link" %><span class="sr-only">current</span>
       </li>
-    </ul>
+
     <!-- Button trigger modal -->
     <% if user_signed_in? %>
+      <% if current_user.role_id == 1 %>
+          <li class="nav-item active">
+          <%= link_to 'Dashboard', dashboard_path,class: "nav-link" %><span class="sr-only">current</span>
+          </li>
 
-      <%= link_to('Logout', destroy_user_session_path, class: "btn btn-outline-success my-2 my-sm-0", :method => :delete) %>
+          <li class="nav-item active">
+            <%= link_to 'My Profile', user_path(current_user.id),class: "nav-link" %><span class="sr-only">current</span>
+          </li>
+
+          <div class="col-sm">
+            <div class="row">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Users
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="all">All Users</a>
+              <a class="dropdown-item" href="admin">Admin</a>
+              <a class="dropdown-item" href="doctor">Doctor</a>
+              <a class="dropdown-item" href="patient">Patient</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Add
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="new_admin">Admin</a>
+              <a class="dropdown-item" href="new_doctor">Doctor</a>
+              <a class="dropdown-item" href="new_patient">Patient</a>
+            </div>
+            </div>
+          </div>
+          </div>
+    <%end%>
+
+        </ul>
+
+        <%= link_to('Logout', destroy_user_session_path, class: "btn btn-outline-success my-2 my-sm-0", :method => :delete) %>
     <% else %>
       <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0" %><span class="sr-only"></span>
     <% end %>
 
+  </div>
   </div>
 </nav>
 
@@ -48,23 +91,6 @@
   </div>
 <% end %>
 
-<div id="container-fluid">
-    <% if user_signed_in? %>
-      <h3 class="text-primary"> Welcome <b><%= current_user.username %></b></h3>
-      <%= link_to 'My Profile', user_path(current_user.id) %>
-      <%= link_to 'Edit Profile', edit_user_registration_path %>
-      <% if current_user.role_id == 1 %>
-        <%= link_to 'Dashboard', dashboard_path %>
-        <%= link_to 'All Users', user_index_path %>
-        <%= link_to 'Add Admin', new_admin_path %>
-        <%= link_to 'All Admins', admin_index_path %>
-        <%= link_to 'Add Patient', new_patient_path %>
-        <%= link_to 'All Patients', patient_index_path %>
-        <%= link_to 'Add Doctor', new_doctor_path %>
-        <%= link_to 'All Doctors', doctor_index_path %>
-      <% end %>
-  <% end %>
-</div>
 
 <div class="container-fluid">
 
