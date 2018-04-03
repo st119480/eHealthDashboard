@@ -33,6 +33,7 @@
     </ul>
     <!-- Button trigger modal -->
     <% if user_signed_in? %>
+
       <%= link_to('Logout', destroy_user_session_path, class: "btn btn-outline-success my-2 my-sm-0", :method => :delete) %>
     <% else %>
       <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0" %><span class="sr-only"></span>

@@ -1,6 +1,7 @@
 <h2>All Doctors</h2>
 
-<table>
+<table class="table">
+  <div class="nav-item active">
   <thead>
   <tr>
     <th><%= sortable "first_name", "First Name" %></th>
@@ -26,6 +27,7 @@
     </tr>
   <% end %>
   </tbody>
+  </div>
 </table>
 
 <%= will_paginate @doctors %>

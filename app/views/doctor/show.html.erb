@@ -14,7 +14,8 @@
     <br> <%= "Contact: " %> <%= @doctor.contact %>
     <br> <h3>Patients</h3>
 
-    <table>
+    <table class="table">
+      <div class="nav-item active">
       <thead>
       <tr>
         <th>Appointment ID</th>
@@ -34,6 +35,7 @@
         </tr>
       <% end %>
       </tbody>
+      </div>
     </table>
   <% end %>
   <br>
