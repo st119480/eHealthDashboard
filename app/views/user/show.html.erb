@@ -18,6 +18,10 @@
     <br> <%= "Address Line 1: " %> <%= current_user.address_line_1 %>
     <br> <%= "Contact: " %> <%= current_user.contact %>
 
+    <div class="row">
+      <%= link_to 'Edit Profile', edit_user_registration_path,class: "btn btn-primary my-2 my-sm-0" %><span class="sr-only"></span>
+    </div>
+
     <% if current_user.role_id == 3 %>
       <br>
       <h3>My Doctors</h3>
