@@ -81,6 +81,12 @@ class UserController < ApplicationController
     end
   end
 
+  def plot_tests
+    if @user.role_id == 3
+      @plot_test = Test.select("pulse_rate, testdate")
+    end
+  end
+
   private
   def set_user
     #begin
