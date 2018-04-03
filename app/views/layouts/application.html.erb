@@ -49,36 +49,26 @@
           <div class="col-sm">
             <div class="row">
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            <a class="nav-link dropdown-toggle"  id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Users
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item">
-                <%= link_to 'All Users', user_index_path %> </a>
-              <a class="dropdown-item">
-                <%= link_to 'Admins', admin_index_path %></a>
-              <a class="dropdown-item">
-                <%= link_to 'Patients', patient_index_path %></a>
-              <a class="dropdown-item">
-                <%= link_to 'Doctors', doctor_index_path %>
-              </a>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to 'All Users', user_index_path, class:"dropdown-item" %>
+                <%= link_to 'Admins', admin_index_path, class:"dropdown-item" %>
+                <%= link_to 'Patients', patient_index_path, class:"dropdown-item" %>
+                <%= link_to 'Doctors', doctor_index_path, class:"dropdown-item" %>
             </div>
           </div>
 
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle"  id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Add
-            </button>
+            </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item">
-                <%= link_to 'Admin', new_admin_path %>
-                </a>
-              <a class="dropdown-item">
-                <%= link_to 'Patient', new_patient_path %>
-              </a>
-              <a class="dropdown-item">
-                <%= link_to 'Doctor', new_doctor_path %>
-              </a>
+                <%= link_to 'Admin', new_admin_path, class:"dropdown-item" %>
+                <%= link_to 'Patient', new_patient_path , class:"dropdown-item"%>
+                <%= link_to 'Doctor', new_doctor_path, class:"dropdown-item" %>
             </div>
             </div>
           </div>
