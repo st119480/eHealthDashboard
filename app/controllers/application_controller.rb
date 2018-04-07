@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :get_appointments, :get_patients, :get_tests
+  helper_method :get_appointments, :get_patients, :get_tests, :get_tests_json, :get_appointments_for_nurse
 
   def after_sign_in_path_for(resource)
     if current_user.role_id == 1
@@ -23,6 +23,11 @@ class ApplicationController < ActionController::Base
     @appointments = Appointment.joins(:patient, :doctor).where('patients.user_id'=>usr_id).order(updated_at: :desc)
   end
 
+  def get_appointments_for_nurse
+    @appointments = Appointment.joins(:patient, :doctor).where('appointment_date >= current_date').order(appointment_date: :asc)
+  end
+
+
   def get_patients
     if current_user.role_id == 2
       usr_id = @user.id
@@ -33,12 +38,22 @@ class ApplicationController < ActionController::Base
   end
 
   def get_tests
-    if current_user.role_id == 1 || current_user.role_id == 2
+    if current_user.role_id == 1 || current_user.role_id == 2 || current_user.role_id == 4
       usr_id = @patient.user_id
     elsif
       usr_id = @user.id
     end
-    @my_tests = Test.joins(:patient).where('patients.user_id'=>usr_id).order(updated_at: :desc)
+    @my_tests = Test.joins(:patient).where('patients.user_id'=>usr_id).order(test_date: :desc)
+  end
+
+
+  def get_tests_json
+    if current_user.role_id == 1 || current_user.role_id == 2 || current_user.role_id == 4
+      usr_id = @patient.user_id
+    elsif
+      usr_id = @user.id
+    end
+    @my_tests_json = Test.joins(:patient).where('patients.user_id'=>usr_id).order(test_date: :desc).to_json
   end
 
   before_action :configure_permitted_parameters, if: :devise_controller?

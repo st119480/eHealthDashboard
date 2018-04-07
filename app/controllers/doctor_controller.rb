@@ -4,21 +4,21 @@ class DoctorController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    if current_user.role_id == 1
-      @doctors = Doctor.order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+    if current_user.role_id == 1 || current_user.role_id == 4
+      @doctors = Doctor.order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
     else
       render :show
     end
   end
 
   def show
-    if current_user.role_id == 1 || current_user.role_id == 2
+    if current_user.role_id == 1 || current_user.role_id == 2 || current_user.role_id == 4
       @doctor = Doctor.find(params[:id])
     end
   end
 
   def new
-    if current_user.role_id == 1
+    if current_user.role_id == 1 || current_user.role_id == 4
       @doctor = Doctor.new
       #@user.build_doctor
     else
@@ -38,7 +38,7 @@ class DoctorController < ApplicationController
   end
 
   def edit
-    if current_user.role_id == 1
+    if current_user.role_id == 1 || current_user.role_id == 4
       @doctor = Doctor.find(params[:id])
     else
       redirect_to user_index_path
@@ -46,7 +46,7 @@ class DoctorController < ApplicationController
   end
 
   def update
-    if current_user.role_id == 1
+    if current_user.role_id == 1 || current_user.role_id == 4
       @doctor = Doctor.find(params[:id])
       if @doctor.update(doctor_params)
         redirect_to doctor_index_path, notice: "Doctor was edited successfully !!! "
@@ -57,7 +57,7 @@ class DoctorController < ApplicationController
   end
 
   def destroy
-    if current_user.role_id == 1
+    if current_user.role_id == 1 || current_user.role_id == 4
       @doctor = Doctor.find(params[:id])
       @doctor.destroy
       respond_to do |format|

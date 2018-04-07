@@ -5,8 +5,8 @@ class PatientController < ApplicationController
 
 
   def index
-    if current_user.role_id == 1
-      @patients = Patient.order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+    if current_user.role_id == 1 || current_user.role_id == 4
+      @patients = Patient.order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
     else
       render :show
     end
@@ -17,7 +17,7 @@ class PatientController < ApplicationController
   end
 
   def new
-    if current_user.role_id == 1
+    if current_user.role_id == 1 || current_user.role_id == 4
       @patient = Patient.new
       #@user.build_patient
     else
@@ -37,7 +37,7 @@ class PatientController < ApplicationController
   end
 
   def edit
-    if current_user.role_id == 1
+    if current_user.role_id == 1 || current_user.role_id == 4
       @patient = Patient.find(params[:id])
     else
       redirect_to user_index_path
@@ -45,7 +45,7 @@ class PatientController < ApplicationController
   end
 
   def update
-    if current_user.role_id == 1
+    if current_user.role_id == 1 || current_user.role_id == 4
       @patient = Patient.find(params[:id])
       if @patient.update(patient_params)
         redirect_to patient_index_path, notice: "Patient was edited successfully !!! "
@@ -56,7 +56,7 @@ class PatientController < ApplicationController
   end
 
   def destroy
-    if current_user.role_id == 1
+    if current_user.role_id == 1 || current_user.role_id == 4
       @patient = Patient.find(params[:id])
       @patient.destroy
       respond_to do |format|

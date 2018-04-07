@@ -18,22 +18,31 @@ Rails.application.routes.draw do
 
   root :to => 'ehealth#index'
   get 'home', :to => 'ehealth#index'
-  resources :user
+  resources :user do
+    get 'chart_patient'
+  end
   resources :patient do
     resources :appointment
     resources :test
   end
 
   resources :doctor
+  resources :nurse
   resources :admin
+
+  namespace :charts do
+    get 'all_tests'
+    get 'chart'
+  end
+
 
 
   #api
-  namespace :api do
-    namespace :v1 do
-        resources :test, only: [:create]
-    end
-  end
+  # namespace :api do
+  #   namespace :v1 do
+  #       resources :test, only: [:create, :index, :show]
+  #   end
+  # end
 
 
 end

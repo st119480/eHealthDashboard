@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <% if user_signed_in? %>
   <h1>Tests</h1>
-  <% if user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2) %>
+  <% if user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2  || current_user.role_id == 4) %>
     <%= link_to 'Add New Test', new_patient_test_path %>
   <% end %>
 
@@ -50,7 +50,7 @@
         <td><%= test.bmi %></td>
         <td><%= test.test_date %></td>
         <td><%= test.recommendation %></td>
-        <% if user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2) %>
+        <% if user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2  || current_user.role_id == 4) %>
           <td><%= link_to 'Edit', edit_patient_test_path(test.patient, test) %></td>
           <td><%= link_to 'Delete', [test.patient, test], method: :delete, data: {confirm: 'Are you sure?'} %></td>
         <% end %>

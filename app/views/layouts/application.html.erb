@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -12,11 +12,10 @@
 
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "custom", :media => "all" %>
-  <%= javascript_include_tag "application"%>
+  <%= javascript_include_tag "application" %>
 
 
-
-  </head>
+</head>
 
 <body>
 
@@ -31,54 +30,72 @@
       <li class="nav-item active">
         <%= link_to "Home", root_path, class: "nav-link" %><span class="sr-only">current</span>
       </li>
-      <li class="nav-item active" >
+      <li class="nav-item active">
         <%= link_to "About Us", about_us_url, class: "nav-link" %><span class="sr-only">current</span>
       </li>
 
-    <!-- Button trigger modal -->
-    <% if user_signed_in? %>
-      <% if current_user.role_id == 1 %>
-          <li class="nav-item active">
-          <%= link_to 'Dashboard', dashboard_path,class: "nav-link" %><span class="sr-only">current</span>
-          </li>
+      <!-- Button trigger modal -->
+      <% if user_signed_in? %>
 
+        <% if current_user.role_id == 1 || current_user.role_id == 4 %>
           <li class="nav-item active">
-            <%= link_to 'My Profile', user_path(current_user.id),class: "nav-link" %><span class="sr-only">current</span>
+            <%= link_to 'Dashboard', dashboard_path, class: "nav-link" %><span class="sr-only">current</span>
           </li>
-
           <div class="col-sm">
             <div class="row">
-          <div class="dropdown">
+              <div class="dropdown">
 
-            <a class="nav-link dropdown-toggle active"  id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Users
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to 'All Users', user_index_path, class:"dropdown-item" %>
-                <%= link_to 'Admins', admin_index_path, class:"dropdown-item" %>
-                <%= link_to 'Patients', patient_index_path, class:"dropdown-item" %>
-                <%= link_to 'Doctors', doctor_index_path, class:"dropdown-item" %>
-            </div>
-          </div>
+                <a class="nav-link dropdown-toggle active" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Users
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to 'All Users', user_index_path, class: "dropdown-item" %>
+                  <%= link_to 'Admins', admin_index_path, class: "dropdown-item" %>
+                  <%= link_to 'Patients', patient_index_path, class: "dropdown-item" %>
+                  <%= link_to 'Doctors', doctor_index_path, class: "dropdown-item" %>
+                  <%= link_to 'Nurses', nurse_index_path, class: "dropdown-item" %>
+                </div>
+              </div>
 
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle active"  id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Add
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <%= link_to 'Admin', new_admin_path, class:"dropdown-item" %>
-                <%= link_to 'Patient', new_patient_path , class:"dropdown-item"%>
-                <%= link_to 'Doctor', new_doctor_path, class:"dropdown-item" %>
-            </div>
+              <div class="dropdown">
+                <a class="nav-link dropdown-toggle active" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Add
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <%= link_to 'Admin', new_admin_path, class: "dropdown-item" %>
+                  <%= link_to 'Patient', new_patient_path, class: "dropdown-item" %>
+                  <%= link_to 'Doctor', new_doctor_path, class: "dropdown-item" %>
+                  <%= link_to 'Nurse', new_nurse_path, class: "dropdown-item" %>
+                </div>
+              </div>
             </div>
           </div>
+          </ul>
+          <%= form_tag user_index_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
+            <%= hidden_field_tag :direction, params[:direction] %>
+            <%= hidden_field_tag :sort, params[:sort] %>
+            <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", type: "search", placeholder: "Search User" %>
+            <%= submit_tag "Search", :name => nil, class: "btn btn-outline-success my-2 my-sm-0" %>
+          <% end %>
+        <% end %>
+
+
+
+
+
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle active" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <font color="white"> Welcome, <%= current_user.first_name %></font>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'My Profile', user_path(current_user.id), class: "dropdown-item" %>
+            <%= link_to 'Edit Profile', edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to('Logout', destroy_user_session_path, class: "dropdown-item", :method => :delete) %>
           </div>
-    <%end%>
-        </ul>
-        <%= link_to('Logout', destroy_user_session_path, class: "btn btn-outline-success my-2 my-sm-0", :method => :delete) %>
-    <% else %>
-        <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0" %><span class="sr-only"></span>
-    <% end %>
+        </div>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
 
       </div>
 </nav>
@@ -92,7 +109,7 @@
 
 <div class="container-fluid">
 
-<main role="main">
+  <main role="main">
 
 
     <% if flash[:error].present? %>
@@ -105,10 +122,10 @@
       <p class='alert alert-danger'><%= flash[:alert] %></p>
     <% end %>
 
-  <%= yield %>
+    <%= yield %>
 
 
-</main>
+  </main>
 </div>
 
 <footer class="footer">
@@ -117,10 +134,10 @@
       <div class="row">
         <div class="col-md-6">
           <div class="widget widget_text">
-            <h4 class="widget-title">Location</h4>
+            <b><h4 class="widget-title">Location</h4></b>
             <div class="textwidget">
               <p>
-                <br>Asian Institute of Technology
+                Asian Institute of Technology
                 <br>School of Engineeering and Technology
                 <br>P.o. Box 4, Klong Luang,
                 <br>Pathumthani 12120,Thailand

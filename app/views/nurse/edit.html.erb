@@ -1,6 +1,6 @@
-<h2>Create New Admin</h2>
+<h2>Edit Nurse</h2>
 
-  <%= form_for @user, url: {action: "create"} do |f| %>
+<%= form_for (@nurse) do |f| %>
   <div class="field">
     <%= f.label :first_name , "First Name" %><br />
     <%= f.text_field :first_name, autocomplete: true %>
@@ -22,6 +22,16 @@
   </div>
 
   <div class="field">
+    <%= f.label :license_num, "License Number" %><br />
+    <%= f.text_field :license_num, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :qualification, "Qualification" %><br />
+    <%= f.text_field :qualification, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -36,8 +46,9 @@
 
   <div class="field">
     <%= f.label :role_id, "Role" %>
-    <%= f.select :role_id, options_for_select(Role.where('id = 1').map {|p| [ p.description, p.id ]}),:required => true  %>
+    <%= f.select :role_id, options_for_select(Role.where('id = 4').map {|p| [ p.description, p.id ]}),:required => true  %>
   </div>
+
 
 
   <div class="field">
@@ -72,6 +83,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Create" %>
+    <%= f.submit "Update" %>
   </div>
 <% end %>
+
+
+<%= link_to "Back", :back %>

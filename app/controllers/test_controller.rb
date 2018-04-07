@@ -5,7 +5,7 @@ class TestController < ApplicationController
   # GET /tests
   # GET /tests.json
   def index
-    @tests = Test.where('patient_id IN (?)', params[:patient_id]).order(updated_at: :desc)
+    @tests = Test.where('patient_id IN (?)', params[:patient_id]).order(test_date: :desc)
   end
 
   # GET /tests/1
@@ -16,7 +16,7 @@ class TestController < ApplicationController
 
   # GET /tests/new
   def new
-    if current_user.role_id == 1 || current_user.role_id == 2
+    if current_user.role_id == 1 || current_user.role_id == 2 || current_user.role_id == 4
       @test = Test.new
       @test.patient = Patient.find(params[:patient_id])
     else
@@ -43,7 +43,7 @@ class TestController < ApplicationController
 
   # GET /tests/1/edit
   def edit
-    if current_user.role_id == 1 || current_user.role_id == 2
+    if current_user.role_id == 1 || current_user.role_id == 2 || current_user.role_id == 4
       @patient = Patient.find(params[:patient_id])
       @test = Test.find(params[:id])
     else
@@ -68,7 +68,7 @@ class TestController < ApplicationController
   # DELETE /tests/1
   # DELETE /tests/1.json
   def destroy
-    if current_user.role_id == 1 || current_user.role_id == 2
+    if current_user.role_id == 1 || current_user.role_id == 2 || current_user.role_id == 4
       @test.destroy
       respond_to do |format|
         format.html { redirect_to patient_path(@test.patient), notice: 'Test was successfully destroyed.' }

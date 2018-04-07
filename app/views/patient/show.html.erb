@@ -3,7 +3,7 @@
 <div>
   <hr>
   <br>
-  <% if user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2) %>
+  <% if user_signed_in? && (current_user.role_id == 1 || current_user.role_id == 2  || current_user.role_id == 4) %>
     <br><%= link_to 'Add New Appointment', new_patient_appointment_path(@patient) %>
     <%= link_to 'Add New Test', new_patient_test_path(@patient) %>
     <%= link_to 'Show All Tests' , patient_test_index_path(@patient) %>

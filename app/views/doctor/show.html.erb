@@ -3,7 +3,7 @@
 <div>
   <hr>
   <br>
-  <% if user_signed_in? && (current_user.role_id == 2 || current_user.role_id == 1 ) %>
+  <% if user_signed_in? && (current_user.role_id == 2 || current_user.role_id == 1  || current_user.role_id == 4) %>
     <br>
     <br> <%= "Name: " %> <%= @doctor.first_name %> <%= @doctor.last_name %>
     <br> <%= "Birth Date: " %> <%= @doctor.dob %>
@@ -12,6 +12,7 @@
     <br> <%= "City or Village: " %> <%= @doctor.city_village %>
     <br> <%= "Address Line 1: " %> <%= @doctor.address_line_1 %>
     <br> <%= "Contact: " %> <%= @doctor.contact %>
+
     <br> <h3>Patients</h3>
 
     <table class="table">
@@ -29,7 +30,6 @@
       <% get_patients.each do |appt| %>
         <tr>
           <td><%= appt.id %></td>
-          <td><%= appt.patient.first_name + ' ' + appt.patient.last_name %></td>
           <td><%= link_to appt.patient.first_name + ' ' + appt.patient.last_name , patient_path(appt.patient) %></td>
           <td><%= appt.appointment_date %></td>
         </tr>

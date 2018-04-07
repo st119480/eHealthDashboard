@@ -1,0 +1,34 @@
+<br>
+<h2>All Nurses</h2>
+
+<table class="table">
+  <div class="nav-item active">
+  <thead>
+  <tr>
+    <th><%= sortable "first_name", "First Name" %></th>
+    <th><%= sortable "last_name", "Last Name" %></th>
+    <th><%= sortable "username", "Username" %></th>
+    <th><%= sortable "email", "Email ID" %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @nurses.each do |nurse| %>
+    <tr>
+      <td><%= nurse.first_name %></td>
+      <td><%= nurse.last_name %></td>
+      <td><%= link_to nurse.username , nurse_path(nurse) %></td>
+      <td><%= nurse.email %></td>
+      <% if current_user.username != nurse.username %>
+      <td><%= link_to 'Edit', edit_nurse_path(nurse), class:"btn btn-secondary" %></td>
+      <td><%= link_to 'Delete', nurse, method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-success" %></td>
+        <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+  </div>
+</table>
+
+<%= will_paginate @nurses %>
+
+<br>

@@ -3,7 +3,7 @@ class AppointmentController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    if current_user.role_id == 1 || current_user.role_id == 2
+    if current_user.role_id == 1 || current_user.role_id == 2 || current_user.role_id == 4
       @appointment = Appointment.new
       @appointment.patient = Patient.find(params[:patient_id])
       #@appointment.doctor = Doctor.find(params[:doctor_id])
@@ -28,7 +28,7 @@ class AppointmentController < ApplicationController
   end
 
   def edit
-    if current_user.role_id == 1 || current_user.role_id == 2
+    if current_user.role_id == 1 || current_user.role_id == 2 || current_user.role_id == 4
       @patient = Patient.find(params[:patient_id])
       @appointment = Appointment.find(params[:id])
     else
@@ -46,7 +46,7 @@ class AppointmentController < ApplicationController
 
 
   def destroy
-    if current_user.role_id == 1 || current_user.role_id == 2
+    if current_user.role_id == 1 || current_user.role_id == 2 || current_user.role_id == 4
       @appointment.destroy
       redirect_to patient_path(@appointment.patient), notice: 'Appointment was successfully deleted !!!'
     else

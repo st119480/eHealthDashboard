@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328054323) do
+ActiveRecord::Schema.define(version: 20180406144325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,24 @@ ActiveRecord::Schema.define(version: 20180328054323) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_admins_on_user_id"
+  end
+
+  create_table "agg_test", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "test_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "province"
+    t.string "city_village"
+    t.integer "pulse_rate"
+    t.float "body_temperature"
+    t.integer "respiratory_rate"
+    t.integer "bp_systolic"
+    t.integer "bp_diastolic"
+    t.integer "blood_oxygen_saturation"
+    t.integer "blood_sugar_pp"
+    t.integer "blood_sugar_fasting"
+    t.float "bmi"
   end
 
   create_table "appointments", force: :cascade do |t|
@@ -48,6 +66,15 @@ ActiveRecord::Schema.define(version: 20180328054323) do
     t.datetime "updated_at", null: false
     t.index ["specialty_id"], name: "index_doctors_on_specialty_id"
     t.index ["user_id"], name: "index_doctors_on_user_id"
+  end
+
+  create_table "nurses", force: :cascade do |t|
+    t.string "license_num"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "qualification"
+    t.index ["user_id"], name: "index_nurses_on_user_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -129,6 +156,7 @@ ActiveRecord::Schema.define(version: 20180328054323) do
   add_foreign_key "appointments", "patients"
   add_foreign_key "doctors", "specialties"
   add_foreign_key "doctors", "users"
+  add_foreign_key "nurses", "users"
   add_foreign_key "patients", "blood_types"
   add_foreign_key "patients", "users"
   add_foreign_key "tests", "patients"

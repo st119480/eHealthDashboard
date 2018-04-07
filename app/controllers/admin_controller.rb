@@ -5,7 +5,7 @@ class AdminController < ApplicationController
 
   def index
     if current_user.role_id == 1
-      @admins = Admin.order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+      @admins = Admin.order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
     else
       render :show
     end

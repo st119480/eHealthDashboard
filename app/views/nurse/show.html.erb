@@ -1,0 +1,17 @@
+<h2>Nurse</h2>
+
+<div>
+  <hr>
+  <br>
+  <% if user_signed_in? && current_user.role_id == 1 %>
+    <br>
+    <br> <%= "Name: " %> <%= @nurse.first_name %> <%= @nurse.last_name %>
+    <br> <%= "Birth Date: " %> <%= @nurse.dob %>
+    <br> <%= "Gender: " %> <%= @nurse.gender%>
+    <br> <%= "Province: " %> <%= @nurse.province %>
+    <br> <%= "City or Village: " %> <%= @nurse.city_village %>
+    <br> <%= "Address Line 1: " %> <%= @nurse.address_line_1 %>
+    <br> <%= "Contact: " %> <%= @nurse.contact %>
+  <% end %>
+  <br>
+</div>

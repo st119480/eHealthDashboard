@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_one :patient, dependent: :destroy
   has_one :doctor, dependent: :destroy
   has_one :admin, dependent: :destroy
+  has_one :nurse, dependent: :destroy
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :username, :presence => true, :uniqueness => true

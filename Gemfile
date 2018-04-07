@@ -21,7 +21,11 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'chartkick'
 gem 'will_paginate', '~> 3.1.0'
-
+gem 'groupdate'
+gem 'jquery-rails'
+gem 'highcharts-rails'
+gem 'morrisjs-rails'
+gem 'raphael-rails'
 
 
 group :development, :test do
