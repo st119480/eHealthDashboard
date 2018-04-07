@@ -2,83 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5c2a16d-c42b-457c-91e8-630bc45fc98f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/assets/javascripts/morris.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/assets/javascripts/raphael.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/user.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/user.coffee" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/test_controller.rb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/appointment_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/appointment_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/doctor_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/doctor_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/patient_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/patient_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/test_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/test_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/user_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/user_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/index.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/appointment/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/appointment/edit.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/appointment/new.html.erb" afterPath="$PROJECT_DIR$/app/views/appointment/new.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/doctor/index.html.erb" afterPath="$PROJECT_DIR$/app/views/doctor/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/doctor/show.html.erb" afterPath="$PROJECT_DIR$/app/views/doctor/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/ehealth/index.html.erb" afterPath="$PROJECT_DIR$/app/views/ehealth/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/patient/index.html.erb" afterPath="$PROJECT_DIR$/app/views/patient/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/patient/show.html.erb" afterPath="$PROJECT_DIR$/app/views/patient/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/test/index.html.erb" afterPath="$PROJECT_DIR$/app/views/test/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" afterPath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/user/index.html.erb" afterPath="$PROJECT_DIR$/app/views/user/index.html.erb" />
       <change beforePath="$PROJECT_DIR$/app/views/user/show.html.erb" afterPath="$PROJECT_DIR$/app/views/user/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/admin/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/nurse/edit.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/admin/index.html.erb" afterPath="$PROJECT_DIR$/app/views/nurse/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/admin/index.json.jbuilder" afterPath="$PROJECT_DIR$/app/views/nurse/index.json.jbuilder" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/admin/new.html.erb" afterPath="$PROJECT_DIR$/app/views/nurse/new.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/admin/show.html.erb" afterPath="$PROJECT_DIR$/app/views/nurse/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/admin/show.json.jbuilder" afterPath="$PROJECT_DIR$/app/views/nurse/show.json.jbuilder" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/appointment/edit.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/appointment/new.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/confirmations/new.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/mailer/confirmation_instructions.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/mailer/email_changed.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/mailer/password_change.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/mailer/reset_password_instructions.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/mailer/unlock_instructions.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/passwords/edit.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/passwords/new.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/registrations/edit.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/registrations/new.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/sessions/new.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/shared/_links.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/devise/unlocks/new.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/doctor/edit.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/doctor/index.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/doctor/new.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/doctor/show.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/ehealth/aboutus.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/ehealth/index.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/layouts/application.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/layouts/mailer.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/layouts/mailer.text.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/patient/edit.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/patient/index.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/patient/new.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/patient/show.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/test/edit.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/test/index.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/test/index.json.jbuilder" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/test/new.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/test/show.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/test/show.json.jbuilder" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/user/dashboard.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/user/edit.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/user/index.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/user/new.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/views/user/show.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -141,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/user/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18">
-              <caret line="104" column="6" lean-forward="false" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
+              <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -592,7 +517,7 @@
       <workItem from="1522858429142" duration="77000" />
       <workItem from="1522924578395" duration="3928000" />
       <workItem from="1522933023162" duration="15747000" />
-      <workItem from="1522985885711" duration="29216000" />
+      <workItem from="1522985885711" duration="29274000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2 graph for admin dashboard.">
       <created>1522659201583</created>
@@ -629,11 +554,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522725047996</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added nurse model.">
+      <created>1523078831248</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1523078831248</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248360000" />
+    <option name="totallyTimeSpent" value="248418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
@@ -691,7 +623,8 @@
     <MESSAGE value="Sorting users based on displayed column in all users page for admin.&#10;Also fixed admin login issue." />
     <MESSAGE value="Added user search functionality for admin." />
     <MESSAGE value="Added page ination for all admin page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added page ination for all admin page." />
+    <MESSAGE value="Added nurse model." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added nurse model." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1104,7 +1037,7 @@
     <entry file="file://$PROJECT_DIR$/app/views/user/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
-          <caret line="104" column="6" lean-forward="false" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding />
         </state>
       </provider>
