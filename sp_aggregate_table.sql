@@ -42,8 +42,8 @@ i integer;
 		
 		DROP TABLE IF EXISTS agg_test;
 		create table agg_test as
-		select c.id as user_id,a.id test_id, c.first_name, c.last_name, e.name as province, d.district_name as district , a.pulse_rate, a.body_temperature, a.respiratory_rate, a.bp_systolic, a.bp_diastolic, a.blood_oxygen_saturation,
-		a.blood_sugar_pp, a.blood_sugar_fasting, a.bmi, a.test_date
+		select c.id as user_id,a.id test_id, c.first_name, c.last_name, c.province_id, e.name as province, c.district_id, d.district_name as district , a.pulse_rate, 
+		a.body_temperature, a.respiratory_rate, a.bp_systolic, a.bp_diastolic, a.blood_oxygen_saturation, a.blood_sugar_pp, a.blood_sugar_fasting, a.bmi, a.test_date
 		from tests a
 		join patients b
 		on a.patient_id = b.id
@@ -53,7 +53,7 @@ i integer;
 		on c.district_id = d.id
 		join provinces e
 		on c.province_id = e.id
-		order by province, district ,user_id, test_id, first_name, last_name;
+		order by province_id, province, district_id, district ,user_id, test_id, first_name, last_name;
 
 
 		-- high BP
@@ -61,20 +61,20 @@ i integer;
 		DROP TABLE IF EXISTS high_bp;
 		
 		create table high_bp as
-		select user_id, test_id, first_name, last_name, test_date, province, district , bp_systolic, bp_diastolic from agg_test
+		select user_id, test_id, first_name, last_name, test_date, province_id, province, district_id, district , bp_systolic, bp_diastolic from agg_test
 		where bp_systolic > 130
 		or bp_diastolic > 80
-		order by province, district ,user_id,test_id , first_name, last_name;
+		order by province_id, province, district_id, district ,user_id,test_id , first_name, last_name;
 
 		-- low BP
 		-- drop table low_bp
 		DROP TABLE IF EXISTS low_bp;
 		
 		create table low_bp as
-		select user_id, test_id, first_name, last_name, test_date, province, district , bp_systolic, bp_diastolic from agg_test
+		select user_id, test_id, first_name, last_name, test_date, province_id, province, district_id, district , bp_systolic, bp_diastolic from agg_test
 		where bp_systolic < 90
 		or bp_diastolic < 60
-		order by province, district ,user_id,test_id , first_name, last_name;
+		order by province_id, province, district_id, district ,user_id,test_id , first_name, last_name;
 
 		-- low blood oxygen saturatio
 
@@ -82,28 +82,28 @@ i integer;
 		DROP TABLE IF EXISTS low_oxygen_saturation;
 		
 		create table low_oxygen_saturation as
-		select user_id, test_id, first_name, last_name, test_date, province, district , blood_oxygen_saturation from agg_test
+		select user_id, test_id, first_name, last_name, test_date, province_id, province, district_id, district , blood_oxygen_saturation from agg_test
 		where blood_oxygen_saturation < 90
-		order by province, district ,user_id,test_id , first_name, last_name;
+		order by province_id, province, district_id, district ,user_id,test_id , first_name, last_name;
 
 		-- low blood sugar mg/dL
 		-- drop table low_blood_sugar
 		DROP TABLE IF EXISTS low_blood_sugar;
 		
 		create table low_blood_sugar as
-		select user_id, test_id, first_name, last_name, test_date, province, district , blood_sugar_fasting, blood_sugar_pp from agg_test
+		select user_id, test_id, first_name, last_name, test_date, province_id, province, district_id, district , blood_sugar_fasting, blood_sugar_pp from agg_test
 		where blood_sugar_fasting < 100
 		or blood_sugar_pp < 140
-		order by province, district ,user_id,test_id , first_name, last_name;
+		order by province_id, province, district_id, district ,user_id,test_id , first_name, last_name;
 
 		-- high blood sugar mg/dL
 		-- drop table high_blood_sugar
 		DROP TABLE IF EXISTS high_blood_sugar;
 		
 		create table high_blood_sugar as
-		select user_id, test_id, first_name, last_name, test_date, province, district , blood_sugar_fasting, blood_sugar_pp from agg_test
+		select user_id, test_id, first_name, last_name, test_date, province_id, province, district_id, district , blood_sugar_fasting, blood_sugar_pp from agg_test
 		where blood_sugar_fasting > 100
-		order by province, district ,user_id,test_id , first_name, last_name;
+		order by province_id, province, district_id, district ,user_id,test_id , first_name, last_name;
 		RETURN NULL;
 	END;
 $BODY$
