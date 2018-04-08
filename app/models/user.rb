@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_one :doctor, dependent: :destroy
   has_one :admin, dependent: :destroy
   has_one :nurse, dependent: :destroy
+  belongs_to :province
+  belongs_to :district
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :username, :presence => true, :uniqueness => true

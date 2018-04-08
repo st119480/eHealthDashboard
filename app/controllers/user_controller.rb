@@ -1,7 +1,7 @@
 class UserController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  helper_method :sort_column, :sort_direction, :chart_patient
+  helper_method :sort_column, :sort_direction, :chart_patient, :high_bp
 
   def index
     if current_user.role_id == 1 || current_user.role_id == 4
@@ -94,6 +94,14 @@ class UserController < ApplicationController
 
   end
 
+  def high_bp
+    @high_bp = Test.find_by_sql("select province, date_trunc('month', test_date) as test_month,
+                                count(distinct user_id) as num_patients from high_bp
+                                where province = '#{params[:province]}'
+                                group by province, date_trunc('month', test_date)
+                                order by test_month desc, province;")
+  end
+
   private
   def set_user
     #begin
@@ -103,7 +111,7 @@ class UserController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :dob, :gender,
                                  :contact, :username, :province, :city_village, :address_line_1, :role_id,
-                                 :actable_id , :actable_type )
+                                 :actable_id , :actable_type,:district )
   end
 
   def sort_column

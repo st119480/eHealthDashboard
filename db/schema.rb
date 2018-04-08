@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406144325) do
+ActiveRecord::Schema.define(version: 20180407141619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,26 @@ ActiveRecord::Schema.define(version: 20180406144325) do
     t.integer "blood_sugar_pp"
     t.integer "blood_sugar_fasting"
     t.float "bmi"
+    t.date "test_date"
+  end
+
+  create_table "agg_test_bkup", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "test_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "province"
+    t.string "city_village"
+    t.integer "pulse_rate"
+    t.float "body_temperature"
+    t.integer "respiratory_rate"
+    t.integer "bp_systolic"
+    t.integer "bp_diastolic"
+    t.integer "blood_oxygen_saturation"
+    t.integer "blood_sugar_pp"
+    t.integer "blood_sugar_fasting"
+    t.float "bmi"
+    t.date "test_date"
   end
 
   create_table "appointments", force: :cascade do |t|
@@ -57,6 +77,14 @@ ActiveRecord::Schema.define(version: 20180406144325) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "districts", force: :cascade do |t|
+    t.string "district_name"
+    t.bigint "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_districts_on_province_id"
+  end
+
   create_table "doctors", force: :cascade do |t|
     t.string "license_num", default: "", null: false
     t.string "qualification", default: ""
@@ -66,6 +94,65 @@ ActiveRecord::Schema.define(version: 20180406144325) do
     t.datetime "updated_at", null: false
     t.index ["specialty_id"], name: "index_doctors_on_specialty_id"
     t.index ["user_id"], name: "index_doctors_on_user_id"
+  end
+
+  create_table "high_blood_sugar", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "test_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.date "test_date"
+    t.string "province"
+    t.string "city_village"
+    t.integer "blood_sugar_fasting"
+    t.integer "blood_sugar_pp"
+  end
+
+  create_table "high_bp", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "test_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.date "test_date"
+    t.string "province"
+    t.string "city_village"
+    t.integer "bp_systolic"
+    t.integer "bp_diastolic"
+  end
+
+  create_table "low_blood_sugar", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "test_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.date "test_date"
+    t.string "province"
+    t.string "city_village"
+    t.integer "blood_sugar_fasting"
+    t.integer "blood_sugar_pp"
+  end
+
+  create_table "low_bp", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "test_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.date "test_date"
+    t.string "province"
+    t.string "city_village"
+    t.integer "bp_systolic"
+    t.integer "bp_diastolic"
+  end
+
+  create_table "low_oxygen_saturation", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "test_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.date "test_date"
+    t.string "province"
+    t.string "city_village"
+    t.integer "blood_oxygen_saturation"
   end
 
   create_table "nurses", force: :cascade do |t|
@@ -84,6 +171,12 @@ ActiveRecord::Schema.define(version: 20180406144325) do
     t.string "updated_at"
     t.index ["blood_type_id"], name: "index_patients_on_blood_type_id"
     t.index ["user_id"], name: "index_patients_on_user_id"
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -146,7 +239,12 @@ ActiveRecord::Schema.define(version: 20180406144325) do
     t.string "gender"
     t.integer "actable_id"
     t.string "actable_type"
+    t.string "district"
+    t.bigint "province_id"
+    t.bigint "district_id"
+    t.index ["district_id"], name: "index_users_on_district_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["province_id"], name: "index_users_on_province_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
   end
@@ -154,11 +252,14 @@ ActiveRecord::Schema.define(version: 20180406144325) do
   add_foreign_key "admins", "users"
   add_foreign_key "appointments", "doctors"
   add_foreign_key "appointments", "patients"
+  add_foreign_key "districts", "provinces"
   add_foreign_key "doctors", "specialties"
   add_foreign_key "doctors", "users"
   add_foreign_key "nurses", "users"
   add_foreign_key "patients", "blood_types"
   add_foreign_key "patients", "users"
   add_foreign_key "tests", "patients"
+  add_foreign_key "users", "districts"
+  add_foreign_key "users", "provinces"
   add_foreign_key "users", "roles"
 end

@@ -61,15 +61,17 @@
     <%= f.text_field :contact, autocomplete: "on" %>
   </div>
 
+
   <div class="field">
-    <%= f.label :province, "Province" %><br />
-    <%= f.text_field :province, autocomplete: "on" %>
+    <%= f.label :province_id ,"Province"%><br />
+    <%= f.collection_select :province_id, Province.order(:name), :id, :name, include_blank: true%>
   </div>
 
   <div class="field">
-    <%= f.label :city_village, "City or Village" %><br />
-    <%= f.text_field :city_village, autocomplete: "on" %>
+    <%= f.label :district_id, "District" %><br />
+    <%= f.grouped_collection_select :district_id, Province.order(:name), :districts, :name, :id, :district_name, include_blank: true %>
   </div>
+
 
   <div class="field">
     <%= f.label :address_line_1, "Address Line 1" %><br />

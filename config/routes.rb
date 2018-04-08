@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'ehealth/index'
   get 'about-us', :to => 'ehealth#aboutus'
   get 'dashboard', :to => 'user#dashboard'
+  get 'high_bp', :to => 'user#high_bp'
 
   root :to => 'ehealth#index'
   get 'home', :to => 'ehealth#index'

@@ -8,8 +8,8 @@
     <br> <%= "Name: " %> <%= @nurse.first_name %> <%= @nurse.last_name %>
     <br> <%= "Birth Date: " %> <%= @nurse.dob %>
     <br> <%= "Gender: " %> <%= @nurse.gender%>
-    <br> <%= "Province: " %> <%= @nurse.province %>
-    <br> <%= "City or Village: " %> <%= @nurse.city_village %>
+    <br> <%= "Province: " %> <%= @nurse.province.name %>
+    <br> <%= "District: " %> <%= @nurse.district.district_name %>
     <br> <%= "Address Line 1: " %> <%= @nurse.address_line_1 %>
     <br> <%= "Contact: " %> <%= @nurse.contact %>
   <% end %>

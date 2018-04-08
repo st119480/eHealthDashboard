@@ -77,7 +77,8 @@ class AdminController < ApplicationController
 
   def admin_params
     params.require(:admin).permit(:first_name, :last_name, :email, :password, :password_confirmation, :dob, :gender,
-                                  :contact, :username, :province, :city_village, :address_line_1, :role_id, :user_id)
+                                  :contact, :username, :province, :district, :address_line_1, :role_id, :user_id,
+                                  :province_id, :district_id)
   end
 
   def sort_column

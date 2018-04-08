@@ -11,8 +11,8 @@
     <br> <%= "Name: " %> <%= @patient.first_name %> <%= @patient.last_name %>
     <br> <%= "Birth Date: " %> <%= @patient.dob %>
     <br> <%= "Gender: " %> <%= @patient.gender%>
-    <br> <%= "Province: " %> <%= @patient.province %>
-    <br> <%= "City or Village: " %> <%= @patient.city_village %>
+    <br> <%= "Province: " %> <%= @patient.province.name %>
+    <br> <%= "District: " %> <%= @patient.district.district_name %>
     <br> <%= "Address Line 1: " %> <%= @patient.address_line_1 %>
     <br> <%= "Contact: " %> <%= @patient.contact %>
     <br> <h3>Appointments</h3>

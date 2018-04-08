@@ -1,18 +1,49 @@
 <br>
 <div class="jumbotron jumbotron-fluid">
-    <div class="row">
-      <div class="col">
-      </div>
-      <div class="col">
-        <figure class="figure">
-        <%= pie_chart @d_users, donut: true, title: "# of Users", width: "600px", height: "400px" %>
-        </figure>
-      </div>
-      <div class="col">
-        <figure class="figure">
-        <%= column_chart @doc_spec, title: "Doctor vs Specialty", xtitle: "Specialty", ytitle: "# of Doctors", width: "600px", height: "400px" %>
-        </figure>
-      </div>
+  <div class="row">
+    <div class="col">
     </div>
+    <div class="col">
+      <figure class="figure">
+      <%= pie_chart @d_users, donut: true, title: "# of Users", width: "600px", height: "400px" %>
+      </figure>
+    </div>
+    <div class="col">
+      <figure class="figure">
+      <%= column_chart @doc_spec, title: "Doctor vs Specialty", xtitle: "Specialty", ytitle: "# of Doctors", width: "600px", height: "400px" %>
+      </figure>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
+        <%= select_tag :province, options_for_select(User.all.map {|p| [ p.province ]}.uniq.sort,   "Select Province"),:prompt => "Select Province",:required => true, class:"btn btn-success dropdown-toggle btn-lg"  %>
+        <%= submit_tag "Show", :name => 'searchHighBP', class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th>Province</th>
+        <th>Year-Month</th>
+        <th># of Patients</th>
+      </tr>
+      </thead>
+      <% high_bp.each do |row| %>
+        <tbody>
+        <tr>
+          <td style="width: 300px;"><%= row.province %></td>
+          <td style="width: 250px;"><%= row.test_month %></td>
+          <td style="width: 250px;"><%= row.num_patients %></td>
+        </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
 
 </div>
