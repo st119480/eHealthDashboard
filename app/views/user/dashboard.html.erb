@@ -1,19 +1,87 @@
 <br>
 <div class="jumbotron jumbotron-fluid">
   <div class="row">
-    <div class="col">
-    </div>
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.Chart({
+                  chart: {
+                      renderTo: 'container',
+                      type: 'column'
+                  },
+                  title: {
+                      text: 'Health Condition VS Number of Patients'
+                  },
+                  xAxis: {
+                      categories: ['Health Condition']
+                  },
+                  yAxis: {
+                      min: 0,
+                      title: {
+                          text: 'Number of Patients'
+                      }
+                  },
+                  legend: {
+                      layout: 'vertical',
+                      backgroundColor: '#E9ECEF',
+                      align: 'left',
+                      verticalAlign: 'top',
+                      x: 100,
+                      y: 70,
+                      floating: true,
+                      shadow: true
+                  },
+                  tooltip: {
+                      formatter: function () {
+                          return '' +
+                              'Number of Patients' + ': ' + this.y;
+                      },
+
+                      credits: {
+                          text: 'SomeText.co.uk',
+                          hreft: 'http://wwww.putyourlinkhere.co.uk'
+                      }
+                  },
+                  plotOptions: {
+                      column: {
+                          pointPadding: 0.4,
+                          borderWidth: 0
+                      }
+                  },
+
+
+                  series: [
+                      <%overall_condition.each do |row|%>
+                      {
+                          name: '<%= row.condition%>',
+                          data: [<%= row.num_of_patient %>]
+                      },
+                      <% end %>
+                  ]
+              });
+          });
+
+      });
+  </script>
+  </div>
+
+  <div id="container" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+
+  <div class="row">
     <div class="col">
       <figure class="figure">
-      <%= pie_chart @d_users, donut: true, title: "# of Users", width: "600px", height: "400px" %>
+      <%= pie_chart @d_users, donut: true, title: "# of Users", width: "1000px", height: "400px" %>
       </figure>
     </div>
     <div class="col">
       <figure class="figure">
-      <%= column_chart @doc_spec, title: "Doctor vs Specialty", xtitle: "Specialty", ytitle: "# of Doctors", width: "600px", height: "400px" %>
+      <%= column_chart @doc_spec, title: "Doctor vs Specialty", xtitle: "Specialty", ytitle: "# of Doctors", width: "800px", height: "400px" %>
       </figure>
     </div>
   </div>
+
+
 
 
 </div>

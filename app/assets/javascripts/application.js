@@ -123,20 +123,43 @@ $(document).on('turbolinks:load', function() {
 });
 
 function filterDistrictsNurse(){
-    $('#nurse_district_id').parent().hide()
-    var districts = $('#nurse_district_id').html();
+    $('#district_district_id').parent().hide()
+    var districts = $('#district_district_id').html();
 
-    $('#nurse_province_id').change(function(){
-        var selectedProvinceCategory = $('#nurse_province_id :selected').text();
+    $('#province_province_id').change(function(){
+        var selectedProvinceCategory = $('#province_province_id :selected').text();
         var optgroup = "optgroup[label='"+ selectedProvinceCategory + "']";
         var options = $(districts).filter(optgroup).html();
 
         if (options){
-            $('#nurse_district_id').html(options);
-            $('#nurse_district_id').parent().show();
+            $('#district_district_id').html(options);
+            $('#district_district_id').parent().show();
         }else {
-            $('#nurse_district_id').empty();
-            $('#nurse_district_id').parent().hide();
+            $('#district_district_id').empty();
+            $('#district_district_id').parent().hide();
+        }
+    });
+}
+
+$(document).on('turbolinks:load', function() {
+    filterDistrictsDashboard();
+});
+
+function filterDistrictsDashboard(){
+
+    var districts = $('#district_district_id').html();
+
+    $('#province_province_id').change(function(){
+        var selectedProvinceCategory = $('#province_province_id :selected').text();
+        var optgroup = "optgroup[label='"+ selectedProvinceCategory + "']";
+        var options = $(districts).filter(optgroup).html();
+
+        if (options){
+            $('#district_district_id').html(options);
+
+        }else {
+            $('#district_district_id').empty();
+
         }
     });
 }

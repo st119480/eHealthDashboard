@@ -1,7 +1,7 @@
 class UserController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  helper_method :sort_column, :sort_direction, :chart_patient, :high_bp
+  helper_method :sort_column, :sort_direction, :chart_patient, :high_bp, :overall_condition
 
   def index
     if current_user.role_id == 1 || current_user.role_id == 4
@@ -80,29 +80,22 @@ class UserController < ApplicationController
     end
   end
 
-  def chart_patient
-    @patient_test = Test.find_by_sql("SELECT  a.pulse_rate, a.body_temperature, a.respiratory_rate, a.bp_systolic,
-                    a.bp_diastolic, a.blood_oxygen_saturation,a.blood_sugar_pp, a.blood_sugar_fasting, a.bmi,
-                    date_trunc('month',a.test_date) AS test_date
-    FROM public.tests a
-    INNER JOIN public.patients b
-    ON a.patient_id = b.id
-    where b.user_id = '#{params[:id]}';")
-
-    date_array = []
-    @patient_test.map {|i| i.test_date }
-
-  end
 
   def high_bp
     if params[:province] == nil
-      params[:province] = 1
+      whereCondition = " WHERE 1 = 1 "
+    else
+      whereCondition = " WHERE province_id = '#{params[:province]}' "
     end
-    @high_bp = Test.find_by_sql("select province, date_trunc('month', test_date) as test_month,
-                                count(distinct user_id) as num_patients from high_bp
-                                where province_id = '#{params[:province]}'
-                                group by province, date_trunc('month', test_date)
-                                order by test_month desc, province;")
+    @high_bp = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MON') as test_month,
+                                COUNT(distinct user_id) as num_patients FROM high_bp
+                                " + whereCondition + "
+                                GROUP BY province, to_char(test_date, 'YYYY-MON')
+                                ORDER BY test_month desc, province;")
+  end
+
+  def overall_condition
+    @overall_condition = Test.find_by_sql("SELECT num_of_patient, condition FROM condition_by_num_of_patient;")
   end
 
   private

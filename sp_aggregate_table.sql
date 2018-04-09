@@ -104,6 +104,18 @@ i integer;
 		select user_id, test_id, first_name, last_name, test_date, province_id, province, district_id, district , blood_sugar_fasting, blood_sugar_pp from agg_test
 		where blood_sugar_fasting > 100
 		order by province_id, province, district_id, district ,user_id,test_id , first_name, last_name;
+
+		-- drop table condition_by_num_of_patient
+		DROP TABLE IF EXISTS condition_by_num_of_patient;
+
+		CREATE TABLE condition_by_num_of_patient AS
+		SELECT 'High BP' as condition, count(distinct user_id) num_of_patient FROM high_bp UNION
+		SELECT 'Low BP' as condition, count(distinct user_id) num_of_patient FROM low_bp UNION
+		SELECT 'Low Blood Oxygen Saturation' as condition, count(distinct user_id) num_of_patient FROM low_oxygen_saturation UNION
+		SELECT 'High Blood Sugar' as condition, count(distinct user_id) num_of_patient FROM high_blood_sugar UNION
+		SELECT 'Low Blood Sugar' as condition, count(distinct user_id) num_of_patient FROM low_blood_sugar;
+		
+		
 		RETURN NULL;
 	END;
 $BODY$
@@ -115,4 +127,7 @@ AFTER INSERT OR UPDATE OR DELETE
 ON tests
 FOR EACH ROW
 EXECUTE PROCEDURE sp_aggregate_table(); 
+
+
+
 

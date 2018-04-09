@@ -80,19 +80,16 @@
         <% end %>
 
 
-
-
-
-        <div class="dropdown">
-          <a class="nav-link dropdown-toggle active" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <font color="white"> Welcome, <%= current_user.first_name %></font>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'My Profile', user_path(current_user.id), class: "dropdown-item" %>
-            <%= link_to 'Edit Profile', edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to('Logout', destroy_user_session_path, class: "dropdown-item", :method => :delete) %>
-          </div>
-        </div>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle active" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <font color="white"> Welcome, <%= current_user.first_name %></font>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to 'My Profile', user_path(current_user.id), class: "dropdown-item" %>
+                <%= link_to 'Edit Profile', edit_user_registration_path, class: "dropdown-item" %>
+                <%= link_to('Logout', destroy_user_session_path, class: "dropdown-item", :method => :delete) %>
+              </div>
+            </div>
       <% else %>
         <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>
