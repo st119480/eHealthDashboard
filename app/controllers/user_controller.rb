@@ -95,9 +95,12 @@ class UserController < ApplicationController
   end
 
   def high_bp
+    if params[:province] == nil
+      params[:province] = 1
+    end
     @high_bp = Test.find_by_sql("select province, date_trunc('month', test_date) as test_month,
                                 count(distinct user_id) as num_patients from high_bp
-                                where province = '#{params[:province]}'
+                                where province_id = '#{params[:province]}'
                                 group by province, date_trunc('month', test_date)
                                 order by test_month desc, province;")
   end
@@ -110,7 +113,7 @@ class UserController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :dob, :gender,
-                                 :contact, :username, :province, :city_village, :address_line_1, :role_id,
+                                 :contact, :username, :province_id, :district_id, :address_line_1, :role_id,
                                  :actable_id , :actable_type,:district )
   end
 

@@ -76,7 +76,7 @@ class PatientController < ApplicationController
 
   def patient_params
     params.require(:patient).permit(:first_name, :last_name, :email, :password, :password_confirmation, :dob, :gender,
-                                 :contact, :username, :province, :city_village, :address_line_1, :role_id, :blood_type_id, :user_id)
+                                 :contact, :username, :province_id, :district_id, :address_line_1, :role_id, :blood_type_id, :user_id)
   end
 
   def sort_column

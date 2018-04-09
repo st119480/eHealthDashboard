@@ -77,7 +77,7 @@ class NurseController < ApplicationController
 
   def nurse_params
     params.require(:nurse).permit(:first_name, :last_name, :email, :password, :password_confirmation, :dob, :gender,
-                                   :contact, :username, :province, :city_village, :address_line_1, :role_id,
+                                   :contact, :username, :province_id, :district_id, :address_line_1, :role_id,
                                    :user_id, :license_num, :qualification)
   end
 
