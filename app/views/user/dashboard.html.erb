@@ -82,6 +82,57 @@
   </div>
 
 
+  <div class="row">
+    <div class="col">
+      <b>High Blood Pressure</b>
+      <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
+         <%= select_tag :province, options_for_select(Province.all.map {|p| [ p.name, p.id ]}.sort,   "Select Province"),:prompt => "Select Province",:required => true, class:"btn btn-success dropdown-toggle btn-lg"  %>
+        <%= submit_tag "Show", :name => 'searchHighBP', class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col">
+      <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
+
+        <div class="field">
+          <%= label :province_id, "Province" %><br/>
+          <%= collection_select :province, :province_id, Province.order(:name), :id, :name, include_blank: true %>
+        </div>
+
+        <div class="field">
+          <%= label :district_id, "District" %><br/>
+          <%= grouped_collection_select :district, :district_id, Province.order(:name), :districts, :name, :id, :district_name, include_blank: true %>
+        </div>
+
+        <%= submit_tag "Show", :name => 'searchHighBP', class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
+  <div>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th>Province</th>
+        <th>Year-Month</th>
+        <th># of Patients</th>
+      </tr>
+      </thead>
+      <% high_bp.each do |row| %>
+        <tbody>
+        <tr>
+          <td style="width: 300px;"><%= row.province %></td>
+          <td style="width: 250px;"><%= row.test_month %></td>
+          <td style="width: 250px;"><%= row.num_patients %></td>
+        </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
 
 </div>

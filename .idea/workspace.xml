@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5c2a16d-c42b-457c-91e8-630bc45fc98f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/user_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/user_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/user/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/chartkick.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/chartkick.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sp_aggregate_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sp_aggregate_table.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -47,13 +41,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/user/dashboard.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="84" column="2" selection-start-line="84" selection-start-column="2" selection-end-line="84" selection-end-column="2" />
+            <state relative-caret-position="212">
+              <caret line="129" column="62" lean-forward="true" selection-start-line="129" selection-start-column="62" selection-end-line="129" selection-end-column="62" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,14 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/user/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-307">
-              <caret line="121" column="71" selection-start-line="120" selection-start-column="26" selection-end-line="121" selection-end-column="71" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="72">
+              <caret line="102" column="6" selection-start-line="102" selection-start-column="6" selection-end-line="102" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -218,7 +212,6 @@
         <option value="$PROJECT_DIR$/app/views/doctor/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/nurse/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/patient/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/user/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/controllers/doctor_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/nurse_controller.rb" />
@@ -227,6 +220,7 @@
         <option value="$PROJECT_DIR$/config/initializers/chartkick.rb" />
         <option value="$PROJECT_DIR$/app/controllers/user_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/user/dashboard.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/user/show.html.erb" />
       </list>
     </option>
   </component>
@@ -512,7 +506,7 @@
       <workItem from="1523161212601" duration="2445000" />
       <workItem from="1523170752383" duration="7707000" />
       <workItem from="1523200446386" duration="239000" />
-      <workItem from="1523200724855" duration="25671000" />
+      <workItem from="1523200724855" duration="25787000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2 graph for admin dashboard.">
       <created>1522659201583</created>
@@ -574,7 +568,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305762000" />
+    <option name="totallyTimeSpent" value="305878000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
@@ -927,16 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-307">
-          <caret line="121" column="71" selection-start-line="120" selection-start-column="26" selection-end-line="121" selection-end-column="71" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/user_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
@@ -946,11 +930,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user/dashboard.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="84" column="2" selection-start-line="84" selection-start-column="2" selection-end-line="84" selection-end-column="2" />
+        <state relative-caret-position="212">
+          <caret line="129" column="62" lean-forward="true" selection-start-line="129" selection-start-column="62" selection-end-line="129" selection-end-column="62" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="102" column="6" selection-start-line="102" selection-start-column="6" selection-end-line="102" selection-end-column="6" />
         </state>
       </provider>
     </entry>
