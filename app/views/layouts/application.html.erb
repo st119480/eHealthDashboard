@@ -38,9 +38,11 @@
       <% if user_signed_in? %>
 
         <% if current_user.role_id == 1 || current_user.role_id == 4 %>
-          <li class="nav-item active">
-            <%= link_to 'Dashboard', dashboard_path, class: "nav-link" %><span class="sr-only">current</span>
-          </li>
+          <% if current_user.role_id == 1 %>
+            <li class="nav-item active">
+              <%= link_to 'Dashboard', dashboard_path, class: "nav-link" %><span class="sr-only">current</span>
+            </li>
+          <% end %>
           <div class="col-sm">
             <div class="row">
               <div class="dropdown">
@@ -50,7 +52,9 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to 'All Users', user_index_path, class: "dropdown-item" %>
-                  <%= link_to 'Admins', admin_index_path, class: "dropdown-item" %>
+                  <% if current_user.role_id == 1 %>
+                    <%= link_to 'Admins', admin_index_path, class: "dropdown-item" %>
+                  <% end %>
                   <%= link_to 'Patients', patient_index_path, class: "dropdown-item" %>
                   <%= link_to 'Doctors', doctor_index_path, class: "dropdown-item" %>
                   <%= link_to 'Nurses', nurse_index_path, class: "dropdown-item" %>
@@ -62,7 +66,9 @@
                   Add
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <%= link_to 'Admin', new_admin_path, class: "dropdown-item" %>
+                  <% if current_user.role_id == 1 %>
+                    <%= link_to 'Admin', new_admin_path, class: "dropdown-item" %>
+                  <% end %>
                   <%= link_to 'Patient', new_patient_path, class: "dropdown-item" %>
                   <%= link_to 'Doctor', new_doctor_path, class: "dropdown-item" %>
                   <%= link_to 'Nurse', new_nurse_path, class: "dropdown-item" %>
@@ -72,30 +78,30 @@
           </div>
           </ul>
           <div class="col-sm-5">
-          <%= form_tag user_index_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
-            <%= hidden_field_tag :direction, params[:direction] %>
-            <%= hidden_field_tag :sort, params[:sort] %>
-            <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", type: "search", placeholder: "Search User" %>
-            <%= submit_tag "Search", :name => nil, class: "btn btn-outline-success my-2 my-sm-0" %>
-          <% end %>
+            <%= form_tag user_index_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
+              <%= hidden_field_tag :direction, params[:direction] %>
+              <%= hidden_field_tag :sort, params[:sort] %>
+              <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", type: "search", placeholder: "Search User" %>
+              <%= submit_tag "Search", :name => nil, class: "btn btn-outline-success my-2 my-sm-0" %>
+            <% end %>
         <% end %>
         </div>
 
         <div class="dropdown float-right signinbtn">
-              <a class="nav-link dropdown-toggle active" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Welcome, <%= current_user.first_name %>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <%= link_to 'My Profile', user_path(current_user.id), class: "dropdown-item" %>
-                <%= link_to 'Edit Profile', edit_user_registration_path, class: "dropdown-item" %>
-                <%= link_to('Logout', destroy_user_session_path, class: "dropdown-item", :method => :delete) %>
-              </div>
-            </div>
+          <a class="nav-link dropdown-toggle active" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Welcome, <%= current_user.first_name %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'My Profile', user_path(current_user.id), class: "dropdown-item" %>
+            <%= link_to 'Edit Profile', edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to('Logout', destroy_user_session_path, class: "dropdown-item", :method => :delete) %>
+          </div>
+        </div>
 
 
       <% else %>
         <div class="pull-right signinbtn">
-        <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+          <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>
       </div>
       </div>

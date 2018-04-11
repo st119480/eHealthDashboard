@@ -4,8 +4,10 @@ class UserController < ApplicationController
   helper_method :sort_column, :sort_direction, :chart_patient, :high_bp, :low_bp, :overall_condition, :high_blood_sugar, :low_blood_sugar, :low_oxygen_saturation
 
   def index
-    if current_user.role_id == 1 || current_user.role_id == 4
+    if current_user.role_id == 1
       @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
+    elsif current_user.role_id == 4
+      @users = User.search(params[:search]).where('role_id <> 1').order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
     else
       render :show
     end
@@ -71,7 +73,7 @@ class UserController < ApplicationController
   end
 
   def dashboard
-    if current_user.role_id == 1 || current_user.role_id == 4
+    if current_user.role_id == 1
       @d_users = User.group(:actable_type).count(:id)
       @doc_spec = Doctor.select("count(doctors.id) AS doc_cnt, specialties.description AS spec_description").joins(" INNER JOIN specialties ON
                   specialties.id = doctors.specialty_id ").group("specialties.description").count(:id)
