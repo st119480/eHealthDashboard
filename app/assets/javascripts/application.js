@@ -141,25 +141,25 @@ function filterDistrictsNurse(){
     });
 }
 
-$(document).on('turbolinks:load', function() {
-    filterDistrictsDashboard();
-});
-
-function filterDistrictsDashboard(){
-
-    var districts = $('#district_district_id').html();
-
-    $('#province_province_id').change(function(){
-        var selectedProvinceCategory = $('#province_province_id :selected').text();
-        var optgroup = "optgroup[label='"+ selectedProvinceCategory + "']";
-        var options = $(districts).filter(optgroup).html();
-
-        if (options){
-            $('#district_district_id').html(options);
-
-        }else {
-            $('#district_district_id').empty();
-
-        }
-    });
-}
+// $(document).on('turbolinks:load', function() {
+//     filterDistrictsDashboard();
+// });
+//
+// function filterDistrictsDashboard(){
+//
+//     var districts = $('#district_district_id').html();
+//
+//     $('#province_province_id').change(function(){
+//         var selectedProvinceCategory = $('#province_province_id :selected').text();
+//         var optgroup = "optgroup[label='"+ selectedProvinceCategory + "']";
+//         var options = $(districts).filter(optgroup).html();
+//
+//         if (options){
+//             $('#district_district_id').html(options);
+//
+//         }else {
+//             $('#district_district_id').empty();
+//
+//         }
+//     });
+// }

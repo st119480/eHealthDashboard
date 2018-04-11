@@ -1,20 +1,28 @@
 <br>
 <div class="jumbotron jumbotron-fluid">
-  <div class="row">
+
+  <!--  Chart Overall Health Condition -->
   <script>
       $(function () {
           var chart;
           $(document).ready(function () {
               chart = new Highcharts.Chart({
                   chart: {
-                      renderTo: 'container',
+                      renderTo: 'overall_health_condition',
                       type: 'column'
                   },
                   title: {
                       text: 'Health Condition VS Number of Patients'
                   },
                   xAxis: {
-                      categories: ['Health Condition']
+                      categories: ["1", "2", "3", "4", "5"],
+                      //type: 'category',
+                      labels: {
+                          style: {
+                              fontSize: '13px',
+                              fontFamily: 'Verdana, sans-serif'
+                          }
+                      }
                   },
                   yAxis: {
                       min: 0,
@@ -22,31 +30,21 @@
                           text: 'Number of Patients'
                       }
                   },
-                  legend: {
-                      layout: 'vertical',
-                      backgroundColor: '#E9ECEF',
-                      align: 'left',
-                      verticalAlign: 'top',
-                      x: 100,
-                      y: 70,
-                      floating: true,
-                      shadow: true
-                  },
-                  tooltip: {
-                      formatter: function () {
-                          return '' +
-                              'Number of Patients' + ': ' + this.y;
-                      },
 
-                      credits: {
-                          text: 'SomeText.co.uk',
-                          hreft: 'http://wwww.putyourlinkhere.co.uk'
-                      }
+                  tooltip: {
+                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
                   },
                   plotOptions: {
                       column: {
                           pointPadding: 0.4,
                           borderWidth: 0
+                      },
+                      series: {
+                          borderWidth: 0,
+                          dataLabels: {
+                              enabled: true,
+                              format: '{point.y:f}'
+                          }
                       }
                   },
 
@@ -54,85 +52,411 @@
                   series: [
                       <%overall_condition.each do |row|%>
                       {
-                          name: '<%= row.condition%>',
+                          name: ['<%= row.condition%>'],
                           data: [<%= row.num_of_patient %>]
                       },
                       <% end %>
-                  ]
+                  ],
+
               });
           });
 
       });
   </script>
-  </div>
 
-  <div id="container" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+  <!--  Chart High BP-->
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.Chart({
+                  chart: {
+                      renderTo: 'high_bp',
+                      type: 'column'
+                  },
+                  title: {
+                      text: 'Number of Patients with High BP'
+                  },
+                  xAxis: {
+                      categories: ["1", "2"],
+                      //type: 'category',
+                      labels: {
+                          style: {
+                              fontSize: '13px',
+                              fontFamily: 'Verdana, sans-serif'
+                          }
+                      }
+                  },
+                  yAxis: {
+                      min: 0,
+                      title: {
+                          text: 'Number of Patients'
+                      }
+                  },
+
+                  tooltip: {
+                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
+                  },
+                  plotOptions: {
+                      column: {
+                          pointPadding: 0.4,
+                          borderWidth: 0
+                      },
+                      series: {
+                          borderWidth: 0,
+                          dataLabels: {
+                              enabled: true,
+                              format: '{point.y:f}'
+                          }
+                      }
+                  },
+
+
+                  series: [
+                      <% high_bp.each do |row|%>
+                      {
+                          name: ['<%= row.test_month%>'],
+                          data: [<%= row.num_patients %>]
+                      },
+                      <% end %>
+                  ],
+
+              });
+          });
+
+      });
+  </script>
+
+  <!--  Chart Low BP-->
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.Chart({
+                  chart: {
+                      renderTo: 'low_bp',
+                      type: 'column'
+                  },
+                  title: {
+                      text: 'Number of Patients with Low BP'
+                  },
+                  xAxis: {
+                      categories: ["1", "2"],
+                      //type: 'category',
+                      labels: {
+                          style: {
+                              fontSize: '13px',
+                              fontFamily: 'Verdana, sans-serif'
+                          }
+                      }
+                  },
+                  yAxis: {
+                      min: 0,
+                      title: {
+                          text: 'Number of Patients'
+                      }
+                  },
+
+                  tooltip: {
+                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
+                  },
+                  plotOptions: {
+                      column: {
+                          pointPadding: 0.4,
+                          borderWidth: 0
+                      },
+                      series: {
+                          borderWidth: 0,
+                          dataLabels: {
+                              enabled: true,
+                              format: '{point.y:f}'
+                          }
+                      }
+                  },
+
+
+                  series: [
+                      <% low_bp.each do |row|%>
+                      {
+                          name: ['<%= row.test_month%>'],
+                          data: [<%= row.num_patients %>]
+                      },
+                      <% end %>
+                  ],
+
+              });
+          });
+
+      });
+  </script>
+
+  <!--  Chart High Blood Sugar-->
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.Chart({
+                  chart: {
+                      renderTo: 'high_blood_sugar',
+                      type: 'column'
+                  },
+                  title: {
+                      text: 'Number of Patients with High Blood Sugar'
+                  },
+                  xAxis: {
+                      categories: ["1", "2"],
+                      //type: 'category',
+                      labels: {
+                          style: {
+                              fontSize: '13px',
+                              fontFamily: 'Verdana, sans-serif'
+                          }
+                      }
+                  },
+                  yAxis: {
+                      min: 0,
+                      title: {
+                          text: 'Number of Patients'
+                      }
+                  },
+
+                  tooltip: {
+                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
+                  },
+                  plotOptions: {
+                      column: {
+                          pointPadding: 0.4,
+                          borderWidth: 0
+                      },
+                      series: {
+                          borderWidth: 0,
+                          dataLabels: {
+                              enabled: true,
+                              format: '{point.y:f}'
+                          }
+                      }
+                  },
+
+
+                  series: [
+                      <% high_blood_sugar.each do |row|%>
+                      {
+                          name: ['<%= row.test_month%>'],
+                          data: [<%= row.num_patients %>]
+                      },
+                      <% end %>
+                  ],
+
+              });
+          });
+
+      });
+  </script>
+
+  <!--  Chart Low Blood Sugar-->
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.Chart({
+                  chart: {
+                      renderTo: 'low_blood_sugar',
+                      type: 'column'
+                  },
+                  title: {
+                      text: 'Number of Patients with Low Blood Sugar'
+                  },
+                  xAxis: {
+                      categories: ["1", "2"],
+                      //type: 'category',
+                      labels: {
+                          style: {
+                              fontSize: '13px',
+                              fontFamily: 'Verdana, sans-serif'
+                          }
+                      }
+                  },
+                  yAxis: {
+                      min: 0,
+                      title: {
+                          text: 'Number of Patients'
+                      }
+                  },
+
+                  tooltip: {
+                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
+                  },
+                  plotOptions: {
+                      column: {
+                          pointPadding: 0.4,
+                          borderWidth: 0
+                      },
+                      series: {
+                          borderWidth: 0,
+                          dataLabels: {
+                              enabled: true,
+                              format: '{point.y:f}'
+                          }
+                      }
+                  },
+
+
+                  series: [
+                      <% low_blood_sugar.each do |row|%>
+                      {
+                          name: ['<%= row.test_month%>'],
+                          data: [<%= row.num_patients %>]
+                      },
+                      <% end %>
+                  ],
+
+              });
+          });
+
+      });
+  </script>
+
+  <!--  Chart Low Blood  Oxygen Saturation-->
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.Chart({
+                  chart: {
+                      renderTo: 'low_oxygen_saturation',
+                      type: 'column'
+                  },
+                  title: {
+                      text: 'Number of Patients with Low Blood Oxygen Saturation'
+                  },
+                  xAxis: {
+                      categories: ["1", "2"],
+                      //type: 'category',
+                      labels: {
+                          style: {
+                              fontSize: '13px',
+                              fontFamily: 'Verdana, sans-serif'
+                          }
+                      }
+                  },
+                  yAxis: {
+                      min: 0,
+                      title: {
+                          text: 'Number of Patients'
+                      }
+                  },
+
+                  tooltip: {
+                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
+                  },
+                  plotOptions: {
+                      column: {
+                          pointPadding: 0.4,
+                          borderWidth: 0
+                      },
+                      series: {
+                          borderWidth: 0,
+                          dataLabels: {
+                              enabled: true,
+                              format: '{point.y:f}'
+                          }
+                      }
+                  },
+
+
+                  series: [
+                      <% low_oxygen_saturation.each do |row|%>
+                      {
+                          name: ['<%= row.test_month%>'],
+                          data: [<%= row.num_patients %>]
+                      },
+                      <% end %>
+                  ],
+
+              });
+          });
+
+      });
+  </script>
+
+
+  <br>
 
   <div class="row">
+    <div class="col"></div>
     <div class="col">
-      <figure class="figure">
-      <%= pie_chart @d_users, donut: true, title: "# of Users", width: "1000px", height: "400px" %>
-      </figure>
+      <%= pie_chart @d_users, donut: true, title: "# of Users", width: "600px", height: "400px" %>
     </div>
-    <div class="col">
-      <figure class="figure">
-      <%= column_chart @doc_spec, title: "Doctor vs Specialty", xtitle: "Specialty", ytitle: "# of Doctors", width: "800px", height: "400px" %>
-      </figure>
-    </div>
+    <div class="col"></div>
   </div>
 
-
+  <br>
   <div class="row">
     <div class="col">
-      <b>High Blood Pressure</b>
+      <b></b>
       <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
-         <%= select_tag :province, options_for_select(Province.all.map {|p| [ p.name, p.id ]}.sort,   "Select Province"),:prompt => "Select Province",:required => true, class:"btn btn-success dropdown-toggle btn-lg"  %>
-        <%= submit_tag "Show", :name => 'searchHighBP', class: "btn btn-primary" %>
+        <div class="row">
+          <div class="col">
+
+
+              <div class="field">
+                <%= label :province, "Province" %>
+                <%#= select_tag :province, options_for_select(Province.all.map {|p| [p.name, p.id]}.sort, "Select Province"),
+                               :prompt => "Select Province", :required => true %>
+
+                <%= select_tag(:province, options_from_collection_for_select(Province.all.order("id ASC"), "id", "name"),
+                               :include_blank => true, :required => true, :class => 'select' )%>
+
+
+             <%#= collection_select :province, :province_id, Province.order(:name), :id, :name, include_blank: true %>
+              </div>
+
+              <div class="field">
+                <%= label :district, "District" %>
+                <%= select_tag(:district, options_from_collection_for_select(District.all.order("id ASC"), "id", "district_name"),
+                               :include_blank => true, :required => false, :class => 'select') %>
+                <%#= grouped_collection_select :district, :district_id, Province.order(:name), :districts, :name, :id, :district_name, include_blank: true %>
+              </div>
+
+
+          </div>
+        </div>
+        <%= submit_tag "Show", :name => 'searchHighBP' %>
       <% end %>
     </div>
   </div>
 
+
+
+  <br>
   <div class="row">
     <div class="col">
-      <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
-
-        <div class="field">
-          <%= label :province_id, "Province" %><br/>
-          <%= collection_select :province, :province_id, Province.order(:name), :id, :name, include_blank: true %>
-        </div>
-
-        <div class="field">
-          <%= label :district_id, "District" %><br/>
-          <%= grouped_collection_select :district, :district_id, Province.order(:name), :districts, :name, :id, :district_name, include_blank: true %>
-        </div>
-
-        <%= submit_tag "Show", :name => 'searchHighBP', class: "btn btn-primary" %>
-      <% end %>
+      <div id="overall_health_condition" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+    </div>
+    <div class="col">
+      <div id="low_oxygen_saturation" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
     </div>
   </div>
 
-
-
-
-  <div>
-    <table class="table table-striped">
-      <thead class="thead-dark">
-      <tr>
-        <th>Province</th>
-        <th>Year-Month</th>
-        <th># of Patients</th>
-      </tr>
-      </thead>
-      <% high_bp.each do |row| %>
-        <tbody>
-        <tr>
-          <td style="width: 300px;"><%= row.province %></td>
-          <td style="width: 250px;"><%= row.test_month %></td>
-          <td style="width: 250px;"><%= row.num_patients %></td>
-        </tr>
-        </tbody>
-      <% end %>
-    </table>
+  <br>
+  <div class="row">
+    <div class="col">
+      <div id="high_bp" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+    </div>
+    <div class="col">
+      <div id="low_bp" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+    </div>
   </div>
+
+  <br>
+  <div class="row">
+    <div class="col">
+      <div id="high_blood_sugar" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+    </div>
+    <div class="col">
+      <div id="low_blood_sugar" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+    </div>
+  </div>
+
 
 </div>
