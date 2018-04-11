@@ -71,6 +71,7 @@
             </div>
           </div>
           </ul>
+          <div class="col-sm-5">
           <%= form_tag user_index_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
             <%= hidden_field_tag :direction, params[:direction] %>
             <%= hidden_field_tag :sort, params[:sort] %>
@@ -78,9 +79,9 @@
             <%= submit_tag "Search", :name => nil, class: "btn btn-outline-success my-2 my-sm-0" %>
           <% end %>
         <% end %>
+        </div>
 
-
-            <div class="dropdown userbtn">
+        <div class="dropdown float-right signinbtn">
               <a class="nav-link dropdown-toggle active" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Welcome, <%= current_user.first_name %>
               </a>
@@ -90,6 +91,8 @@
                 <%= link_to('Logout', destroy_user_session_path, class: "dropdown-item", :method => :delete) %>
               </div>
             </div>
+
+
       <% else %>
         <div class="pull-right signinbtn">
         <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0" %>
@@ -168,3 +171,4 @@
 </a>
 </body>
 </html>
+
