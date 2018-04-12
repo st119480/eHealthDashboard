@@ -83,103 +83,120 @@ class UserController < ApplicationController
   end
 
   def high_bp
-    if params[:province] == nil
-      whereCondition = " WHERE 1 = 1 "
-      @high_bp = Test.find_by_sql("SELECT  to_char(test_date, 'YYYY-MON') as test_month,
+    if params[:province] == nil || params[:province] == ''
+      whereCondition = " WHERE 1 = 1
+                          AND test_date >= current_date - interval '1 year'"
+      @high_bp = Test.find_by_sql("SELECT  to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM high_bp " + whereCondition + "
-                                GROUP BY  to_char(test_date, 'YYYY-MON')
+                                GROUP BY  to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc;")
     else
       if params[:district] == nil || params[:district] == ''
-        whereCondition = " WHERE province_id = '#{params[:province]}' "
+        whereCondition = " WHERE province_id = '#{params[:province]}'
+                          AND test_date >= current_date - interval '1 year'"
       else
-        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'"
+        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'
+                          AND test_date >= current_date - interval '1 year'"
       end
-      @high_bp = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MON') as test_month,
+      dispaly_province = params[:province]
+      display_district = params[:district]
+      @high_bp = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM high_bp "  + whereCondition + "
-                                GROUP BY province, to_char(test_date, 'YYYY-MON')
+                                GROUP BY province, to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc, province;")
     end
 
   end
 
   def low_bp
-    if params[:province] == nil
-      whereCondition = " WHERE 1 = 1 "
-      @low_bp = Test.find_by_sql("SELECT  to_char(test_date, 'YYYY-MON') as test_month,
+    if params[:province] == nil || params[:province] == ''
+      whereCondition = " WHERE 1 = 1
+                          AND test_date >= current_date - interval '1 year'"
+      @low_bp = Test.find_by_sql("SELECT  to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM low_bp " + whereCondition + "
-                                GROUP BY  to_char(test_date, 'YYYY-MON')
+                                GROUP BY  to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc;")
     else
       if params[:district] == nil || params[:district] == ''
-        whereCondition = " WHERE province_id = '#{params[:province]}' "
+        whereCondition = " WHERE province_id = '#{params[:province]}'
+                          AND test_date >= current_date - interval '1 year'"
       else
-        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'"
+        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'
+                          AND test_date >= current_date - interval '1 year'"
       end
-      @low_bp = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MON') as test_month,
+      @low_bp = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM low_bp " + whereCondition + "
-                                GROUP BY province, to_char(test_date, 'YYYY-MON')
+                                GROUP BY province, to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc, province;")
     end
   end
 
   def high_blood_sugar
-    if params[:province] == nil
-      whereCondition = " WHERE 1 = 1 "
-      @high_blood_sugar = Test.find_by_sql("SELECT  to_char(test_date, 'YYYY-MON') as test_month,
+    if params[:province] == nil || params[:province] == ''
+      whereCondition = " WHERE 1 = 1
+                          AND test_date >= current_date - interval '1 year'"
+      @high_blood_sugar = Test.find_by_sql("SELECT  to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM high_blood_sugar " + whereCondition + "
-                                GROUP BY  to_char(test_date, 'YYYY-MON')
+                                GROUP BY  to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc;")
     else
       if params[:district] == nil || params[:district] == ''
-        whereCondition = " WHERE province_id = '#{params[:province]}' "
+        whereCondition = " WHERE province_id = '#{params[:province]}'
+                          AND test_date >= current_date - interval '1 year'"
       else
-        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'"
+        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'
+                          AND test_date >= current_date - interval '1 year'"
       end
-      @high_blood_sugar = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MON') as test_month,
+      @high_blood_sugar = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM high_blood_sugar "  + whereCondition + "
-                                GROUP BY province, to_char(test_date, 'YYYY-MON')
+                                GROUP BY province, to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc, province;")
     end
 
   end
 
   def low_blood_sugar
-    if params[:province] == nil
-      whereCondition = " WHERE 1 = 1 "
-      @low_blood_sugar = Test.find_by_sql("SELECT  to_char(test_date, 'YYYY-MON') as test_month,
+    if params[:province] == nil || params[:province] == ''
+      whereCondition = " WHERE 1 = 1
+                          AND test_date >= current_date - interval '1 year'"
+      @low_blood_sugar = Test.find_by_sql("SELECT  to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM low_blood_sugar " + whereCondition + "
-                                GROUP BY  to_char(test_date, 'YYYY-MON')
+                                GROUP BY  to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc;")
     else
       if params[:district] == nil || params[:district] == ''
-        whereCondition = " WHERE province_id = '#{params[:province]}' "
+        whereCondition = " WHERE province_id = '#{params[:province]}'
+                          AND test_date >= current_date - interval '1 year'"
       else
-        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'"
+        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'
+                          AND test_date >= current_date - interval '1 year'"
       end
-      @low_blood_sugar = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MON') as test_month,
+      @low_blood_sugar = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM low_blood_sugar " + whereCondition + "
-                                GROUP BY province, to_char(test_date, 'YYYY-MON')
+                                GROUP BY province, to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc, province;")
     end
   end
 
   def low_oxygen_saturation
-    if params[:province] == nil
-      whereCondition = " WHERE 1 = 1 "
-      @low_oxygen_saturation = Test.find_by_sql("SELECT  to_char(test_date, 'YYYY-MON') as test_month,
+    if params[:province] == nil || params[:province] == ''
+      whereCondition = " WHERE 1 = 1
+                          AND test_date >= current_date - interval '1 year'"
+      @low_oxygen_saturation = Test.find_by_sql("SELECT  to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM low_oxygen_saturation " + whereCondition + "
-                                GROUP BY  to_char(test_date, 'YYYY-MON')
+                                GROUP BY  to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc;")
     else
       if params[:district] == nil || params[:district] == ''
-        whereCondition = " WHERE province_id = '#{params[:province]}' "
+        whereCondition = " WHERE province_id = '#{params[:province]}'
+                          AND test_date >= current_date - interval '1 year' "
       else
-        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'"
+        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'
+                          AND test_date >= current_date - interval '1 year' "
       end
-      @low_oxygen_saturation = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MON') as test_month,
+      @low_oxygen_saturation = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM low_oxygen_saturation "  + whereCondition + "
-                                GROUP BY province, to_char(test_date, 'YYYY-MON')
+                                GROUP BY province, to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc, province;")
     end
 

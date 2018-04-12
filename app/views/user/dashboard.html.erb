@@ -15,7 +15,7 @@
                       text: 'Health Condition VS Number of Patients'
                   },
                   xAxis: {
-                      categories: ["1", "2", "3", "4", "5"],
+                      categories: [""],
                       //type: 'category',
                       labels: {
                           style: {
@@ -68,6 +68,9 @@
   <script>
       $(function () {
           var chart;
+          var today = new Date().getTime();
+          var aYearAgo = new Date('2017/04/01').getTime();
+
           $(document).ready(function () {
               chart = new Highcharts.Chart({
                   chart: {
@@ -78,7 +81,9 @@
                       text: 'Number of Patients with High BP'
                   },
                   xAxis: {
-                      categories: ["1", "2"],
+                      categories: [""],
+                      // min: aYearAgo,
+                      // max: today,
                       //type: 'category',
                       labels: {
                           style: {
@@ -141,7 +146,7 @@
                       text: 'Number of Patients with Low BP'
                   },
                   xAxis: {
-                      categories: ["1", "2"],
+                      categories: [""],
                       //type: 'category',
                       labels: {
                           style: {
@@ -204,7 +209,7 @@
                       text: 'Number of Patients with High Blood Sugar'
                   },
                   xAxis: {
-                      categories: ["1", "2"],
+                      categories: [""],
                       //type: 'category',
                       labels: {
                           style: {
@@ -267,7 +272,7 @@
                       text: 'Number of Patients with Low Blood Sugar'
                   },
                   xAxis: {
-                      categories: ["1", "2"],
+                      categories: [""],
                       //type: 'category',
                       labels: {
                           style: {
@@ -330,7 +335,7 @@
                       text: 'Number of Patients with Low Blood Oxygen Saturation'
                   },
                   xAxis: {
-                      categories: ["1", "2"],
+                      categories: [""],
                       //type: 'category',
                       labels: {
                           style: {
@@ -394,6 +399,8 @@
   <div class="row">
     <div class="col">
       <b></b>
+
+
       <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
         <div class="row">
           <div class="col">
@@ -405,7 +412,7 @@
                                :prompt => "Select Province", :required => true %>
 
                 <%= select_tag(:province, options_from_collection_for_select(Province.all.order("id ASC"), "id", "name"),
-                               :include_blank => true, :required => true, :class => 'select' )%>
+                               :include_blank => "All Provinces", :required => false, :class => 'select')%>
 
 
              <%#= collection_select :province, :province_id, Province.order(:name), :id, :name, include_blank: true %>
@@ -414,10 +421,9 @@
               <div class="field">
                 <%= label :district, "District" %>
                 <%= select_tag(:district, options_from_collection_for_select(District.all.order("id ASC"), "id", "district_name"),
-                               :include_blank => true, :required => false, :class => 'select') %>
-                <%#= grouped_collection_select :district, :district_id, Province.order(:name), :districts, :name, :id, :district_name, include_blank: true %>
+                               :include_blank => "All Districts", :required => false, :class => 'select') %>
+                <%# grouped_collection_select :district, :district_id, Province.order(:name), :districts, :name, :id, :district_name, include_blank: true %>
               </div>
-
 
           </div>
         </div>

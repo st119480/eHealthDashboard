@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f5c2a16d-c42b-457c-91e8-630bc45fc98f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/user_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/user_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/user/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -37,49 +37,47 @@
       <file leaf-file-name="user_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/user_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="57" column="33" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
+            <state relative-caret-position="303">
+              <caret line="87" column="76" selection-start-line="87" selection-start-column="76" selection-end-line="87" selection-end-column="76" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/patient/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="67" column="59" selection-start-line="67" selection-start-column="59" selection-end-line="67" selection-end-column="59" />
+            <state relative-caret-position="-864">
+              <caret column="27" selection-start-column="27" selection-end-line="3" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/user/index.html.erb">
+      <file leaf-file-name="dashboard.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/user/dashboard.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-183">
-              <caret selection-end-column="4" />
+            <state relative-caret-position="410">
+              <caret line="418" column="20" selection-start-line="418" selection-start-column="14" selection-end-line="418" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="e#12387#12578#0#RHTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/user/show.html.erb">
+      <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="61" column="39" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="charts_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/charts_controller.rb">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="application_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="39" column="15" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="15" />
+            <state relative-caret-position="346">
+              <caret line="154" column="36" selection-start-line="154" selection-start-column="36" selection-end-line="154" selection-end-column="36" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,13 +95,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>test_u</find>
-      <find>test</find>
-      <find>set_doctor</find>
-      <find>@doctors</find>
-      <find>doctor</find>
-      <find>sco</find>
-      <find>jqu</find>
       <find>@admins</find>
       <find>@admin</find>
       <find>Doctor</find>
@@ -127,14 +118,15 @@
       <find>low</find>
       <find>All Provinces</find>
       <find>gsub(/[^0-9]/, '')</find>
+      <find>SELECT province, to_char(test_date, 'YYYY-MON') as test_month,</find>
+      <find>ORDER BY test_month desc</find>
+      <find>GROUP BY province, to_char(test_date, 'YYYY-MON')</find>
+      <find>YYYY-MON</find>
+      <find>categories: [&quot;1&quot;, &quot;2&quot;]</find>
+      <find>“</find>
+      <find>”</find>
     </findStrings>
     <replaceStrings>
-      <replace>Doctor</replace>
-      <replace>doctors</replace>
-      <replace>f</replace>
-      <replace>@doctor_patient</replace>
-      <replace>appointment</replace>
-      <replace>Appointment</replace>
       <replace>@patient</replace>
       <replace>@doctor</replace>
       <replace>@test</replace>
@@ -159,6 +151,12 @@
       <replace>nurse</replace>
       <replace>province_province</replace>
       <replace>scan(/\d/).join('')</replace>
+      <replace>province, to_char(test_date, 'YYYY-MON') as test_month, COUNT(distinct user_id) as num_patients , test_date</replace>
+      <replace>ORDER BY test_date desc</replace>
+      <replace>GROUP BY province,  to_char(test_date, 'YYYY-MON'), test_date</replace>
+      <replace>YYYY-MM</replace>
+      <replace>categories: [&quot;&quot;]</replace>
+      <replace>&quot;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -214,10 +212,10 @@
         <option value="$PROJECT_DIR$/app/controllers/patient_controller.rb" />
         <option value="$PROJECT_DIR$/config/initializers/chartkick.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/views/user/dashboard.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/app/views/user/dashboard.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/user_controller.rb" />
       </list>
     </option>
@@ -229,9 +227,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="960" />
     <option name="y" value="-4" />
-    <option name="width" value="960" />
+    <option name="width" value="1920" />
     <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -242,6 +239,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -309,6 +307,17 @@
             <path>
               <item name="eHealthDashboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="eHealthDashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eHealthDashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eHealthDashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="migrate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eHealthDashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eHealthDashboard" type="462c0819:PsiDirectoryNode" />
               <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -316,17 +325,19 @@
         </subPane>
       </pane>
       <pane id="RailsProjectView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="appli&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;app&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;gemfile&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/Gemfile&#10;applicatio&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;routes&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/config/routes.rb&#10;application&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;gem&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/Gemfile&#10;application.c&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/stylesheets/application.css&#10;applica&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;application.js&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;user&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/eHealthDashboard/app/controllers/user_controller.rb&#10;devise&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/eHealthDashboard/config/initializers/devise.rb&#10;rails_ad&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/rails_admin.rb&#10;route&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/routes.rb&#10;rails_&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/rails_admin.rb&#10;devise.rb&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/devise.rb" />
+    <property name="SearchEverywhereHistoryKey" value="applica&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;appli&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;app&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;gemfile&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/Gemfile&#10;applicatio&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;routes&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/config/routes.rb&#10;application&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;gem&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/Gemfile&#10;application.c&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/stylesheets/application.css&#10;application.js&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;user&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/eHealthDashboard/app/controllers/user_controller.rb&#10;devise&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/eHealthDashboard/config/initializers/devise.rb&#10;rails_ad&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/rails_admin.rb&#10;route&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/routes.rb&#10;rails_&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/rails_admin.rb&#10;devise.rb&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/devise.rb" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vendor/assets/javascripts" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/views/nurse" />
       <recent name="$PROJECT_DIR$/app/views" />
@@ -334,121 +345,6 @@
       <recent name="$PROJECT_DIR$/app/views/appointment" />
       <recent name="$PROJECT_DIR$/app/views/doctor" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/vendor/assets/javascripts" />
-    </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/assets/stylesheets/custom.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/views/admin/new.html.erb</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/views/layouts/application.html.erb</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -602,6 +498,7 @@
       <workItem from="1523200724855" duration="25787000" />
       <workItem from="1523336323121" duration="303000" />
       <workItem from="1523336788303" duration="25306000" />
+      <workItem from="1523505487623" duration="13916000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2 graph for admin dashboard.">
       <created>1522659201583</created>
@@ -670,12 +567,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331531000" />
+    <option name="totallyTimeSpent" value="345447000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
+    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.178762" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18089648" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50213444" side_tool="true" weight="0.32317072" />
@@ -684,7 +582,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49786553" visible="true" weight="0.30691057" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49786553" visible="true" weight="0.30691057" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -699,22 +597,22 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.178762" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" weight="0.329972" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49786553" visible="true" weight="0.30691057" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50213444" side_tool="true" weight="0.32317072" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,13 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="72" column="43" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180407135826_insert_data_into_districts.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="882" column="5" selection-start-line="882" selection-start-column="5" selection-end-line="882" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -891,13 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/patient/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
         </state>
       </provider>
     </entry>
@@ -1006,25 +890,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user/dashboard.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/user/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="422" column="14" selection-start-line="422" selection-start-column="14" selection-end-line="422" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="e#12255#12446#0#RHTML" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#4;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state>
+          <caret selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="61" column="39" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1035,44 +911,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="67" column="59" selection-start-line="67" selection-start-column="59" selection-end-line="67" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="143" selection-start-line="143" selection-start-column="3" selection-end-line="164" selection-end-column="4" />
+        <state relative-caret-position="346">
+          <caret line="154" column="36" selection-start-line="154" selection-start-column="36" selection-end-line="154" selection-end-column="36" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/charts_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/patient/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-864">
+          <caret column="27" selection-start-column="27" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180407140206_add_district_to_users.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180407135826_insert_data_into_districts.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="61" column="39" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="39" />
+        <state relative-caret-position="15876">
+          <caret line="882" column="5" selection-start-line="882" selection-start-column="5" selection-end-line="882" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/user/dashboard.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="67" column="59" selection-start-line="67" selection-start-column="59" selection-end-line="67" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-183">
-          <caret selection-end-column="4" />
+        <state relative-caret-position="410">
+          <caret line="418" column="20" selection-start-line="418" selection-start-column="14" selection-end-line="418" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="e#12387#12578#0#RHTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/user_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="57" column="33" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
+        <state relative-caret-position="303">
+          <caret line="87" column="76" selection-start-line="87" selection-start-column="76" selection-end-line="87" selection-end-column="76" />
         </state>
       </provider>
     </entry>
