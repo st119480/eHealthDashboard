@@ -78,7 +78,7 @@
                       type: 'column'
                   },
                   title: {
-                      text: 'Number of Patients with High BP'
+                      text: 'Number of Patients with High BP *'
                   },
                   xAxis: {
                       categories: [""],
@@ -143,7 +143,7 @@
                       type: 'column'
                   },
                   title: {
-                      text: 'Number of Patients with Low BP'
+                      text: 'Number of Patients with Low BP *'
                   },
                   xAxis: {
                       categories: [""],
@@ -206,7 +206,7 @@
                       type: 'column'
                   },
                   title: {
-                      text: 'Number of Patients with High Blood Sugar'
+                      text: 'Number of Patients with High Blood Sugar *'
                   },
                   xAxis: {
                       categories: [""],
@@ -269,7 +269,7 @@
                       type: 'column'
                   },
                   title: {
-                      text: 'Number of Patients with Low Blood Sugar'
+                      text: 'Number of Patients with Low Blood Sugar *'
                   },
                   xAxis: {
                       categories: [""],
@@ -332,7 +332,7 @@
                       type: 'column'
                   },
                   title: {
-                      text: 'Number of Patients with Low Blood Oxygen Saturation'
+                      text: 'Number of Patients with Low Blood Oxygen Saturation *'
                   },
                   xAxis: {
                       categories: [""],
@@ -411,30 +411,35 @@
                 <%#= select_tag :province, options_for_select(Province.all.map {|p| [p.name, p.id]}.sort, "Select Province"),
                                :prompt => "Select Province", :required => true %>
 
-                <%= select_tag(:province, options_from_collection_for_select(Province.all.order("id ASC"), "id", "name"),
+                <%#= select_tag(:province, options_from_collection_for_select(Province.all.order("id ASC"), "id", "name"),
                                :include_blank => "All Provinces", :required => false, :class => 'select')%>
 
 
-             <%#= collection_select :province, :province_id, Province.order(:name), :id, :name, include_blank: true %>
+             <%= collection_select :province, :province_id, Province.order(:name), :id, :name, include_blank: "" %>
               </div>
 
               <div class="field">
                 <%= label :district, "District" %>
-                <%= select_tag(:district, options_from_collection_for_select(District.all.order("id ASC"), "id", "district_name"),
+                <%#= select_tag(:district, options_from_collection_for_select(District.all.order("id ASC"), "id", "district_name"),
                                :include_blank => "All Districts", :required => false, :class => 'select') %>
-                <%# grouped_collection_select :district, :district_id, Province.order(:name), :districts, :name, :id, :district_name, include_blank: true %>
+                <%= grouped_collection_select :district, :district_id, Province.order(:name), :districts, :name, :id, :district_name, :include_blank => "All Districts" %>
               </div>
 
           </div>
         </div>
-        <%= submit_tag "Show", :name => 'searchHighBP' %>
+        <%= submit_tag "Show", :name => 'search' %>
       <% end %>
     </div>
   </div>
 
 
-
   <br>
+  <div class="row">
+    <div class="col">
+      <p class="text-danger text-right">* Graphs display data of past 12 months</p>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col">
       <div id="overall_health_condition" style="min-width: 600px; height: 400px; margin: 0 auto"></div>

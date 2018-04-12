@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407141619) do
+ActiveRecord::Schema.define(version: 20180412175523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 20180407141619) do
     t.bigint "test_id"
     t.string "first_name"
     t.string "last_name"
+    t.bigint "province_id"
     t.string "province"
-    t.string "city_village"
+    t.bigint "district_id"
+    t.string "district"
     t.integer "pulse_rate"
     t.float "body_temperature"
     t.integer "respiratory_rate"
@@ -46,8 +48,10 @@ ActiveRecord::Schema.define(version: 20180407141619) do
     t.bigint "test_id"
     t.string "first_name"
     t.string "last_name"
+    t.bigint "province_id"
     t.string "province"
-    t.string "city_village"
+    t.bigint "district_id"
+    t.string "district"
     t.integer "pulse_rate"
     t.float "body_temperature"
     t.integer "respiratory_rate"
@@ -77,6 +81,11 @@ ActiveRecord::Schema.define(version: 20180407141619) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "condition_by_num_of_patient", id: false, force: :cascade do |t|
+    t.text "condition"
+    t.bigint "num_of_patient"
+  end
+
   create_table "districts", force: :cascade do |t|
     t.string "district_name"
     t.bigint "province_id"
@@ -102,8 +111,10 @@ ActiveRecord::Schema.define(version: 20180407141619) do
     t.string "first_name"
     t.string "last_name"
     t.date "test_date"
+    t.bigint "province_id"
     t.string "province"
-    t.string "city_village"
+    t.bigint "district_id"
+    t.string "district"
     t.integer "blood_sugar_fasting"
     t.integer "blood_sugar_pp"
   end
@@ -114,8 +125,10 @@ ActiveRecord::Schema.define(version: 20180407141619) do
     t.string "first_name"
     t.string "last_name"
     t.date "test_date"
+    t.bigint "province_id"
     t.string "province"
-    t.string "city_village"
+    t.bigint "district_id"
+    t.string "district"
     t.integer "bp_systolic"
     t.integer "bp_diastolic"
   end
@@ -126,8 +139,10 @@ ActiveRecord::Schema.define(version: 20180407141619) do
     t.string "first_name"
     t.string "last_name"
     t.date "test_date"
+    t.bigint "province_id"
     t.string "province"
-    t.string "city_village"
+    t.bigint "district_id"
+    t.string "district"
     t.integer "blood_sugar_fasting"
     t.integer "blood_sugar_pp"
   end
@@ -138,8 +153,10 @@ ActiveRecord::Schema.define(version: 20180407141619) do
     t.string "first_name"
     t.string "last_name"
     t.date "test_date"
+    t.bigint "province_id"
     t.string "province"
-    t.string "city_village"
+    t.bigint "district_id"
+    t.string "district"
     t.integer "bp_systolic"
     t.integer "bp_diastolic"
   end
@@ -150,8 +167,10 @@ ActiveRecord::Schema.define(version: 20180407141619) do
     t.string "first_name"
     t.string "last_name"
     t.date "test_date"
+    t.bigint "province_id"
     t.string "province"
-    t.string "city_village"
+    t.bigint "district_id"
+    t.string "district"
     t.integer "blood_oxygen_saturation"
   end
 

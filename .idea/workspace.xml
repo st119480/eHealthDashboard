@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/user_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/user_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -37,17 +38,8 @@
       <file leaf-file-name="user_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/user_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="87" column="76" selection-start-line="87" selection-start-column="76" selection-end-line="87" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/patient/new.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-864">
-              <caret column="27" selection-start-column="27" selection-end-line="3" selection-end-column="13" />
+            <state relative-caret-position="285">
+              <caret line="220" column="9" selection-start-line="220" selection-start-column="9" selection-end-line="220" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -55,8 +47,8 @@
       <file leaf-file-name="dashboard.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/user/dashboard.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="418" column="20" selection-start-line="418" selection-start-column="14" selection-end-line="418" selection-end-column="20" />
+            <state relative-caret-position="324">
+              <caret line="417" column="111" selection-start-line="417" selection-start-column="111" selection-end-line="417" selection-end-column="111" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -65,6 +57,8 @@
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="e#12387#12578#0#RHTML" expanded="true" />
+                <element signature="e#12606#12820#0#RHTML" expanded="true" />
+                <element signature="e#13064#13288#0#RHTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,8 +67,8 @@
       <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="154" column="36" selection-start-line="154" selection-start-column="36" selection-end-line="154" selection-end-column="36" />
+            <state relative-caret-position="486">
+              <caret line="148" column="28" selection-start-line="148" selection-start-column="28" selection-end-line="148" selection-end-column="28" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -95,9 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>@admins</find>
-      <find>@admin</find>
-      <find>Doctor</find>
       <find>',</find>
       <find>execute(insert</find>
       <find>execute&quot;(</find>
@@ -125,12 +116,11 @@
       <find>categories: [&quot;1&quot;, &quot;2&quot;]</find>
       <find>“</find>
       <find>”</find>
+      <find>params[:province_id]</find>
+      <find>district_district</find>
+      <find>if params[:district] == nil || params[:district] == ''</find>
     </findStrings>
     <replaceStrings>
-      <replace>@patient</replace>
-      <replace>@doctor</replace>
-      <replace>@test</replace>
-      <replace>Admin</replace>
       <replace>set_admin</replace>
       <replace>@admins</replace>
       <replace>@nurses</replace>
@@ -157,6 +147,10 @@
       <replace>YYYY-MM</replace>
       <replace>categories: [&quot;&quot;]</replace>
       <replace>&quot;</replace>
+      <replace>params[:province_id]</replace>
+      <replace>params[:province]</replace>
+      <replace>nurse_district</replace>
+      <replace>if params[:district] == nil || params[:district] == '' || (params[:district] &gt;= 880 &amp;&amp; params[:district] &lt;= 956)</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -166,7 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/nurse/show.json.jbuilder" />
         <option value="$PROJECT_DIR$/app/controllers/appointment_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/test_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/test/index.html.erb" />
@@ -215,6 +208,7 @@
         <option value="$PROJECT_DIR$/app/views/user/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/db/migrate/20180412175523_add_all_districts_rows_to_districts.rb" />
         <option value="$PROJECT_DIR$/app/views/user/dashboard.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/user_controller.rb" />
       </list>
@@ -498,7 +492,7 @@
       <workItem from="1523200724855" duration="25787000" />
       <workItem from="1523336323121" duration="303000" />
       <workItem from="1523336788303" duration="25306000" />
-      <workItem from="1523505487623" duration="13916000" />
+      <workItem from="1523505487623" duration="24111000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2 graph for admin dashboard.">
       <created>1522659201583</created>
@@ -567,13 +561,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="345447000" />
+    <option name="totallyTimeSpent" value="355642000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18089648" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.33991462" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50213444" side_tool="true" weight="0.32317072" />
@@ -582,7 +576,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49786553" visible="true" weight="0.30691057" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49786553" visible="true" weight="0.3038618" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -645,13 +639,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="97" column="12" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -918,15 +905,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="154" column="36" selection-start-line="154" selection-start-column="36" selection-end-line="154" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180407140206_add_district_to_users.rb">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/patient/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
@@ -935,20 +915,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180407140206_add_district_to_users.rb">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="148" column="28" selection-start-line="148" selection-start-column="28" selection-end-line="148" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180412175523_add_all_districts_rows_to_districts.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="78" column="161" selection-start-line="78" selection-start-column="161" selection-end-line="78" selection-end-column="161" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20180407135826_insert_data_into_districts.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15876">
-          <caret line="882" column="5" selection-start-line="882" selection-start-column="5" selection-end-line="882" selection-end-column="5" />
+        <state relative-caret-position="450">
+          <caret line="880" column="4" selection-start-line="880" selection-start-column="4" selection-end-line="880" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user/dashboard.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="418" column="20" selection-start-line="418" selection-start-column="14" selection-end-line="418" selection-end-column="20" />
+        <state relative-caret-position="324">
+          <caret line="417" column="111" selection-start-line="417" selection-start-column="111" selection-end-line="417" selection-end-column="111" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
@@ -957,14 +951,16 @@
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="e#12387#12578#0#RHTML" expanded="true" />
+            <element signature="e#12606#12820#0#RHTML" expanded="true" />
+            <element signature="e#13064#13288#0#RHTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/user_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="87" column="76" selection-start-line="87" selection-start-column="76" selection-end-line="87" selection-end-column="76" />
+        <state relative-caret-position="285">
+          <caret line="220" column="9" selection-start-line="220" selection-start-column="9" selection-end-line="220" selection-end-column="9" />
         </state>
       </provider>
     </entry>

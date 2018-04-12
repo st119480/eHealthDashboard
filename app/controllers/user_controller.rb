@@ -91,15 +91,19 @@ class UserController < ApplicationController
                                 GROUP BY  to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc;")
     else
-      if params[:district] == nil || params[:district] == ''
-        whereCondition = " WHERE province_id = '#{params[:province]}'
+      prov = params[:province].fetch("province_id")
+      dist = params[:district].fetch("district_id")
+      if (dist.to_i >= 880 && dist.to_i <= 956)
+
+        whereCondition = " WHERE province_id = '#{prov}'
                           AND test_date >= current_date - interval '1 year'"
       else
-        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'
+        #prov = params[:province].fetch("province_id")
+
+        whereCondition = " WHERE province_id = '#{prov}' AND district_id =  '#{dist}'
                           AND test_date >= current_date - interval '1 year'"
       end
-      dispaly_province = params[:province]
-      display_district = params[:district]
+
       @high_bp = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM high_bp "  + whereCondition + "
                                 GROUP BY province, to_char(test_date, 'YYYY-MM')
@@ -117,13 +121,19 @@ class UserController < ApplicationController
                                 GROUP BY  to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc;")
     else
-      if params[:district] == nil || params[:district] == ''
-        whereCondition = " WHERE province_id = '#{params[:province]}'
+      prov = params[:province].fetch("province_id")
+      dist = params[:district].fetch("district_id")
+      if (dist.to_i >= 880 && dist.to_i <= 956)
+
+        whereCondition = " WHERE province_id = '#{prov}'
                           AND test_date >= current_date - interval '1 year'"
       else
-        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'
+        #prov = params[:province].fetch("province_id")
+
+        whereCondition = " WHERE province_id = '#{prov}' AND district_id =  '#{dist}'
                           AND test_date >= current_date - interval '1 year'"
       end
+
       @low_bp = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM low_bp " + whereCondition + "
                                 GROUP BY province, to_char(test_date, 'YYYY-MM')
@@ -140,11 +150,16 @@ class UserController < ApplicationController
                                 GROUP BY  to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc;")
     else
-      if params[:district] == nil || params[:district] == ''
-        whereCondition = " WHERE province_id = '#{params[:province]}'
+      prov = params[:province].fetch("province_id")
+      dist = params[:district].fetch("district_id")
+      if (dist.to_i >= 880 && dist.to_i <= 956)
+
+        whereCondition = " WHERE province_id = '#{prov}'
                           AND test_date >= current_date - interval '1 year'"
       else
-        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'
+        #prov = params[:province].fetch("province_id")
+
+        whereCondition = " WHERE province_id = '#{prov}' AND district_id =  '#{dist}'
                           AND test_date >= current_date - interval '1 year'"
       end
       @high_blood_sugar = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MM') as test_month,
@@ -164,11 +179,16 @@ class UserController < ApplicationController
                                 GROUP BY  to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc;")
     else
-      if params[:district] == nil || params[:district] == ''
-        whereCondition = " WHERE province_id = '#{params[:province]}'
+      prov = params[:province].fetch("province_id")
+      dist = params[:district].fetch("district_id")
+      if (dist.to_i >= 880 && dist.to_i <= 956)
+
+        whereCondition = " WHERE province_id = '#{prov}'
                           AND test_date >= current_date - interval '1 year'"
       else
-        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'
+        #prov = params[:province].fetch("province_id")
+
+        whereCondition = " WHERE province_id = '#{prov}' AND district_id =  '#{dist}'
                           AND test_date >= current_date - interval '1 year'"
       end
       @low_blood_sugar = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MM') as test_month,
@@ -187,12 +207,17 @@ class UserController < ApplicationController
                                 GROUP BY  to_char(test_date, 'YYYY-MM')
                                 ORDER BY test_month desc;")
     else
-      if params[:district] == nil || params[:district] == ''
-        whereCondition = " WHERE province_id = '#{params[:province]}'
-                          AND test_date >= current_date - interval '1 year' "
+      prov = params[:province].fetch("province_id")
+      dist = params[:district].fetch("district_id")
+      if (dist.to_i >= 880 && dist.to_i <= 956)
+
+        whereCondition = " WHERE province_id = '#{prov}'
+                          AND test_date >= current_date - interval '1 year'"
       else
-        whereCondition = " WHERE province_id = '#{params[:province]}' AND district_id =  '#{params[:district]}'
-                          AND test_date >= current_date - interval '1 year' "
+        #prov = params[:province].fetch("province_id")
+
+        whereCondition = " WHERE province_id = '#{prov}' AND district_id =  '#{dist}'
+                          AND test_date >= current_date - interval '1 year'"
       end
       @low_oxygen_saturation = Test.find_by_sql("SELECT province, to_char(test_date, 'YYYY-MM') as test_month,
                                 COUNT(distinct user_id) as num_patients FROM low_oxygen_saturation "  + whereCondition + "
