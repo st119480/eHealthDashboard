@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5c2a16d-c42b-457c-91e8-630bc45fc98f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/user_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/user_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" afterDir="false" />
-    </list>
+    <list default="true" id="f5c2a16d-c42b-457c-91e8-630bc45fc98f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/public/system/" />
@@ -497,7 +493,7 @@
       <workItem from="1523505487623" duration="24847000" />
       <workItem from="1523632934728" duration="2072000" />
       <workItem from="1523684269607" duration="2822000" />
-      <workItem from="1523713062901" duration="6767000" />
+      <workItem from="1523713062901" duration="7402000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2 graph for admin dashboard.">
       <created>1522659201583</created>
@@ -566,11 +562,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="368039000" />
+    <option name="totallyTimeSpent" value="368674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.33991462" />
       <window_info anchor="bottom" id="TODO" order="6" />
