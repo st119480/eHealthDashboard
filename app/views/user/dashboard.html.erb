@@ -9,7 +9,7 @@
               chart = new Highcharts.Chart({
                   chart: {
                       renderTo: 'overall_health_condition',
-                      type: 'column'
+                      type: 'bar'
                   },
                   title: {
                       text: 'Health Condition VS Number of Patients'
@@ -31,20 +31,19 @@
                       }
                   },
 
-                  tooltip: {
-                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
-                  },
+
                   plotOptions: {
                       column: {
-                          pointPadding: 0.4,
-                          borderWidth: 0
+                          pointPadding: 0.6,
+                          borderWidth: 0.5
                       },
                       series: {
                           borderWidth: 0,
                           dataLabels: {
                               enabled: true,
                               format: '{point.y:f}'
-                          }
+                          },
+                          groupPadding: 0.2
                       }
                   },
 
@@ -99,9 +98,7 @@
                       }
                   },
 
-                  tooltip: {
-                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
-                  },
+
                   plotOptions: {
                       column: {
                           pointPadding: 0.4,
@@ -162,9 +159,6 @@
                       }
                   },
 
-                  tooltip: {
-                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
-                  },
                   plotOptions: {
                       column: {
                           pointPadding: 0.4,
@@ -225,9 +219,6 @@
                       }
                   },
 
-                  tooltip: {
-                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
-                  },
                   plotOptions: {
                       column: {
                           pointPadding: 0.4,
@@ -288,9 +279,6 @@
                       }
                   },
 
-                  tooltip: {
-                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
-                  },
                   plotOptions: {
                       column: {
                           pointPadding: 0.4,
@@ -351,9 +339,6 @@
                       }
                   },
 
-                  tooltip: {
-                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>'
-                  },
                   plotOptions: {
                       column: {
                           pointPadding: 0.4,
@@ -384,23 +369,104 @@
       });
   </script>
 
+  <!--  Chart Doctor Vs. Specialty-->
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.Chart({
+                  chart: {
+                      renderTo: 'doc_specialty',
+                      type: 'column'
+                  },
+                  title: {
+                      text: 'Doctor vs Specialty'
+                  },
+                  xAxis: {
+                      categories: [""],
+                      //type: 'category',
+                      labels: {
+                          enabled: false
+                      }
+                  },
+                  yAxis: {
+                      min: 0,
+                      title: {
+                          text: 'Number of Doctors'
+                      }
+                  },
 
-  <br>
+
+                  plotOptions: {
+                      column: {
+                          pointPadding: 0.4,
+                          borderWidth: 0
+                      },
+                      series: {
+                          borderWidth: 0,
+                          dataLabels: {
+                              enabled: true,
+                              format: '{point.y:f}'
+                          }
+                      }
+                  },
+
+
+                  series: [
+                      <% doctor_specialty.each do |row|%>
+                      {
+                          name: ['<%= row.description%>'],
+                          data: [<%= row.doctor_count %>]
+                      },
+                      <% end %>
+                  ],
+
+              });
+          });
+
+      });
+  </script>
+
+  <!--  Chart User Count-->
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.chart('users_count', {
+                  chart: {
+                      type: 'pie',
+                      options3d: {
+                          enabled: true,
+                          alpha: 45
+                      }
+                  },
+                  title: {
+                      text: 'Number of Users by Type'
+                  },
+                  plotOptions: {
+                      pie: {
+                          innerSize: 100,
+                          depth: 45
+                      }
+                  },
+                  series: [{
+                      name: 'Users',
+                      data: [
+                          <% dashboard.each do |row|%>
+
+                           ['<%= row.actable_type%>',<%= row.user_count %>],
+
+                      <% end %>
+                      ]
+                  }],
+              });
+          });
+
+      });
+  </script>
 
   <div class="row">
-    <div class="col"></div>
     <div class="col">
-      <%= pie_chart @d_users, donut: true, title: "# of Users", width: "600px", height: "400px" %>
-    </div>
-    <div class="col"></div>
-  </div>
-
-  <br>
-  <div class="row">
-    <div class="col">
-      <b></b>
-
-
       <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
         <div class="row">
           <div class="col">
@@ -408,20 +474,11 @@
 
             <div class="field">
               <%= label :province, "Province" %>
-              <%#= select_tag :province, options_for_select(Province.all.map {|p| [p.name, p.id]}.sort, "Select Province"),
-                               :prompt => "Select Province", :required => true %>
-
-              <%#= select_tag(:province, options_from_collection_for_select(Province.all.order("id ASC"), "id", "name"),
-                               :include_blank => "All Provinces", :required => false, :class => 'select')%>
-
-
               <%= collection_select :province, :province_id, Province.order(:name), :id, :name, include_blank: "" %>
             </div>
 
             <div class="field">
               <%= label :district, "District" %>
-              <%#= select_tag(:district, options_from_collection_for_select(District.all.order("id ASC"), "id", "district_name"),
-                               :include_blank => "All Districts", :required => false, :class => 'select') %>
               <%= grouped_collection_select :district, :district_id, Province.order(:name), :districts, :name, :id, :district_name, :include_blank => "All Districts" %>
             </div>
 
@@ -429,6 +486,13 @@
         </div>
         <%= submit_tag "Show", :name => 'search' %>
       <% end %>
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col">
+      <p class="text-danger">* Graphs display data of past 12 months</p>
     </div>
   </div>
 
@@ -442,18 +506,13 @@
   <br>
   <div class="row">
     <div class="col">
-      <p class="text-danger text-right">* Graphs display data of past 12 months</p>
+      <div id="users_count" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
     </div>
-  </div>
-
-  <div class="row">
     <div class="col">
       <div id="overall_health_condition" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
     </div>
-    <div class="col">
-      <div id="low_oxygen_saturation" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
-    </div>
   </div>
+
 
   <br>
   <div class="row">
@@ -475,5 +534,14 @@
     </div>
   </div>
 
+  <br>
+  <div class="row">
+    <div class="col">
+      <div id="doc_specialty" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+    </div>
+    <div class="col">
+      <div id="low_oxygen_saturation" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+    </div>
+  </div>
 
 </div>

@@ -2,7 +2,7 @@ class UserController < ApplicationController
   before_action :authenticate_user!
   before_action :set_location
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  helper_method :sort_column, :sort_direction, :chart_patient, :high_bp, :low_bp, :overall_condition, :high_blood_sugar, :low_blood_sugar, :low_oxygen_saturation
+  helper_method :sort_column, :sort_direction, :chart_patient, :high_bp, :low_bp, :overall_condition, :high_blood_sugar, :low_blood_sugar, :low_oxygen_saturation, :dashboard, :doctor_specialty
 
   def index
     if current_user.role_id == 1
@@ -75,9 +75,57 @@ class UserController < ApplicationController
 
   def dashboard
     if current_user.role_id == 1
-      @d_users = User.group(:actable_type).count(:id)
-      @doc_spec = Doctor.select("count(doctors.id) AS doc_cnt, specialties.description AS spec_description").joins(" INNER JOIN specialties ON
-                  specialties.id = doctors.specialty_id ").group("specialties.description").count(:id)
+      if params[:province] == nil || params[:province] == ''
+        whereCondition = " WHERE 1 = 1"
+        @count_users = User.find_by_sql("SELECT  actable_type, COUNT(distinct id) as user_count FROM users " + whereCondition + "
+                                  GROUP BY  actable_type
+                                  ORDER BY actable_type;")
+      else
+        prov = params[:province].fetch("province_id")
+        dist = params[:district].fetch("district_id")
+        if (dist.to_i >= 880 && dist.to_i <= 956)
+
+          whereCondition = " WHERE province_id = '#{prov}' "
+        else
+          whereCondition = " WHERE province_id = '#{prov}' AND district_id =  '#{dist}' "
+        end
+
+        @count_users = User.find_by_sql("SELECT actable_type, COUNT(distinct id) as user_count FROM users "  + whereCondition + "
+                                  GROUP BY actable_type
+                                  ORDER BY actable_type;")
+      end
+    else
+      render :show
+    end
+  end
+
+  def doctor_specialty
+    if current_user.role_id == 1
+      if params[:province] == nil || params[:province] == ''
+        whereCondition = " WHERE 1 = 1"
+        @doctor_specialty = User.find_by_sql("select s.description, count(distinct d.id) as doctor_count from doctors d
+                                          inner join specialties s
+                                          on d.specialty_id = s.id " + whereCondition + "
+                                  group by s.description
+                                  order by s.description;")
+      else
+        prov = params[:province].fetch("province_id")
+        dist = params[:district].fetch("district_id")
+        if (dist.to_i >= 880 && dist.to_i <= 956)
+
+          whereCondition = " WHERE province_id = '#{prov}' "
+        else
+          whereCondition = " WHERE province_id = '#{prov}' AND district_id =  '#{dist}' "
+        end
+
+        @doctor_specialty = User.find_by_sql("select s.description, count(distinct d.id) as doctor_count from doctors d
+                                          inner join specialties s
+                                          on d.specialty_id = s.id
+                                          inner join users u
+                                          on d.user_id = u.id "  + whereCondition + "
+                                  group by s.description
+                                  order by s.description;")
+      end
     else
       render :show
     end
