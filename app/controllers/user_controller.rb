@@ -1,5 +1,6 @@
 class UserController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_location
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction, :chart_patient, :high_bp, :low_bp, :overall_condition, :high_blood_sugar, :low_blood_sugar, :low_oxygen_saturation
 
@@ -251,6 +252,27 @@ class UserController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
+
+  def set_location
+    if params[:province] == nil || params[:province] == ''
+      @prov_name = 0
+    else
+      prov_id = params[:province].fetch("province_id")
+      #@prov_name = Province.find_by_sql("SELECT name FROM provinces WHERE id = "  + prov_id + ";")
+      @prov_name = Province.find(prov_id)
+
+    end
+
+    if params[:district] == nil || params[:district] == ''
+      @dist_name = 0
+    else
+      dist_id = params[:district].fetch("district_id")
+      @dist_name = District.find(dist_id)
+      #@dist_name = District.find_by_sql("SELECT district_name FROM districts WHERE id = "  + dist_id + ";")
+    end
+
+  end
+
 
 
 end
