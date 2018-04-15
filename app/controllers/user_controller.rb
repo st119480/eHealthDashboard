@@ -3,6 +3,7 @@ class UserController < ApplicationController
   before_action :set_location
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction, :chart_patient, :high_bp, :low_bp, :overall_condition, :high_blood_sugar, :low_blood_sugar, :low_oxygen_saturation, :dashboard, :doctor_specialty
+  helper_method :pt_bp
 
   def index
     if current_user.role_id == 1
@@ -276,10 +277,24 @@ class UserController < ApplicationController
 
   end
 
-
   def overall_condition
     @overall_condition = Test.find_by_sql("SELECT num_of_patient, condition FROM condition_by_num_of_patient;")
   end
+
+
+  def pt_bp
+    @pt_bp = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(bp_systolic) as bp_systolic, avg(bp_diastolic) as bp_diastolic
+                              from tests a
+                              inner join users b
+                              on a.patient_id = b.actable_id
+                              and b.actable_type = 'Patient'
+                              where b.id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
+  end
+
+
 
   private
   def set_user
