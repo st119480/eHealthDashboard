@@ -14,6 +14,9 @@
                   title: {
                       text: 'Health Condition VS Number of Patients'
                   },
+                  subtitle: {
+                      text: 'Based on overall data'
+                  },
                   xAxis: {
                       categories: [""],
                       //type: 'category',
@@ -77,7 +80,10 @@
                       type: 'column'
                   },
                   title: {
-                      text: 'Number of Patients with High BP *'
+                      text: 'Number of Patients with High BP'
+                  },
+                  subtitle: {
+                      text: '*Displaying data for past 12 months'
                   },
                   xAxis: {
                       categories: [""],
@@ -140,7 +146,10 @@
                       type: 'column'
                   },
                   title: {
-                      text: 'Number of Patients with Low BP *'
+                      text: 'Number of Patients with Low BP'
+                  },
+                  subtitle: {
+                      text: '*Displaying data for past 12 months'
                   },
                   xAxis: {
                       categories: [""],
@@ -200,7 +209,10 @@
                       type: 'column'
                   },
                   title: {
-                      text: 'Number of Patients with High Blood Sugar *'
+                      text: 'Number of Patients with High Blood Sugar'
+                  },
+                  subtitle: {
+                      text: '*Displaying data for past 12 months'
                   },
                   xAxis: {
                       categories: [""],
@@ -260,7 +272,10 @@
                       type: 'column'
                   },
                   title: {
-                      text: 'Number of Patients with Low Blood Sugar *'
+                      text: 'Number of Patients with Low Blood Sugar'
+                  },
+                  subtitle: {
+                      text: '*Displaying data for past 12 months'
                   },
                   xAxis: {
                       categories: [""],
@@ -320,7 +335,10 @@
                       type: 'column'
                   },
                   title: {
-                      text: 'Number of Patients with Low Blood Oxygen Saturation *'
+                      text: 'Number of Patients with Low Blood Oxygen Saturation'
+                  },
+                  subtitle: {
+                      text: '*Displaying data for past 12 months'
                   },
                   xAxis: {
                       categories: [""],
@@ -465,6 +483,7 @@
       });
   </script>
 
+
   <div class="row">
     <div class="col">
       <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
@@ -492,7 +511,7 @@
   <br>
   <div class="row">
     <div class="col">
-      <p class="text-danger">* Graphs display data of past 12 months</p>
+      <h3><p class="text text-center">Overall Statistics</p></h3>
     </div>
   </div>
 
