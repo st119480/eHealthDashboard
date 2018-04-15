@@ -1,90 +1,129 @@
-<h2>Edit Test</h2>
+<h1 style="text-align:center">Edit Test</h1><br>
+<div class="container">
+  <div class="border-dark card">
+    <div style="height: 800px;">
+      <%= form_for([@patient, @test]) do |f| %>
+        <div class="container">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <%= f.label :prev_diagnosis %>
+              <%= f.text_area :prev_diagnosis, id: :test_prev_diagnosis,class:"form-control" %>
+            </div>
 
-<%= form_for([@patient, @test]) do |f| %>
-  <div class="field">
-    <%= f.label :prev_diagnosis %>
-    <%= f.text_area :prev_diagnosis, id: :test_prev_diagnosis %>
+            <div class="col-md-2"></div>
+
+            <div class="form-group col-md-4">
+              <%= f.label :prev_medication %>
+              <%= f.text_area :prev_medication, id: :test_prev_medication, class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <%= f.label :ongoing_medication %>
+              <%= f.text_area :ongoing_medication, id: :test_ongoing_medication, class:"form-control" %>
+            </div>
+
+            <div class="col-md-2"></div>
+
+            <div class="form-group col-md-4">
+              <%= f.label :pulse_rate %>
+              <%= f.number_field :pulse_rate, id: :test_pulse_rate, placeholder:"pulse_rate in per minute", :style =>"font-style:italic", class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <%= f.label :body_temperature %>
+              <%= f.text_field :body_temperature, id: :test_body_temperature, placeholder:"temperature in Fahrenheit", :style =>"font-style:italic", class:"form-control" %>
+            </div>
+
+            <div class="col-md-2"></div>
+
+            <div class="form-group col-md-4">
+              <%= f.label :respiratory_rate %>
+              <%= f.number_field :respiratory_rate, id: :test_respiratory_rate, placeholder:"respiratory_rate in per minute", :style =>"font-style:italic", class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <%= f.label :bp_systolic %>
+              <%= f.number_field :bp_systolic, id: :test_bp_systolic, placeholder:"bp_systolic in mmHg", :style =>"font-style:italic", class:"form-control" %>
+            </div>
+
+            <div class="col-md-2"></div>
+
+            <div class="form-group col-md-4">
+              <%= f.label :bp_diastolic %>
+              <%= f.number_field :bp_diastolic, id: :test_bp_diastolic, placeholder:"bp_diastolic in mmHg", :style =>"font-style:italic", class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <%= f.label :blood_oxygen_saturation %>
+              <%= f.number_field :blood_oxygen_saturation, id: :test_blood_oxygen_saturation, placeholder:"oxygen_saturation in percent", :style =>"font-style:italic", class:"form-control" %>
+            </div>
+
+            <div class="col-md-2"></div>
+
+            <div class="form-group col-md-4">
+              <%= f.label :blood_sugar_pp %>
+              <%= f.number_field :blood_sugar_pp, id: :test_blood_sugar_pp, placeholder:"sugar_pp in mmol/L", :style =>"font-style:italic", class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <%= f.label :blood_sugar_fasting %>
+              <%= f.number_field :blood_sugar_fasting, id: :test_blood_sugar_fasting, placeholder:"sugar_fasting in mmol/L", :style =>"font-style:italic", class:"form-control" %>
+            </div>
+
+            <div class="col-md-2"></div>
+
+            <div class="form-group col-md-4">
+              <%= f.label :height %>
+              <%= f.number_field :height, id: :test_height, placeholder:"height in cm", :style =>"font-style:italic", class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <%= f.label :weight %>
+              <%= f.text_field :weight, id: :test_weight, placeholder:"weight in kg", :style =>"font-style:italic", class:"form-control" %>
+            </div>
+
+            <div class="col-md-2"></div>
+
+            <div class="form-group col-md-4">
+              <%= f.label :bmi %>
+              <%= f.text_field :bmi, id: :test_bmi, class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <%= f.label :test_date %>
+              <%= f.date_field :test_date, id: :test_test_date, class:"form-control" %>
+            </div>
+
+            <div class="col-md-2"></div>
+
+            <div class="form-group col-md-4">
+              <%= f.label :recommendation %>
+              <%= f.text_area :recommendation, id: :test_recommendation, class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Update", class:"btn btn-success" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :prev_medication %>
-    <%= f.text_area :prev_medication, id: :test_prev_medication %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ongoing_medication %>
-    <%= f.text_area :ongoing_medication, id: :test_ongoing_medication %>
-  </div>
-
-  <div class="field">
-    <%= f.label :pulse_rate %>
-    <%= f.number_field :pulse_rate, id: :test_pulse_rate %>
-  </div>
-
-  <div class="field">
-    <%= f.label :body_temperature %>
-    <%= f.text_field :body_temperature, id: :test_body_temperature %>
-  </div>
-
-  <div class="field">
-    <%= f.label :respiratory_rate %>
-    <%= f.number_field :respiratory_rate, id: :test_respiratory_rate %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bp_systolic %>
-    <%= f.number_field :bp_systolic, id: :test_bp_systolic %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bp_diastolic %>
-    <%= f.number_field :bp_diastolic, id: :test_bp_diastolic %>
-  </div>
-
-  <div class="field">
-    <%= f.label :blood_oxygen_saturation %>
-    <%= f.number_field :blood_oxygen_saturation, id: :test_blood_oxygen_saturation %>
-  </div>
-
-  <div class="field">
-    <%= f.label :blood_sugar_pp %>
-    <%= f.number_field :blood_sugar_pp, id: :test_blood_sugar_pp %>
-  </div>
-
-  <div class="field">
-    <%= f.label :blood_sugar_fasting %>
-    <%= f.number_field :blood_sugar_fasting, id: :test_blood_sugar_fasting %>
-  </div>
-
-  <div class="field">
-    <%= f.label :height %>
-    <%= f.number_field :height, id: :test_height %>
-  </div>
-
-  <div class="field">
-    <%= f.label :weight %>
-    <%= f.text_field :weight, id: :test_weight %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bmi %>
-    <%= f.text_field :bmi, id: :test_bmi %>
-  </div>
-
-  <div class="field">
-    <%= f.label :test_date %>
-    <%= f.date_field :test_date, id: :test_test_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :recommendation %>
-    <%= f.text_area :recommendation, id: :test_recommendation %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+</div>
 
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, class:"btn btn-outline-success" %>
