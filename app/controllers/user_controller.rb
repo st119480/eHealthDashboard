@@ -3,7 +3,7 @@ class UserController < ApplicationController
   before_action :set_location
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction, :chart_patient, :high_bp, :low_bp, :overall_condition, :high_blood_sugar, :low_blood_sugar, :low_oxygen_saturation, :dashboard, :doctor_specialty
-  helper_method :pt_bp
+  helper_method :bp_systolic, :bp_diastolic, :blood_sugar_fasting, :blood_sugar_pp, :blood_oxygen_saturation, :bmi
 
   def index
     if current_user.role_id == 1
@@ -282,8 +282,68 @@ class UserController < ApplicationController
   end
 
 
-  def pt_bp
-    @pt_bp = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(bp_systolic) as bp_systolic, avg(bp_diastolic) as bp_diastolic
+  def bp_systolic
+    @bp_systolic = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(bp_systolic) as bp_systolic
+                              from tests a
+                              inner join users b
+                              on a.patient_id = b.actable_id
+                              and b.actable_type = 'Patient'
+                              where b.id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
+  end
+
+  def bp_diastolic
+    @bp_diastolic = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(bp_diastolic) as bp_diastolic
+                              from tests a
+                              inner join users b
+                              on a.patient_id = b.actable_id
+                              and b.actable_type = 'Patient'
+                              where b.id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
+  end
+
+  def blood_sugar_fasting
+    @blood_sugar_fasting = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(blood_sugar_fasting) as blood_sugar_fasting
+                              from tests a
+                              inner join users b
+                              on a.patient_id = b.actable_id
+                              and b.actable_type = 'Patient'
+                              where b.id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
+  end
+
+  def blood_sugar_pp
+    @blood_sugar_pp = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(blood_sugar_pp) as blood_sugar_pp
+                              from tests a
+                              inner join users b
+                              on a.patient_id = b.actable_id
+                              and b.actable_type = 'Patient'
+                              where b.id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
+  end
+
+  def bmi
+    @bmi = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(bmi) as bmi
+                              from tests a
+                              inner join users b
+                              on a.patient_id = b.actable_id
+                              and b.actable_type = 'Patient'
+                              where b.id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
+  end
+
+  def blood_oxygen_saturation
+    @blood_oxygen_saturation = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(blood_oxygen_saturation) as blood_oxygen_saturation
                               from tests a
                               inner join users b
                               on a.patient_id = b.actable_id

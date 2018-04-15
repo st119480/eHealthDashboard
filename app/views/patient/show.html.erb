@@ -42,41 +42,413 @@
       </div>
     </table>
 
-    <br> <h3>Tests</h3>
-    <table class="table">
-      <div class="nav-item active">
-      <thead>
-      <tr>
-        <th>Test ID</th>
-        <th>Test Date</th>
-        <th>Ongoing Medication</th>
-        <th>BMI</th>
-        <th>BP Systolic</th>
-        <th>BP Diastolic</th>
-        <th>Blood Sugar Fasting</th>
-        <th>Blood Sugar PP</th>
-        <th colspan="3"></th>
-      </tr>
-      </thead>
+    <br>
+    <script>
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'bp_systolic',
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Blood Pressure Systolic'
+                    },
+                    subtitle: {
+                        text: '*Displaying data for past 12 months'
+                    },
+                    xAxis: {
+                        categories: [""],
+                        //type: 'category',
+                        labels: {
+                            style: {
+                                fontSize: '13px',
+                                fontFamily: 'Verdana, sans-serif'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Systolic Value'
+                        }
+                    },
 
-      <tbody>
-      <% get_tests.each do |test| %>
-        <tr>
-          <td><%= link_to test.id , patient_test_path(@patient, test) %></td>
-          <td><%= test.test_date %></td>
-          <td><%= test.ongoing_medication %></td>
-          <td><%= test.bmi %></td>
-          <td><%= test.bp_systolic %></td>
-          <td><%= test.bp_diastolic %></td>
-          <td><%= test.blood_sugar_fasting %></td>
-          <td><%= test.blood_sugar_pp %></td>
-          <td><%= link_to 'Edit', edit_patient_test_path(@patient, test) ,  class: "btn btn-secondary"%></td>
-          <td><%= link_to 'Delete', [@patient,test] , method: :delete, data: {confirm: 'Are you sure?'},  class: "btn btn-secondary" %></td>
-        </tr>
-      <% end %>
-      </tbody>
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.4,
+                            borderWidth: 0
+                        },
+                        series: {
+                            borderWidth: 0,
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.y:f}'
+                            }
+                        }
+                    },
+
+
+                    series: [
+                        <% pt_bp_systolic.each do |row|%>
+                        {
+                            name: ['<%= row.test_month%>'],
+                            data: [<%= row.bp_systolic %>]
+                        },
+                        <% end %>
+                    ],
+
+                });
+            });
+
+        });
+    </script>
+
+    <!--  Chart BP Diastolic-->
+    <script>
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'bp_diastolic',
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Blood Pressure Diastolic'
+                    },
+                    subtitle: {
+                        text: '*Displaying data for past 12 months'
+                    },
+                    xAxis: {
+                        categories: [""],
+                        //type: 'category',
+                        labels: {
+                            style: {
+                                fontSize: '13px',
+                                fontFamily: 'Verdana, sans-serif'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Diastolic Value'
+                        }
+                    },
+
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.4,
+                            borderWidth: 0
+                        },
+                        series: {
+                            borderWidth: 0,
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.y:f}'
+                            }
+                        }
+                    },
+
+
+                    series: [
+                        <% pt_bp_diastolic.each do |row|%>
+                        {
+                            name: ['<%= row.test_month%>'],
+                            data: [<%= row.bp_diastolic %>]
+                        },
+                        <% end %>
+                    ],
+
+                });
+            });
+
+        });
+    </script>
+
+    <!--  Chart Blood Glucose Fasting-->
+    <script>
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'blood_sugar_fasting',
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Blood Glucose Fasting'
+                    },
+                    subtitle: {
+                        text: '*Displaying data for past 12 months'
+                    },
+                    xAxis: {
+                        categories: [""],
+                        //type: 'category',
+                        labels: {
+                            style: {
+                                fontSize: '13px',
+                                fontFamily: 'Verdana, sans-serif'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Blood Glucose Fasting'
+                        }
+                    },
+
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.4,
+                            borderWidth: 0
+                        },
+                        series: {
+                            borderWidth: 0,
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.y:f}'
+                            }
+                        }
+                    },
+
+
+                    series: [
+                        <% pt_blood_sugar_fasting.each do |row|%>
+                        {
+                            name: ['<%= row.test_month%>'],
+                            data: [<%= row.blood_sugar_fasting %>]
+                        },
+                        <% end %>
+                    ],
+
+                });
+            });
+
+        });
+    </script>
+
+    <!--  Chart Blood Sugar PP-->
+    <script>
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'blood_sugar_pp',
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Blood Glucose PP'
+                    },
+                    subtitle: {
+                        text: '*Displaying data for past 12 months'
+                    },
+                    xAxis: {
+                        categories: [""],
+                        //type: 'category',
+                        labels: {
+                            style: {
+                                fontSize: '13px',
+                                fontFamily: 'Verdana, sans-serif'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Blood Glucose PP'
+                        }
+                    },
+
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.4,
+                            borderWidth: 0
+                        },
+                        series: {
+                            borderWidth: 0,
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.y:f}'
+                            }
+                        }
+                    },
+
+
+                    series: [
+                        <% pt_blood_sugar_pp.each do |row|%>
+                        {
+                            name: ['<%= row.test_month%>'],
+                            data: [<%= row.blood_sugar_pp %>]
+                        },
+                        <% end %>
+                    ],
+
+                });
+            });
+
+        });
+    </script>
+
+    <!--  Chart Blood Glucose Fasting-->
+    <script>
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'bmi',
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Blood Mass Index'
+                    },
+                    subtitle: {
+                        text: '*Displaying data for past 12 months'
+                    },
+                    xAxis: {
+                        categories: [""],
+                        //type: 'category',
+                        labels: {
+                            style: {
+                                fontSize: '13px',
+                                fontFamily: 'Verdana, sans-serif'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Body Mass Index'
+                        }
+                    },
+
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.4,
+                            borderWidth: 0
+                        },
+                        series: {
+                            borderWidth: 0,
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.y:f}'
+                            }
+                        }
+                    },
+
+
+                    series: [
+                        <% pt_bmi.each do |row|%>
+                        {
+                            name: ['<%= row.test_month%>'],
+                            data: [<%= row.bmi %>]
+                        },
+                        <% end %>
+                    ],
+
+                });
+            });
+
+        });
+    </script>
+
+    <!--  Chart BP Diastolic-->
+    <script>
+        $(function () {
+            var chart;
+            $(document).ready(function () {
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'blood_oxygen_saturation',
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Blood Oxygen Saturation Level'
+                    },
+                    subtitle: {
+                        text: '*Displaying data for past 12 months'
+                    },
+                    xAxis: {
+                        categories: [""],
+                        //type: 'category',
+                        labels: {
+                            style: {
+                                fontSize: '13px',
+                                fontFamily: 'Verdana, sans-serif'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Blood Oxygen Saturation Level'
+                        }
+                    },
+
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.4,
+                            borderWidth: 0
+                        },
+                        series: {
+                            borderWidth: 0,
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.y:f}'
+                            }
+                        }
+                    },
+
+
+                    series: [
+                        <% pt_blood_oxygen_saturation.each do |row|%>
+                        {
+                            name: ['<%= row.test_month%>'],
+                            data: [<%= row.blood_oxygen_saturation %>]
+                        },
+                        <% end %>
+                    ],
+
+                });
+            });
+
+        });
+    </script>
+
+    <br>
+    <div class="row">
+      <div class="col">
+        <div id="bp_systolic" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
       </div>
-    </table>
+      <div class="col">
+        <div id="bp_diastolic" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col">
+        <div id="blood_sugar_fasting" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+      </div>
+      <div class="col">
+        <div id="blood_sugar_pp" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col">
+        <div id="bmi" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+      </div>
+      <div class="col">
+        <div id="blood_oxygen_saturation" style="min-width: 600px; height: 400px; margin: 0 auto"></div>
+      </div>
+    </div>
   <% end %>
   <br>
 </div>
