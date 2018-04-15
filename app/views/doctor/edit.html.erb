@@ -101,7 +101,7 @@
         <div class="form-row">
           <div class="form-group col-md-4">
             <%= f.label :province_id ,"Province"%><br />
-            <%= f.collection_select :province_id, Province.order(:name), :id, :name, include_blank: true%>
+            <%= f.collection_select :province_id, Province.order(:name), :id, :name, :prompt => "Please Select"%>
           </div>
 
           <div class="col-md-2"></div>
