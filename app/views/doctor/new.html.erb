@@ -1,6 +1,7 @@
 <h1 style="text-align:center">Create New Doctor</h1><br>
 <div class="container">
   <div class="border-dark card">
+    <div style="height: 750px;">
     <%= form_for @doctor, url: {action: "create"} do |f| %>
       <div class="container">
         <div class="form-row">
@@ -51,7 +52,7 @@
               <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
               <% end %><br />
-              <%= f.password_field :password, autocomplete: "off", class:"form-control"  %>
+              <%= f.password_field :password, autocomplete: "off", placeholder:"6 characters minimum",:style =>"font-style:italic", class:"form-control"  %>
             </div>
 
             <div class="col-md-2"></div>
@@ -125,4 +126,5 @@
       </div>
     <% end %>
   </div>
+</div>
 </div>
