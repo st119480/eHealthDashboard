@@ -2,6 +2,7 @@ class PatientController < ApplicationController
   before_action :authenticate_user!
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
+  helper_method :pt_bp_systolic, :pt_bp_diastolic, :pt_blood_sugar_fasting, :pt_blood_sugar_pp, :pt_blood_oxygen_saturation, :pt_bmi
 
 
   def index
@@ -66,6 +67,60 @@ class PatientController < ApplicationController
     else
       redirect_to patient_index_path
     end
+  end
+
+  def pt_bp_systolic
+    @pt_bp_systolic = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(bp_systolic) as bp_systolic
+                              from tests
+                              where patient_id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
+  end
+
+  def pt_bp_diastolic
+    @pt_bp_diastolic = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(bp_diastolic) as bp_diastolic
+                              from tests
+                              where patient_id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
+  end
+
+  def pt_blood_sugar_fasting
+    @pt_blood_sugar_fasting = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(blood_sugar_fasting) as blood_sugar_fasting
+                              from tests
+                              where patient_id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
+  end
+
+  def pt_blood_sugar_pp
+    @pt_blood_sugar_pp = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(blood_sugar_pp) as blood_sugar_pp
+                              from tests
+                              where patient_id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
+  end
+
+  def pt_bmi
+    @pt_bmi = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(bmi) as bmi
+                              from tests
+                              where patient_id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
+  end
+
+  def pt_blood_oxygen_saturation
+    @pt_blood_oxygen_saturation = Test.find_by_sql("select to_char(test_date, 'YYYY-MM') as test_month, avg(blood_oxygen_saturation) as blood_oxygen_saturation
+                              from tests
+                              where patient_id  = '#{params[:id]}'
+                              and  test_date >= current_date - interval '1 year'
+                              group by to_char(test_date, 'YYYY-MM')
+                              order by test_month desc;")
   end
 
   private
