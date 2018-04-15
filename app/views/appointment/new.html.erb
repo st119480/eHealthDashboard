@@ -1,14 +1,22 @@
-<%= form_for @appointment, url: {action: "create"} do |f| %>
-  <h2>New Appointment</h2>
-  <div class="field">
-    <%= f.label :doctor_id, "Doctor" %>
-    <%= f.select :doctor_id, options_for_select(User.where('actable_type = \'Doctor\' ').map {|p| [p.first_name + ' ' + p.last_name, p.actable_id]}.sort), :required => true %>
-  </div>
+<h1 style="text-align:center">New Appointment</h1><br>
+<div class="container">
+  <div class="border-dark card">
+    <%= form_for @appointment, url: {action: "create"} do |f| %>
+      <div class="container">
+          <div class="form-group col-md-4">
+            <%= f.label :doctor_id, "Doctor" %>
+            <%= f.select :doctor_id, options_for_select(User.where('actable_type = \'Doctor\' ').map {|p| [p.first_name + ' ' + p.last_name, p.actable_id]}.sort), :required => true, class:"form-contol" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :appointment_date, "Appointment Date" %>
-    <%= f.date_field :appointment_date, min: Date.today %>
-  </div>
-  <%= f.submit "Create", class: "btn btn-success" %>
+          <div class="form-group col-md-4">
+            <%= f.label :appointment_date, "Appointment Date" %>
+            <%= f.date_field :appointment_date, min: Date.today, class:"form-contol" %>
+          </div>
+        </div>
 
-<% end %>
+        <%= f.submit "Create", class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

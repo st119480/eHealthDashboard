@@ -34,8 +34,8 @@
           <td><%= appt.id %></td>
           <td><%= appt.doctor.first_name + ' ' + appt.doctor.last_name %></td>
           <td><%= appt.appointment_date %></td>
-          <td><%= link_to 'Edit', edit_patient_appointment_path(appt.patient, appt) %></td>
-          <td><%= link_to 'Delete', [appt.patient, appt], method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <td><%= link_to 'Edit', edit_patient_appointment_path(appt.patient, appt),  class: "btn btn-secondary" %></td>
+          <td><%= link_to 'Delete', [appt.patient, appt], method: :delete, data: {confirm: 'Are you sure?'},  class: "btn btn-secondary" %></td>
         </tr>
       <% end %>
       </tbody>
@@ -70,8 +70,8 @@
           <td><%= test.bp_diastolic %></td>
           <td><%= test.blood_sugar_fasting %></td>
           <td><%= test.blood_sugar_pp %></td>
-          <td><%= link_to 'Edit', edit_patient_test_path(@patient, test) %></td>
-          <td><%= link_to 'Delete', [@patient,test] , method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <td><%= link_to 'Edit', edit_patient_test_path(@patient, test) ,  class: "btn btn-secondary"%></td>
+          <td><%= link_to 'Delete', [@patient,test] , method: :delete, data: {confirm: 'Are you sure?'},  class: "btn btn-secondary" %></td>
         </tr>
       <% end %>
       </tbody>
