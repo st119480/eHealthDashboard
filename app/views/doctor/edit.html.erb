@@ -1,40 +1,41 @@
 <h1 style="text-align:center">Edit Doctor</h1><br>
 <div class="container">
   <div class="border-dark card">
+    <div style="height: 750px;">
     <%= form_for (@doctor) do |f| %>
       <div class="container">
         <div class="form-row">
           <div class="form-group col-md-4">
             <%= f.label :first_name , "First Name" %><br />
-            <%= f.text_field :first_name, autocomplete: true %>
+            <%= f.text_field :first_name, autocomplete: true, class:"form-control" %>
           </div>
 
           <div class="col-md-2"></div>
 
           <div class="form-group col-md-4">
             <%= f.label :last_name, "Last Name" %><br />
-            <%= f.text_field :last_name, autocomplete: "on" %>
+            <%= f.text_field :last_name, autocomplete: "on", class:"form-control" %>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-md-4">
             <%= f.label :email, "Email" %><br />
-            <%= f.email_field :email, autofocus: "on" %>
+            <%= f.email_field :email, autofocus: "on", class:"form-control" %>
           </div>
 
           <div class="col-md-2"></div>
 
           <div class="form-group col-md-4">
             <%= f.label :username, "Username" %><br />
-            <%= f.text_field :username, autocomplete: "on" %>
+            <%= f.text_field :username, autocomplete: "on", class:"form-control" %>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-md-4">
             <%= f.label :license_num, "License Number" %><br />
-            <%= f.text_field :license_num, autocomplete: "on" %>
+            <%= f.text_field :license_num, autocomplete: "on", class:"form-control" %>
           </div>
 
           <div class="col-md-2"></div>
@@ -50,21 +51,21 @@
             <%= f.label :password %>
             <% if @minimum_password_length %><em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
-            <%= f.password_field :password, autocomplete: "off" %>
+            <%= f.password_field :password, autocomplete: "off", placeholder:"6 characters minimum", :style =>"font-style:italic", class:"form-control"  %>
             </div>
 
           <div class="col-md-2"></div>
 
           <div class="form-group col-md-4">
             <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-md-4">
             <%= f.label :role_id, "Role" %>
-            <%= f.select :role_id, options_for_select(Role.where('id = 2').map {|p| [ p.description, p.id ]}),:required => true  %>
+            <%= f.select :role_id, options_for_select(Role.where('id = 2').map {|p| [ p.description, p.id ]}),:required => true, class:"form-control"  %>
           </div>
 
           <div class="col-md-2"></div>
@@ -72,28 +73,28 @@
           <div class="form-group col-md-4">
             <%= f.label :gender, "Gender" %>
             <%= f.select :gender, ['Please Select', 'Male', 'Female', 'Others'],
-                       :selected => 'Select One' %>
+                       :selected => 'Select One', class:"form-control" %>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-md-4">
             <%= f.label :specialty_id, "Specialty" %>
-            <%= f.select :specialty_id, options_for_select(Specialty.all.map {|p| [ p.description, p.id ]}, "Please Select"),:prompt => "Please Select",:required => true  %>
+            <%= f.select :specialty_id, options_for_select(Specialty.all.map {|p| [ p.description, p.id ]}, "Please Select"),:prompt => "Please Select",:required => true, class:"form-control"  %>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-md-4">
             <%= f.label :Date_of_Birth, "Date Of Birth" %><br />
-            <%= f.date_field :dob %>
+            <%= f.date_field :dob, class:"form-control" %>
           </div>
 
           <div class="col-md-2"></div>
 
           <div class="form-group col-md-4">
             <%= f.label :contact, "Contact Number" %><br />
-            <%= f.text_field :contact, autocomplete: "on" %>
+            <%= f.text_field :contact, autocomplete: "on", class:"form-control" %>
           </div>
         </div>
 
@@ -101,14 +102,14 @@
         <div class="form-row">
           <div class="form-group col-md-4">
             <%= f.label :province_id ,"Province"%><br />
-            <%= f.collection_select :province_id, Province.order(:name), :id, :name, :prompt => "Please Select"%>
+            <%= f.collection_select :province_id, Province.order(:name), :id, :name, :prompt => "Please Select", class:"form-control"%>
           </div>
 
           <div class="col-md-2"></div>
 
           <div class="form-group col-md-4">
             <%= f.label :district_id, "District" %><br />
-            <%= f.grouped_collection_select :district_id, Province.order(:name), :districts, :name, :id, :district_name, include_blank: true %>
+            <%= f.grouped_collection_select :district_id, Province.order(:name), :districts, :name, :id, :district_name, include_blank: true, class:"form-control" %>
           </div>
         </div>
 
@@ -116,7 +117,7 @@
         <div class="form-row">
           <div class="form-group col-md-4">
             <%= f.label :address_line_1, "Address Line 1" %><br />
-            <%= f.text_field :address_line_1, autocomplete: "on" %>
+            <%= f.text_field :address_line_1, autocomplete: "on", class:"form-control" %>
           </div>
         </div>
 
@@ -127,6 +128,6 @@
     <% end %>
   </div>
 </div>
-
+</div>
 
 <%= link_to "Back", :back, class:"btn btn-outline-success" %>
