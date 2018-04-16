@@ -71,7 +71,7 @@ class TestController < ApplicationController
     if current_user.role_id == 1 || current_user.role_id == 2 || current_user.role_id == 4
       @test.destroy
       respond_to do |format|
-        format.html { redirect_to patient_path(@test.patient), notice: 'Test was successfully destroyed.' }
+        format.html { redirect_to patient_path(@test.patient), notice: 'Test was successfully deleted.' }
         format.json { head :no_content }
       end
     end

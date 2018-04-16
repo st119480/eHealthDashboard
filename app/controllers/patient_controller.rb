@@ -61,7 +61,7 @@ class PatientController < ApplicationController
       @patient = Patient.find(params[:id])
       @patient.destroy
       respond_to do |format|
-        format.html {redirect_to patient_index_path, notice: 'Patient was successfully destroyed.'}
+        format.html {redirect_to patient_index_path, notice: 'Patient was successfully deleted.'}
         format.json {head :no_content}
       end
     else

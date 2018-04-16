@@ -4,9 +4,9 @@
     <list default="true" id="f5c2a16d-c42b-457c-91e8-630bc45fc98f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/patient_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/patient_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/test_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/test_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/user_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/user_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/patient/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/patient/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/user/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/user/dashboard.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -41,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/user_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="5" column="114" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="114" />
+              <caret line="5" column="114" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="114" />
             </state>
           </provider>
         </entry>
@@ -49,55 +49,17 @@
       <file leaf-file-name="patient_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/patient_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="129" selection-start-line="4" selection-start-column="129" selection-end-line="4" selection-end-column="129" />
+            <state relative-caret-position="378">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/user/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="509" lean-forward="true" selection-start-line="103" selection-start-column="6" selection-end-line="509" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/patient/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="408" column="30" selection-start-line="408" selection-start-column="30" selection-end-line="408" selection-end-column="30" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/user/dashboard.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="525" selection-start-line="525" selection-end-line="532" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="396">
+              <caret line="403" column="36" selection-start-line="403" selection-start-column="36" selection-end-line="403" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -253,11 +215,11 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/db/migrate/20180412175523_add_all_districts_rows_to_districts.rb" />
-        <option value="$PROJECT_DIR$/app/views/user/dashboard.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/user_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/user/show.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/patient_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/user/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/patient/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/user/dashboard.html.erb" />
       </list>
     </option>
   </component>
@@ -268,9 +230,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="24" />
-    <option name="width" value="960" />
-    <option name="height" value="1056" />
+    <option name="y" value="-4" />
+    <option name="width" value="1920" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -280,7 +242,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
@@ -366,10 +327,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="application&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;applica&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;appli&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;app&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;gemfile&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/Gemfile&#10;applicatio&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;routes&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/config/routes.rb&#10;gem&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/Gemfile&#10;application.c&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/stylesheets/application.css&#10;application.js&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;user&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/eHealthDashboard/app/controllers/user_controller.rb&#10;devise&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/eHealthDashboard/config/initializers/devise.rb&#10;rails_ad&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/rails_admin.rb&#10;route&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/routes.rb&#10;rails_&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/rails_admin.rb&#10;devise.rb&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/devise.rb" />
+    <property name="SearchEverywhereHistoryKey" value="develo&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/config/environments/development.rb&#10;application&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;applica&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;appli&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;app&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;gemfile&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/Gemfile&#10;applicatio&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/views/layouts/application.html.erb&#10;routes&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/config/routes.rb&#10;gem&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/Gemfile&#10;application.c&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/stylesheets/application.css&#10;application.js&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/git/eHealthDashboard/app/assets/javascripts/application.js&#10;user&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/eHealthDashboard/app/controllers/user_controller.rb&#10;devise&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/eHealthDashboard/config/initializers/devise.rb&#10;rails_ad&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/rails_admin.rb&#10;route&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/routes.rb&#10;rails_&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/rails_admin.rb&#10;devise.rb&#9;FILE&#9;file:///media/gunner/DATA/Sem 2/Information System Deve _ Manage/test_project/ehealthDashboard/config/initializers/devise.rb" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -544,7 +506,9 @@
       <workItem from="1523684269607" duration="2822000" />
       <workItem from="1523713062901" duration="7402000" />
       <workItem from="1523763521159" duration="2631000" />
-      <workItem from="1523775017346" duration="7044000" />
+      <workItem from="1523775017346" duration="12018000" />
+      <workItem from="1523803129732" duration="1093000" />
+      <workItem from="1523850309918" duration="564000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2 graph for admin dashboard.">
       <created>1522659201583</created>
@@ -616,17 +580,31 @@
       <option name="project" value="LOCAL" />
       <updated>1523777729786</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added graphs for patients page">
+      <created>1523782357914</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1523782357914</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Combined graphs for BP (systolic and diastolic) and Blood glucose (PP and fasting)">
+      <created>1523785953963</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1523785953963</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="378349000" />
+    <option name="totallyTimeSpent" value="384980000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
+    <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24813233" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17609392" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50213444" side_tool="true" weight="0.32317072" />
@@ -634,7 +612,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3292683" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49786553" visible="true" weight="0.3038618" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49786553" visible="true" weight="0.3038618" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -685,7 +663,9 @@
     <MESSAGE value="Removed dummy graph from user show view." />
     <MESSAGE value="Added partially working drill down reports." />
     <MESSAGE value="Changes for patient graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes for patient graph" />
+    <MESSAGE value="Added graphs for patients page" />
+    <MESSAGE value="Combined graphs for BP (systolic and diastolic) and Blood glucose (PP and fasting)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Combined graphs for BP (systolic and diastolic) and Blood glucose (PP and fasting)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -699,20 +679,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/user/dashboard.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7506">
-          <caret line="417" column="111" selection-start-line="417" selection-start-column="111" selection-end-line="417" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20180407091736_create_city_villages.rb" />
     <entry file="file://$PROJECT_DIR$/db/migrate/20180407091712_create_provinces.rb" />
     <entry file="file://$PROJECT_DIR$/db/migrate/20180314120946_insert_into_specialty.rb">
@@ -982,58 +948,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user/dashboard.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="525" selection-start-line="525" selection-end-line="532" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="509" lean-forward="true" selection-start-line="103" selection-start-column="6" selection-end-line="509" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/user_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="5" column="114" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="114" />
+          <caret line="5" column="114" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="114" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/patient_controller.rb">
+    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="129" selection-start-line="4" selection-start-column="129" selection-end-line="4" selection-end-column="129" />
+        <state relative-caret-position="180">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/development.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/patient/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="408" column="30" selection-start-line="408" selection-start-column="30" selection-end-line="408" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="97" column="40" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="318" column="47" selection-start-line="318" selection-start-column="47" selection-end-line="318" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/patient_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user/dashboard.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="403" column="36" selection-start-line="403" selection-start-column="36" selection-end-line="403" selection-end-column="36" />
         </state>
       </provider>
     </entry>
