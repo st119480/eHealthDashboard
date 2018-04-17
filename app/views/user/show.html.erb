@@ -5,8 +5,10 @@
   <% if user_signed_in? %>
     <% if current_user.role_id == 3 %>
       <br>
-      <td><%= link_to 'Show All Tests', patient_test_index_path(@user.actable_id) %></td>
+      <td><%= link_to 'Show All Tests', patient_test_index_path(@user.actable_id), class:"btn btn-secondary" %></td>
     <% end %>
+    <div class="row">
+      <div class="col-md-6">
     <br> <%= "Name: " %> <%= current_user.first_name %> <%= current_user.last_name %>
     <br> <%= "Birth Date: " %> <%= current_user.dob %>
     <br> <%= "Gender: " %> <%= current_user.gender %>
@@ -14,11 +16,12 @@
     <br> <%= "District: " %> <%= current_user.district.district_name %>
     <br> <%= "Address Line 1: " %> <%= current_user.address_line_1 %>
     <br> <%= "Contact: " %> <%= current_user.contact %>
-
-
+    </div>
+    <div class="col-md-6">
     <% if current_user.role_id == 3 %>
       <br>
       <h3>My Doctors</h3>
+        <div class="card">
       <table class="table">
         <div class="nav-item active">
           <thead>
@@ -41,11 +44,13 @@
           </tbody>
         </div>
       </table>
+        </div>
     <% end %>
 
     <% if current_user.role_id == 4 %>
       <br>
       <br><h3>Appointments</h3>
+        <div class="card">
       <table class="table">
         <div class="nav-item active">
           <thead>
@@ -70,11 +75,13 @@
           </tbody>
         </div>
       </table>
+        </div>
     <% end %>
 
     <% if current_user.role_id == 2 %>
       <br>
       <h3>My Patients</h3>
+        <div class="card">
       <table class="table">
         <div class="nav-item active">
           <thead>
@@ -97,8 +104,11 @@
           </tbody>
         </div>
       </table>
+        </div>
     <% end %>
-
+    </div>
+    </div>
+    </div>
     <% if current_user.role_id == 3 %>
       <!--  Chart BP Systolic-->
       <script>
