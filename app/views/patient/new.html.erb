@@ -1,9 +1,9 @@
-<h1 style="text-align:center">Create New Patient</h1><br>
+<h1 style="text-align:center">Create New Patient</h1>
 <div class="container">
   <div class="border-dark card">
-    <div style="height: 600px;">
+    <div style="height: 620px;">
       <%= form_for @patient, url: {action: "create"} do |f| %>
-        <div class="container">
+        <div class="container"><br>
           <div class="form-row">
             <div class="form-group col-md-4">
               <%= f.label :first_name , "First Name" %><br />

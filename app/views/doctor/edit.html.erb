@@ -1,9 +1,9 @@
-<h1 style="text-align:center">Edit Doctor</h1><br>
+<h1 style="text-align:center">Edit Doctor</h1>
 <div class="container">
   <div class="border-dark card">
-    <div style="height: 750px;">
+    <div style="height: 775px;">
     <%= form_for (@doctor) do |f| %>
-      <div class="container">
+      <div class="container"><br>
         <div class="form-row">
           <div class="form-group col-md-4">
             <%= f.label :first_name , "First Name" %><br />
@@ -130,4 +130,10 @@
 </div>
 </div>
 
+<br>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-xl-4">
 <%= link_to "Back", :back, class:"btn btn-outline-success" %>
+  </div>
+</div>

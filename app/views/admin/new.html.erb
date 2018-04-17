@@ -1,10 +1,10 @@
-<h1 style="text-align:center">Create New Admin</h1><br>
+<h1 style="text-align:center">Create New Admin</h1>
 <div class="container">
   <div class="border-dark card">
-    <div style="height: 600px;">
+    <div style="height: 620px;">
     <%= form_for @admin, url: {action: "create"} do |f| %>
       <div class="container">
-          <div class="form-row">
+        <br><div class="form-row">
             <div class="form-group col-md-4">
               <%= f.label :first_name , "First Name" %><br />
               <%= f.text_field :first_name, autocomplete: true, class:"form-control" %>

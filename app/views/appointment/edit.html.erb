@@ -1,10 +1,10 @@
-<h1 style="text-align:center">Edit Appointment</h1><br>
+<h1 style="text-align:center">Edit Appointment</h1>
 <div class="container">
   <div class="border-dark card">
-    <div style="height: 150px;">
+    <div style="height: 170px;">
       <%= form_for ([@patient, @appointment]) do |f| %>
         <div class="container">
-          <div class="form-group col-md-4">
+          <br><div class="form-group col-md-4">
             <%= f.label :doctor_id, "Doctor" %>
             <%= f.select :doctor_id, options_for_select(User.where('actable_type = \'Doctor\' ').map {|p| [p.first_name + ' ' + p.last_name, p.actable_id]}.sort), :required => true, class:"form-contol" %>
           </div>
@@ -20,4 +20,10 @@
     </div>
   </div>
 </div>
-<%= link_to "Back", :back, class:"btn btn-outline-success" %>
+
+<br><div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-xl-4">
+    <%= link_to "Back", :back, class:"btn btn-outline-success" %>
+  </div>
+</div>

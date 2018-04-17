@@ -1,8 +1,19 @@
 .card-img-bottom {
   color: #fff;
   height: 20rem;
-  background: url('Tumore_testicolo_post_terapia.jpg') center no-repeat;
+  background: url('Screenshot from 2018-04-16 16-48-22.png') center no-repeat;
   background-size: cover;
+}
+.img1{
+  color: #fff;
+  height: 20rem;
+  background: url('30728162_10155161352685563_1292706377805856768_n.png') center no-repeat;
+}
+
+.img2{
+  color: #fff;
+  height: 20rem;
+  background: url('30708444_10155161352670563_5463752219364950016_n.png') center no-repeat;
 }
 
 .signinbtn {
@@ -31,6 +42,49 @@
   height: auto;
   margin-bottom: 15px;
   padding: 7px 9px;
+}
+
+.page-footer{
+  position:static;
+  left:0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  padding-bottom: 20px;
+  background-color: #073642;
+  color: white;
+}
+
+.jumbotron1 {
+  text-align: center;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  text-shadow: 2px 2px #000;
+}
+
+.lead span {
+  color: orange;
+  font-weight: bold;
+}
+
+.bg-cover {
+  background: url("30708444_10155161352670563_5463752219364950016_n.png") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  background-position: center center;
+  position: relative;
+  z-index: -2;
+}
+
+.overlay {
+  background-color: white;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
 }
 
 

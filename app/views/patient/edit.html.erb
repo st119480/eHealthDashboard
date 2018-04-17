@@ -1,9 +1,9 @@
 <h1 style="text-align:center">Edit Patient</h1><br>
 <div class="container">
   <div class="border-dark card">
-    <div style="height: 600px;">
+    <div style="height: 620px;">
       <%= form_for (@patient) do |f| %>
-        <div class="container">
+        <div class="container"><br>
           <div class="form-row">
             <div class="form-group col-md-4">
               <%= f.label :first_name , "First Name" %><br />
@@ -113,6 +113,10 @@
       </div>
       </div>
     </div>
-
-
+<br>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-xl-4">
     <%= link_to "Back", :back, class:"btn btn-outline-success" %>
+  </div>
+</div>
