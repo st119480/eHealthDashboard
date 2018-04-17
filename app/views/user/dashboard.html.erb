@@ -1,8 +1,4 @@
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/highcharts-3d.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
 
 <br>
 <div class="jumbotron jumbotron-fluid">
@@ -490,6 +486,180 @@
   </script>
 
 
+  <!--  Chart top 5 high bp provinces-->
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.chart('top_5_high_bp', {
+                  chart: {
+                      type: 'pie',
+                      options3d: {
+                          enabled: true,
+                          alpha: 45
+                      }
+                  },
+                  title: {
+                      text: 'Top 5 provinces for High BP'
+                  },
+                  plotOptions: {
+                      pie: {
+                          innerSize: 100,
+                          depth: 45
+                      }
+                  },
+                  series: [{
+                      name: 'Patients',
+                      data: [
+                          <% top_5_high_bp.each do |row|%>
+
+                          ['<%= row.province%>', <%= row.user_count %>],
+
+                          <% end %>
+                      ]
+                  }],
+              });
+          });
+
+      });
+  </script>
+
+  <!--  Chart top 5 low bp provinces-->
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.chart('top_5_low_bp', {
+                  chart: {
+                      type: 'pie',
+                      options3d: {
+                          enabled: true,
+                          alpha: 45
+                      }
+                  },
+                  title: {
+                      text: 'Top 5 provinces for Low BP'
+                  },
+                  plotOptions: {
+                      pie: {
+                          innerSize: 100,
+                          depth: 45
+                      }
+                  },
+                  series: [{
+                      name: 'Patients',
+                      data: [
+                          <% top_5_low_bp.each do |row|%>
+
+                          ['<%= row.province%>', <%= row.user_count %>],
+
+                          <% end %>
+                      ]
+                  }],
+              });
+          });
+
+      });
+  </script>
+
+  <!--  Chart top 5 high blood sugar provinces-->
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.chart('top_5_high_blood_sugar', {
+                  chart: {
+                      type: 'pie',
+                      options3d: {
+                          enabled: true,
+                          alpha: 45
+                      }
+                  },
+                  title: {
+                      text: 'Top 5 provinces for High Blood Sugar'
+                  },
+                  plotOptions: {
+                      pie: {
+                          innerSize: 100,
+                          depth: 45
+                      }
+                  },
+                  series: [{
+                      name: 'Patients',
+                      data: [
+                          <% top_5_high_blood_sugar.each do |row|%>
+
+                          ['<%= row.province%>', <%= row.user_count %>],
+
+                          <% end %>
+                      ]
+                  }],
+              });
+          });
+
+      });
+  </script>
+
+  <!--  Chart top 5 low blood sugar provinces-->
+  <script>
+      $(function () {
+          var chart;
+          $(document).ready(function () {
+              chart = new Highcharts.chart('top_5_low_blood_sugar', {
+                  chart: {
+                      type: 'pie',
+                      options3d: {
+                          enabled: true,
+                          alpha: 45
+                      }
+                  },
+                  title: {
+                      text: 'Top 5 provinces for Low Blood Sugar'
+                  },
+                  plotOptions: {
+                      pie: {
+                          innerSize: 100,
+                          depth: 45
+                      }
+                  },
+                  series: [{
+                      name: 'Patients',
+                      data: [
+                          <% top_5_low_blood_sugar.each do |row|%>
+
+                          ['<%= row.province%>', <%= row.user_count %>],
+
+                          <% end %>
+                      ]
+                  }],
+              });
+          });
+
+      });
+  </script>
+
+  <div class="row">
+    <div class="col">
+      <h3><p class="text text-center">Overall Statistics</p></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div id="top_5_high_bp" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+    </div>
+    <div class="col">
+      <div id="top_5_low_bp" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+    </div>
+    <div class="col">
+      <div id="top_5_high_blood_sugar" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+    </div>
+    <div class="col">
+      <div id="top_5_low_blood_sugar" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+    </div>
+  </div>
+
+  <br>
   <div class="row">
     <div class="col">
       <%= form_tag(dashboard_path, :method => "get", id: "search-form") do %>
@@ -514,12 +684,6 @@
     </div>
   </div>
 
-  <br>
-  <div class="row">
-    <div class="col">
-      <h3><p class="text text-center">Overall Statistics</p></h3>
-    </div>
-  </div>
 
   <div>
     <br>

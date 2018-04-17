@@ -3,7 +3,7 @@ class UserController < ApplicationController
   before_action :set_location
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction, :chart_patient, :high_bp, :low_bp, :overall_condition, :high_blood_sugar, :low_blood_sugar, :low_oxygen_saturation, :dashboard, :doctor_specialty
-  helper_method :bp_systolic, :bp_diastolic, :blood_sugar_fasting, :blood_sugar_pp, :blood_oxygen_saturation, :bmi
+  helper_method :bp_systolic, :bp_diastolic, :blood_sugar_fasting, :blood_sugar_pp, :blood_oxygen_saturation, :bmi, :top_5_high_bp, :top_5_low_bp, :top_5_high_blood_sugar, :top_5_low_blood_sugar
 
   def index
     if current_user.role_id == 1
@@ -352,6 +352,34 @@ class UserController < ApplicationController
                               and  test_date >= current_date - interval '1 year'
                               group by to_char(test_date, 'YYYY-MM')
                               order by test_month desc;")
+  end
+
+  def top_5_high_bp
+    @top_5_high_bp = Test.find_by_sql("select province, count(distinct user_id) as user_count from high_bp
+                      group by province
+                      order by 2 desc
+                      limit 5;")
+  end
+
+  def top_5_low_bp
+    @top_5_low_bp = Test.find_by_sql("select province, count(distinct user_id) as user_count from low_bp
+                      group by province
+                      order by 2 desc
+                      limit 5;")
+  end
+
+  def top_5_high_blood_sugar
+    @top_5_high_blood_sugar = Test.find_by_sql("select province, count(distinct user_id) as user_count from high_blood_sugar
+                      group by province
+                      order by 2 desc
+                      limit 5;")
+  end
+
+  def top_5_low_blood_sugar
+    @top_5_low_blood_sugar = Test.find_by_sql("select province, count(distinct user_id) as user_count from low_blood_sugar
+                      group by province
+                      order by 2 desc
+                      limit 5;")
   end
 
 
